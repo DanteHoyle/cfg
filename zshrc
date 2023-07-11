@@ -22,4 +22,4 @@ export LANG=en_US.UTF-8
 export EDITOR='vim'
 export ARCHFLAGS="-arch x86_64"
 
-alias ll ls -al
+alias ll="ls -al"
