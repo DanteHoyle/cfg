@@ -1,5 +1,9 @@
-" vimrc
-" Source / Inspiration https://vim.fandom.com/wiki/Example_vimrc
+" vim-plug: https://github.com/junegunn/vim-plug
+" Plugin Manager Settings
+call plug#begin()
+
+call plug#end()
+
 set nocompatible
 
 if has('filetype')
@@ -11,18 +15,12 @@ if has('syntax')
 endif
 
 set hidden
-
 set wildmenu
-
 set showcmd
-
 set ignorecase
 set smartcase
-
 set backspace=indent,eol,start
-
 set autoindent
-
 set nostartofline
 
 " Hybrid line numbers 
@@ -39,10 +37,7 @@ if has('mouse')
 	set mouse=a
 endif
 
-set cmdheight=2
-
-
 " Indentation
-set shiftwidth=4
-set softtabstop=4
-set expandtab
+" set shiftwidth=4
+" set softtabstop=4
+" set expandtab
