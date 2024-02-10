@@ -15,7 +15,10 @@ My dotfiles for Linux enviornments
 | tmux | tmux.conf | ~
 
 ## Scripts
+**Dangerous**
+
+Scripts are written in fish, and are in the scripts/ subdirectory.
 Run scripts from the dotfiles directory
 ### `sync_source_to_live.sh`
 
-### `sync
+### `sync_live_to_source.sh`
