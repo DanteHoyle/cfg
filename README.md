@@ -13,3 +13,9 @@ My dotfiles for Linux enviornments
 | fish | config.fish | ~/.config/fish |
 | vim | vimrc | ~/.vim |
 | tmux | tmux.conf | ~
+
+## Scripts
+Run scripts from the dotfiles directory
+### `sync_source_to_live.sh`
+
+### `sync
