@@ -1,6 +1,8 @@
 if status is-interactive
-    tmux attach
-    or tmux
+    if not $tmux
+        tmux attach
+        or tmux
+    end
 end
 
 function reload_fish
