@@ -1,8 +1,7 @@
 " vim-plug: https://github.com/junegunn/vim-plug
 " Plugin Manager Settings
-call plug#begin()
-
-call plug#end()
+" call plug#begin()
+" call plug#end()
 
 set nocompatible
 
