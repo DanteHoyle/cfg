@@ -3,6 +3,12 @@ if status is-interactive
     abbr --add cfgfish vim ~/.config/fish/config.fish
     abbr --add cfgvim vim ~/.vim/vimrc
     abbr --add cfgtmux vim ~/.tmux.conf
+
+    if tmux has-session
+        tmux attach
+    else
+        tmux
+    end
 end
 
 function reload_fish
