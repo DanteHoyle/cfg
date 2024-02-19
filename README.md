@@ -2,17 +2,27 @@
 My dotfiles for Linux enviornments
 
 ## Programs
+### Shell
 - [fish](https://fishshell.com/)
+### Terminal Emulator
 - [vim](https://www.vim.org/)
+### Multiplexor
 - [tmux](https://github.com/tmux/tmux/wiki)
-
+### Terminal Emulator
+#### x11
+- [foot]()
+#### Wayland
+- [kitty]()
 
 ## Config Directories
 | Program | Files | Directory|
 |--|--|--|
-| fish | config.fish | uses $__fish_config_dir as directory to put config files |
-| vim | vimrc | Assumed to be ~/.vim |
-| tmux | tmux.conf | Assumed to be the user's home directory
+| fish | config.fish | $HOME/.config/fish |
+| vim | vimrc | $HOME/.vim |
+| tmux | tmux.conf | $HOME |
+| foot | foot.ini | $HOME/.config/foot |
+| kitty | kitty.conf | $HOME/.config/kitty |
+
 
 ## Scripts
 **Dangerous**
