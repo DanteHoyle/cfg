@@ -5,8 +5,6 @@
 # this will copy the configs from the repo source to the config directories
 # of the running system
 
-import sys
-import os
 import shutil
 
 # imports script specific constants
