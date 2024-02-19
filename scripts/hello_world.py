@@ -16,8 +16,11 @@ def argparse_tester():
    args = parser.parse_args()
    print(args.echo)
 
+def copyfile_tester():
+   shutil.copy("test.txt", "test1.txt") 
+
+
 def main():
-    argparse_tester()
 
 
 
