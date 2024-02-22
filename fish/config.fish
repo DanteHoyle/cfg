@@ -1,0 +1,1 @@
+abbr --add doom ./home/dante/.config/emacs/bin/doom
