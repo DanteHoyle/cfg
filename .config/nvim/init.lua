@@ -12,3 +12,14 @@ vim.opt.tabstop = 8
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
+-- Remap Leader (Must be before plugins)
+vim.g.mapleader = " ";
+
+--- Plugins
+-- Plugin Manager: https://github.com/folke/lazy.nvim
+
+-- Bootstrap lazy.nvim
+require("bootstrap")
+
+-- Load plugins from plugins.lua
+require("lazy").setup("plugins")
