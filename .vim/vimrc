@@ -9,6 +9,8 @@ set nu
 if has ('syntax')
     syntax on
 endif
+
+" Sets colorscheme to https://github.com/catppuccin/nvim
 colorscheme catppuccin_mocha
 
 """ Editor Behavior """"""""""""""
