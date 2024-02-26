@@ -1,9 +1,13 @@
 if status is-interactive
-	# Aliases
-	alias vim nvim
-	# Used for tracking with bare git repo 
-	alias config='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME'
+	# aliases
+	if type --query nvim
+	    alias vim="nvim"
+	    alias vi = "nvim"
+	end
 
-	# Environment Variables
+	# config is an abbreviation for working with the bare git repository for dotfiles 
+	abbr config /usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME
+
+	# environment variables
 	set -gx EDITOR /usr/bin/nvim
 end
