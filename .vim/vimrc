@@ -32,13 +32,14 @@ nnoremap <F1> :noh<return><esc>
 " Allow toggling between tabs and spaces
 function TabToggle()
     if &expandtab " Use Tabs
+        echo "Editor switched to tabs"
         set noexpandtab     " Always uses tabs instead of space characters (:noet).
         set softtabstop=0
     else          " Use Spaces
+        echo "Editor switched to spaced"
         set expandtab       " Always uses spaces instead of tab characters (:et).
         set softtabstop=4   " Causes <Tab> and <BS> to insert and delete the correct number of spaces. 
                   " When 0, feature is off (:sts). Enable when using spaces.
     endif
-    echo "Tab Toggle!"
 endfunction
 nmap <F12> mz:execute TabToggle()<CR>'z
