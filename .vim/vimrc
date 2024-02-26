@@ -1,0 +1,9 @@
+" Enables relative line numbers
+set relativenumber
+set nu
+
+" Tab settings
+set expandtab
+
+" Binds F1 to clear highlight 
+nnoremap <F1> :noh<return><esc>
