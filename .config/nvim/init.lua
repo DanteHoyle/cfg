@@ -1,16 +1,15 @@
 -- File:	init.lua
 -- Description: This is the first lua file ran by nvim upon startup
 
--- Load My Config -------------------------------------------------------------
-require("config/hotkeys")
-require("config/mouse")
-require("config/editor")
+-- Loads my custom config scripts
+require("config")
 
--- Plugins --------------------------------------------------------------------
+-- Loads my custom cunctions
+require("functions")
 
 -- Bootstrap lazy.nvim
 require("bootstrap")
--- Load plugins from plugins.lua
+
+-- Loads all plugins in the /nvim/lua/plugins directory
 require("lazy").setup("plugins")
 
-require("config/theme")
