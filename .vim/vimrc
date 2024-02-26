@@ -7,9 +7,8 @@ set nu
 
 " Enables syntax highlighting
 if has ('syntax')
-        syntax on
+    syntax on
 endif
-
 colorscheme catppuccin_mocha
 
 """ Editor Behavior """"""""""""""
@@ -28,3 +27,18 @@ set autoindent
 " Binds F1 to clear highlight 
 nnoremap <F1> :noh<return><esc>
 
+" Source: https://www.reddit.com/r/neovim/comments/12zjmn1/how_to_include_parts_of_my_old_vim_config_in_nvim/
+" Binds f12 to alternate between tabsd and spaces
+" Allow toggling between tabs and spaces
+function TabToggle()
+    if &expandtab " Use Tabs
+        set noexpandtab     " Always uses tabs instead of space characters (:noet).
+        set softtabstop=0
+    else          " Use Spaces
+        set expandtab       " Always uses spaces instead of tab characters (:et).
+        set softtabstop=4   " Causes <Tab> and <BS> to insert and delete the correct number of spaces. 
+                  " When 0, feature is off (:sts). Enable when using spaces.
+    endif
+    echo "Tab Toggle!"
+endfunction
+nmap <F12> mz:execute TabToggle()<CR>'z
