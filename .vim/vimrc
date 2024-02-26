@@ -1,9 +1,30 @@
+" File: vimrc
+
+""" Visual Config """""""""""""""""
 " Enables relative line numbers
 set relativenumber
 set nu
 
-" Tab settings
+" Enables syntax highlighting
+if has ('syntax')
+        syntax on
+endif
+
+colorscheme catppuccin_mocha
+
+""" Editor Behavior """"""""""""""
+" Configures editor to use spaces
 set expandtab
 
+" Makes tab press equal four spaces
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+" Handles autoindenting for new lines
+set autoindent
+
+""" Hotkeys """""""""""""""""""""
 " Binds F1 to clear highlight 
 nnoremap <F1> :noh<return><esc>
+
