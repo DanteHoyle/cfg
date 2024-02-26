@@ -1,24 +1,17 @@
--- FILE:    init.lua
--- FOLDER:  nvim
+-- File:	init.lua
+-- Folder:	nvim
+-- Description: This is the first lua file ran by nvim upon startup
 
 -- Load My Config -------------------------------------------------------------
 require("config/hotkeys")
 require("config/mouse")
-
--- Tab Settings
-vim.opt.tabstop = 8
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-
--- Remap Leader (Must be before plugins)
+require("config/editor")
 
 -- Plugins --------------------------------------------------------------------
--- Plugin Manager: https://github.com/folke/lazy.nvim
 
 -- Bootstrap lazy.nvim
-require("plugins/bootstrap")
-
+require("bootstrap")
 -- Load plugins from plugins.lua
-require("lazy").setup("plugins/plugins")
+require("lazy").setup("plugins")
 
 require("config/theme")
