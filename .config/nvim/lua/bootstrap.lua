@@ -1,5 +1,6 @@
---- Title: plugins.bootstrap
---- Description: Sets up lazy.nvim
+-- File: plugins.bootstrap
+-- Description: Sets up lazy.nvim
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({

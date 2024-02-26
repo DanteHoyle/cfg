@@ -1,5 +1,4 @@
 -- File:    lazy_hotkeys
--- Folder:  nvim/lua/config
 
 -- Plugin Hotkeys -------------------------------------------------------------
 -- Binds <Space><Space> to WhichKey 

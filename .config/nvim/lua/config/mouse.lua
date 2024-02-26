@@ -1,5 +1,4 @@
--- FILE:    init.lua
--- FOLDER:  nvim/lua/config
+-- File:    init.lua
 
 -- MOUSE ---------------------------------------
 -- Enable Mouse

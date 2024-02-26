@@ -1,5 +1,4 @@
--- FILE:    hotkeys.lua
--- FOLDER:  nvim/lua/config 
+-- File:    hotkeys.lua
 
 -- Hot Keys -------------------------------------------------------------------
 --- Hotkeys Loaded before plugins loaded 
