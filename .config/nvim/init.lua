@@ -12,4 +12,3 @@ require("bootstrap")
 
 -- Loads all plugins in the /nvim/lua/plugins directory
 require("lazy").setup("plugins")
-
