@@ -1,10 +1,13 @@
 # File: config.fish
+# Description: main configuration file for fish
+# Documentation https://fishshell.com/docs/current/
 
 if status is-interactive
-    # aliases
+    ### Aliases ### 
     if type --query nvim
-        alias vim /usr/bin/nvim
-        alias vi /usr/bin/vim
+        abbr --add vim nvim
+        abbr --add view nvim -R
+        abbr --add vimdiff nvim -D
     end
 
     # config is an abbreviation for working with the bare git repository for dotfiles 
