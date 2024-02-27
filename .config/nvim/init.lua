@@ -7,9 +7,7 @@ require("config/keyboard")
 
 -- Loads my custom cunctions
 require("functions")
-
--- Bootstrap lazy.nvim
-require("bootstrap")
+require("functions/bootstrap")
 
 -- Loads all plugins in the /nvim/lua/plugins directory
 require("lazy").setup("plugins")
