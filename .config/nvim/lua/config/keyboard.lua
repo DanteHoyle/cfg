@@ -1,5 +1,9 @@
 -- File: hotkeys.lua
 
+-- MOUSE ---------------------------------------
+-- Enable Mouse
+vim.opt.mouse = 'a'
+
 --- Hot Keys -------------------------------------------------------------------
 -- remaps <Leader>
 vim.g.mapleader = ";";
