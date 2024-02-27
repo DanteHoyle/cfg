@@ -1,4 +1,4 @@
--- File:	init.lua
+-- File:	    init.lua
 -- Description: This is the first lua file ran by nvim upon startup
 
 -- Loads my custom config scripts
