@@ -1,25 +1,25 @@
 return {
-  "nvim-neorg/neorg",
-  dependencies = { "nvim-lua/plenary.nvim" },
-  build = ":Neorg sync-parsers",
-  -- tag = "*",
-  lazy = true, -- enable lazy load
-  run = ":Neorg sync-parsers",
-  ft = "norg", -- lazy load on file type
-  cmd = "Neorg", -- lazy load on command
-  config = function()
-    require("neorg").setup {
-      load = {
-        ["core.defaults"] = {}, -- Loads default behaviour
-        ["core.concealer"] = {}, -- Adds pretty icons to your documents
-        ["core.dirman"] = { -- Manages Neorg workspaces
-          config = {
-            workspaces = {
-              notes = "~/notes",
+    "nvim-neorg/neorg",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    build = ":Neorg sync-parsers",
+
+    ft = "norg",                -- Asso 
+    cmd = "Neorg",              -- Lazy-load on command
+    priority = 30,
+
+    config = function()
+        require("neorg").setup {
+            load = {
+                ["core.defaults"] = {},
+                ["core.concealer"] = {},
+                ["core.dirman"] = {
+                    config = {
+                        workspaces = {
+                            notes = "~/notes",
+                        },
+                    },
+                },
             },
-          },
-        },
-      },
-    }
-  end,
+        }
+    end,
 }
