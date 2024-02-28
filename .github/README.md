@@ -5,11 +5,18 @@ Inspired by this [Atlassian guide](https://www.atlassian.com/git/tutorials/dotfi
 ## Installation 
 
 ### Prerequisites
+- gcc/g++
+- fd
+- python
+
 ### Setup
-1. `$ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME`
-2. `$ git clone --bare git@github.com:DanteHoyle/dotfiles.git $HOME/.cfg`
-3. `$ config config status.showUntrackedFiles no`
-4. `$ config checkout --force`
+
+```sh
+$ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME
+$ git clone --bare git@github.com:DanteHoyle/dotfiles.git $HOME/.cfg
+$ config config status.showUntrackedFiles no
+$ config checkout --force
+```
 
 ## Features
 ### Programs
