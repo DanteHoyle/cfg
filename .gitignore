@@ -1,4 +1,4 @@
-.cfg
-projects/dotfiles
-repos/dotfiles
-dev/dotfiles
+# ignores everything not in my .config folder
+/*/
+!/.config/
+
