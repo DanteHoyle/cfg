@@ -8,20 +8,20 @@ vim.opt.mouse = 'a'
 -- remaps <Leader>
 vim.g.mapleader = ";";
 
+vim.api.nvim_set_keymap("n", "<F1>", ":noh<CR>", { noremap = true, silent = true })
 --- My Scripts ---
--- maps <F12> to toggle between tabs and spaces
+-- maps F12 to toggle between tabs and spaces
 vim.api.nvim_set_keymap("n", "<F12>", ":lua toggle_tabs()<CR>", { noremap = true, silent = true })
 
 --- WhichKey ---
--- maps <Leader> + <Leader> to open WhichKey
+-- maps 2x Leader to open WhichKey
 vim.api.nvim_set_keymap("n", "<Leader><Leader>", ":WhichKey<CR>", { noremap = true, silent = true })
-
 --- NvimTree ---
--- maps <Leader> + f to focus NvimTree
-vim.api.nvim_set_keymap("n", "<Leader>f", ":NvimTreeFocus<CR>", { noremap = true, silent = true })
--- maps <Leader> + f to toggle NvimTree
-vim.api.nvim_set_keymap("n", "<Leader>T", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+-- maps Leader +  to focus NvimTree
+vim.api.nvim_set_keymap("n", "<Leader><BS>", ":NvimTreeFocus<CR>", { noremap = true, silent = true })
+-- maps Leader + Backspace to toggle NvimTree
+vim.api.nvim_set_keymap("n", "<Leader><C-i>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
 --- Telescope ---
--- maps <Leader> + F to open telescope
-vim.api.nvim_set_keymap("n", "<C-f>", ":Telescope<CR>", { noremap = true, silent = true })
+-- maps <Leader> + P to open telescope
+vim.api.nvim_set_keymap("n", "<C-p>", ":Telescope<CR>", { noremap = true, silent = true })
