@@ -1,4 +1,5 @@
 # ignores everything not in my .config folder
 /*/
 !/.config/
+!/.github/
 

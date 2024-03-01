@@ -12,7 +12,7 @@ Inspired by this [Atlassian guide](https://www.atlassian.com/git/tutorials/dotfi
 ### Setup
 
 ```sh
-$ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME
+$ alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 $ git clone --bare git@github.com:DanteHoyle/dotfiles.git $HOME/.cfg
 $ config config status.showUntrackedFiles no
 $ config checkout --force
@@ -28,26 +28,11 @@ $ config checkout --force
 - [tmux](https://github.com/tmux/tmux/wiki)
 
 
-### Color Themes
-For pretty much everything, I utilize [catppuccin](https://github.com/catppuccin/catppuccin)
+## Plugins
+In general, I'm fine with running plugins on my host machine, and try to keep config on remote machines as minimal as possible.
 
-## Neovim
-### Plugins
-- catppuccin
-- nvim-tree
-- nvim-treesitter
-- plenary
-- telescope
-- which-key
-### Hotkeys
+### Neovim
+Package Managaer: lazy.nvim
 
-```
-;                   - <Leader>
-<F1>
-<F12>               - Toggle editor between spaces and tabs (spaces default)
-<Leader> + <Leader> - WhichKey
-<Leader> + f        - Focus nVimTree
-<Leader> + T        - Toggle nVimTree
-<C-f>               - Telescope
-
-```
+### Tmux
+Package Manager: tpm
