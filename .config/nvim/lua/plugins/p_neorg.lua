@@ -3,7 +3,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     build = ":Neorg sync-parsers",
 
-    ft = "norg",                -- Asso 
+    ft = "norg",                -- sets .norg filetype
     cmd = "Neorg",              -- Lazy-load on command
     priority = 30,
 
