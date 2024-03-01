@@ -5,7 +5,8 @@ Inspired by this [Atlassian guide](https://www.atlassian.com/git/tutorials/dotfi
 ## Installation 
 
 ### Prerequisites
-- gcc/g++
+- FantasqueSansM Nerd Font Mono font Installed
+- A compiler set to CC
 - fd
 - python
 
