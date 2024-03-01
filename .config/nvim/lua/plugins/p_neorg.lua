@@ -19,6 +19,7 @@ return {
                         },
                     },
                 },
+                ["core.ui.calendar"] = {},
             },
         }
     end,
