@@ -4,11 +4,15 @@
 -- Enable Mouse
 vim.opt.mouse = 'a'
 
---- General Remaps ---
+--- Normal Mode Remaps ---
 -- remaps <Leader>
 vim.g.mapleader = ";";
 -- maps F1 to clear highlighted matches
 vim.api.nvim_set_keymap("n", "<F1>", ":noh<CR>", { noremap = true, silent = true })
+-- maps F12 to run lua function which toggles between tabs and spaces
+vim.api.nvim_set_keymap("n", "<F12>", ":lua toggle_tabs()<CR>", { noremap = true, silent = true })
+-- maps Ctrl + S to save the current file
+vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = false })
 
 --- Insert Mode Remaps ---
 -- Leader + b for bold in Neorg
@@ -19,8 +23,6 @@ vim.api.nvim_set_keymap("i", "<Leader>i", "//<Esc>i", { noremap = true, silent =
 vim.api.nvim_set_keymap("i", "<Leader>u", "__<Esc>i", { noremap = true, silent = true })
 
 --- My Scripts ---
--- maps F12 to toggle between tabs and spaces
-vim.api.nvim_set_keymap("n", "<F12>", ":lua toggle_tabs()<CR>", { noremap = true, silent = true })
 
 
 --- Begin Plugin Config ---
