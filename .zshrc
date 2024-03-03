@@ -54,7 +54,6 @@ bindkey '^e' edit-command-line
 
 bindkey -e
 # attempt to load aliases
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # load zsh-syntax-highlighting
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
