@@ -27,9 +27,11 @@ Where possible, configuration files have been set to ~/.config, which is normall
 ## Features
 ### Programs & Core Plugins
 #### Terminal Emulator
+I'm primarily using ZSH now but my fish config is also included here
+- [zsh](https://www.zsh.org/)
 - [kitty](https://sw.kovidgoyal.net/kitty/) 
 
-#### Interactive Shell
+#### Shell
 - [fish](https://fishshell.com/)
 
 #### Text Edtior & Notes
