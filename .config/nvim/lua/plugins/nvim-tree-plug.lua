@@ -8,5 +8,6 @@ return {
 	    "nvim-tree/nvim-web-devicons",
     },
     opts = {
+        auto_install = true,
     },
 }
