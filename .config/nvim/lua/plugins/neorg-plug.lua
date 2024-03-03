@@ -1,9 +1,8 @@
 return {
     "nvim-neorg/neorg",
     dependencies = { "nvim-lua/plenary.nvim" },
-    build = ":Neorg sync-parsers",
+    run = ":Neorg sync-parsers",
 
-    ft = "norg",                -- sets .norg filetype
     cmd = "Neorg",              -- Lazy-load on command
     priority = 30,
 
@@ -15,11 +14,14 @@ return {
                 ["core.dirman"] = {
                     config = {
                         workspaces = {
-                            notes = "~/notes",
+                            personal = "~/notes/personal",
+                            work = "~/notes/work",
+                            it = "~/notes/it",
                         },
+                    index = "home.norg",
+                    default_workspace = "home"
                     },
                 },
-                ["core.ui.calendar"] = {},
             },
         }
     end,
