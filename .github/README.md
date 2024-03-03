@@ -5,12 +5,12 @@ Inspired by this [Atlassian guide](https://www.atlassian.com/git/tutorials/dotfi
 ## Installation 
 
 ### Prerequisites
+- Neovim Development Version
 - FantasqueSansM Nerd Font Mono ([Install Here](https://www.nerdfonts.com/font-downloads))
-
-- For Neovim Plugins
--- g++
--- python
--- fd
+- g++
+- python
+- fd
+- tree-sitter-cli
 
 ### Setup
 
@@ -28,22 +28,31 @@ Where possible, configuration files have been set to ~/.config, which is normall
 ### Programs & Core Plugins
 #### Terminal Emulator
 - [kitty](https://sw.kovidgoyal.net/kitty/) 
+
 #### Interactive Shell
 - [fish](https://fishshell.com/)
+
 #### Text Edtior & Notes
 - [neovim](https://neovim.io/)
 - [neorg](https://github.com/nvim-neorg/neorg)
 - [vim](https://www.vim.org/)
+
 #### Tools
 - [tmux](https://github.com/tmux/tmux/wiki)
-
 
 ## Plugins
 In general, I'm fine with running plugins on my host machine, and try to keep config on remote machines as minimal as possible.
 
 ### Neovim
-- catppuccin
-- 
+- [lazy.nvim](https://github.com/folke/lazy.nvim)
+- [catppuccin](https://github.com/catppuccin/nvim)
+- [neorg](https://github.com/nvim-neorg/neorg)
+- [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [plenary](https://github.com/nvim-lua/plenary.nvim)
+- [telescope](https://github.com/nvim-telescope/telescope.nvim)
+- [which-key](https://github.com/folke/which-key.nvim)
 
 ### Tmux
-Package Manager: tpm
+- [tpm](https://github.com/tmux-plugins/tpm)
+- [tmux-sensible](https://github.com/tmux-plugins/tmux-sensible)
