@@ -25,16 +25,16 @@ $ config checkout --force
 Where possible, configuration files have been set to ~/.config, which is normally the default directory for `$XDG_CONFIG_DIRS`
 
 ## Features
-### Programs
-Terminal Emulator
+### Programs & Core Plugins
+#### Terminal Emulator
 - [kitty](https://sw.kovidgoyal.net/kitty/) 
-Interactive Shell
+#### Interactive Shell
 - [fish](https://fishshell.com/)
-Text Edtior & Notes
+#### Text Edtior & Notes
 - [neovim](https://neovim.io/)
 - [neorg](https://github.com/nvim-neorg/neorg)
 - [vim](https://www.vim.org/)
-Multiplexor
+#### Tools
 - [tmux](https://github.com/tmux/tmux/wiki)
 
 
@@ -42,10 +42,8 @@ Multiplexor
 In general, I'm fine with running plugins on my host machine, and try to keep config on remote machines as minimal as possible.
 
 ### Neovim
-Package Managaer: lazy.nvim
-- lazy-tree
-- neorg
-- telescope
+- catppuccin
+- 
 
 ### Tmux
 Package Manager: tpm
