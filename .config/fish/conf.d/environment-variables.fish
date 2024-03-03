@@ -1,5 +1,7 @@
 # File: environment-variables.fish
 
+set -gx EDITOR nvim
+
 # Commons directories I use
 set -gx FISH_CONFIG_DIR $HOME/.config/fish
 set -gx NVIM_CONFIG_DIR $HOME/.config/nvim 

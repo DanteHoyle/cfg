@@ -1,4 +1,4 @@
-# controls startup message when fish starts
+# File: fish_greeting.fish
 function fish_greeting
-    # intentionally empty so there is no popup when fish starts
+    # Left empty so there is no startup message
 end

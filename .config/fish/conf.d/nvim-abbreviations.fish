@@ -1,4 +1,4 @@
-# File: nvim-abbr.fish
+# File: nvim_abbreviations.fish
 
 if status is-interactive
     if type --query nvim
