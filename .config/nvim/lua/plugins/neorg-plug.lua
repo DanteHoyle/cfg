@@ -2,10 +2,7 @@ return {
     "nvim-neorg/neorg",
     dependencies = { "nvim-lua/plenary.nvim" },
     run = ":Neorg sync-parsers",
-
-    cmd = "Neorg",              -- Lazy-load on command
     priority = 30,
-
     config = function()
         require("neorg").setup {
             load = {
