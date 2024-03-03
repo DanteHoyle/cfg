@@ -18,7 +18,7 @@ vim.api.nvim_set_keymap("n", "<F1>", ":lua toggle_tabs()<CR>", { noremap = true,
 vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = false })
 
 -- maps Leader + n to enter commandline mode with prefix :Neorg
-vim.api.nvim_set_keymap("n", "<F12>", ":lua toggle_tabs()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>n", ":Neorg ", { noremap = true, silent = true })
 
 --- Insert Mode Remaps ---
 -- Leader + b for bold in Neorg

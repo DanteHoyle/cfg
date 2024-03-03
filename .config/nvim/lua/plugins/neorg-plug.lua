@@ -22,6 +22,7 @@ return {
                     default_workspace = "home"
                     },
                 },
+                ["core.ui.calendar"] = {},
             },
         }
     end,
