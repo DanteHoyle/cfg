@@ -4,13 +4,13 @@ return {
     
     opts = {
         keybindings = {
-            left = "<C-h>",
-            right = "<C-l>",
-            up = "<C-k>",
-            down = "<C-j>",
+            left = "<M-h>",
+            right = "<M-l>",
+            up = "<M-k>",
+            down = "<M-j>",
 
-            last_active = "<C-\\>",
-            next = "<C-Space>",
+            last_active = "<M-n>",
+            next = "<M-p>"
         },
     },
 }
