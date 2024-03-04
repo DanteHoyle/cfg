@@ -1,9 +1,5 @@
 -- File: hotkeys.lua
 
---- Mouse ---
--- Enable Mouse
-vim.opt.mouse = 'a'
-
 --- Normal Mode Remaps ---
 -- remaps <Leader>
 vim.g.mapleader = ";";
@@ -17,8 +13,6 @@ vim.api.nvim_set_keymap("n", "<F1>", ":lua toggle_tabs()<CR>", { noremap = true,
 -- maps Ctrl + S to save the current file
 vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = false })
 
--- maps Leader + n to enter commandline mode with prefix :Neorg
-vim.api.nvim_set_keymap("n", "<Leader>n", ":Neorg ", { noremap = true, silent = true })
 
 --- Insert Mode Remaps ---
 -- Leader + b for bold in Neorg
@@ -29,18 +23,3 @@ vim.api.nvim_set_keymap("i", "<Leader>i", "//<Esc>i", { noremap = true, silent =
 
 -- Leader + u for underline in Neorg
 vim.api.nvim_set_keymap("i", "<Leader>u", "__<Esc>i", { noremap = true, silent = true })
-
---- Begin Plugin Config ---
-
---- WhichKey ---
--- maps Leader + Leader to open WhichKey
-vim.api.nvim_set_keymap("n", "<Leader><Leader>", ":WhichKey<CR>", { noremap = true, silent = true })
-
---- NvimTree ---
--- maps Leader + Backspace to toggle NvimTree
-vim.api.nvim_set_keymap("n", "<C-i><C-i>", ":NvimTreeFindFileToggle<CR>", { noremap = true, silent = false })
-
---- Telescope ---
--- maps <Leader> + P to open telescope
-vim.api.nvim_set_keymap("n", "<C-p>", ":Telescope<CR>", { noremap = true, silent = true })
---- End Plugin Config ---

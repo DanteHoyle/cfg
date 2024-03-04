@@ -15,8 +15,6 @@ return {
                             work = "~/notes/work",
                             it = "~/notes/it",
                         },
-                    index = "home.norg",
-                    default_workspace = "it"
                     },
                 },
                 ["core.ui.calendar"] = {},
