@@ -1,6 +1,7 @@
 # File: init.zsh# Change default editor
 
-EDITOR=nvim
+# checks if nvim is installed, if not sets vim as edtior
+command -v nvim >/dev/null && EDITOR=nvim || EDITOR=vim
 
 # Frequneytly used folders
 VIM_CONFIG_DIR=~/.vim
