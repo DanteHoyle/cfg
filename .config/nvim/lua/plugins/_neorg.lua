@@ -17,7 +17,7 @@ return {
                         },
                     },
                 },
-                ["core.ui.calendar"] = {},
+--                ["core.ui.calendar"] = {},
             },
         }
     end,
