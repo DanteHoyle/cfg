@@ -10,8 +10,7 @@ set $right l
 
 # Basic Preferences
 set $term foot
-set $menu wmenu -b
-
+set $menu dmenu_path | wmenu -b -l 10| xargs swaymsg exec --
 ### Output configuration ###
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
