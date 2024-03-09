@@ -12,14 +12,3 @@ vim.api.nvim_set_keymap("n", "<F1>", ":lua toggle_tabs()<CR>", { noremap = true,
 
 -- maps Ctrl + S to save the current file
 vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = false })
-
-
---- Insert Mode Remaps ---
--- Leader + b for bold in Neorg
-vim.api.nvim_set_keymap("i", "<Leader>b", "**<Esc>i", { noremap = true, silent = true })
-
--- Leader + i for italic in Neorg 
-vim.api.nvim_set_keymap("i", "<Leader>i", "//<Esc>i", { noremap = true, silent = true })
-
--- Leader + u for underline in Neorg
-vim.api.nvim_set_keymap("i", "<Leader>u", "__<Esc>i", { noremap = true, silent = true })
