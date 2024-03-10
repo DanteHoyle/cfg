@@ -1,23 +1,30 @@
-# File: config
-### Basic Configuration ###
-# Set windows key to $mod
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
 set $mod Mod4
-# VIM homerow
+# Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-
-# Basic Preferences
+# Your preferred terminal emulator
 set $term foot
-set $menu dmenu_path | wmenu -b -l 10| xargs swaymsg exec --
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+set $menu dmenu_path | wmenu | xargs swaymsg exec --
 
-input * repeat_delay 300 
-input * repeat_rate 25 
-### Output configuration ###
-
+### Output configuration
+#
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
@@ -36,11 +43,6 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
-
-input "2:14:ETPS/2_Elantech_TrackPoint" {
-    events disabled
-
-}
 
 ### Input configuration
 #
@@ -68,8 +70,6 @@ input "2:14:ETPS/2_Elantech_TrackPoint" {
 
     # Start your launcher
     bindsym $mod+d exec $menu
-
-    bindsym $mod+f exec firefox
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -126,6 +126,7 @@ input "2:14:ETPS/2_Elantech_TrackPoint" {
     bindsym $mod+Shift+2 move container to workspace number 2
     bindsym $mod+Shift+3 move container to workspace number 3
     bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
     bindsym $mod+Shift+6 move container to workspace number 6
     bindsym $mod+Shift+7 move container to workspace number 7
     bindsym $mod+Shift+8 move container to workspace number 8
@@ -139,8 +140,8 @@ input "2:14:ETPS/2_Elantech_TrackPoint" {
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+Shift+5 splitv
-    bindsym $mod+apostrophe splith
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
@@ -148,7 +149,7 @@ input "2:14:ETPS/2_Elantech_TrackPoint" {
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+Shift+f fullscreen
+    bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
