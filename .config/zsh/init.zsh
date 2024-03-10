@@ -16,8 +16,13 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE="~/.cache/zsh/history"
 
+# Include alias file
 source "$ZSH_CONFIG_DIR/conf.d/aliases.zsh"
+# Setup prompt
 source "$ZSH_CONFIG_DIR/conf.d/prompt.zsh"
+
+# Add to path
+path+=("$HOME/.local/bin")
 
 # attemps to load arch path, followed by debian / fedora path if that fails
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2> /dev/null || \

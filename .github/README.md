@@ -58,3 +58,6 @@ In general, I'm fine with running plugins on my host machine, and try to keep co
 ### Tmux
 - [tpm](https://github.com/tmux-plugins/tpm)
 - [tmux-sensible](https://github.com/tmux-plugins/tmux-sensible)
+
+## Todo
+- [ ] Setup ZSH config in a more standard way. https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout?newreg=741ab675789d4b1ba96862d40c2bb2d7
