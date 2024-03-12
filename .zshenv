@@ -1,5 +1,6 @@
 # File: .zshenv
 export EDITOR="nvim"
+export TERM="xterm-256color"
 
 # Frequneytly used folders
 export VIM_CONFIG_DIR="$HOME/.vim"
