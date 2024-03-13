@@ -1,6 +1,8 @@
 # File: config
 # Description: Configuration file for sway-wm
 
+include catppuccin-mocha
+
 ### Variables
 
 set $mod Mod4
@@ -12,12 +14,17 @@ set $right l
 
 # Default Programs
 set $term foot
-set $menu dmenu_path | wmenu -b -l 10| xargs swaymsg exec --
+# set $menu dmenu_path | wmenu -b -l 10| xargs swaymsg exec --
+set $menu dmenu_path | wmenu -b -l 3 -i | xargs swaymsg exec --
 
-### Input Settings
+### Input Settings ###
 ## Keyboard
-input * repeat_delay 300 
-input * repeat_rate 25 
+input "type:keyboard" {
+    xkb_options caps:ctrl_modifier
+}
+
+input * repeat_delay 200 
+input * repeat_rate 30 
 
 ## Mouse
 # Disables the broken 3rd party trackpoint on my thinkpad x395
@@ -25,9 +32,8 @@ input "2:14:ETPS/2_Elantech_TrackPoint" {
     events disabled
 }
 
-### Video Output Settings
 
-### Keybindings
+## Keybindings ##
 # Open Terminal w/ Mod + Enter
 bindsym $mod+Return exec $term
 # Kill active window w/ Mod + Shift + Q
@@ -36,8 +42,6 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
 # Reload sway with Mod + Shift + C
 bindsym $mod+Shift+c reload
-
-bar swaybar_command waybar
 
 # Exit sway with Mod + Shift + e
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -98,6 +102,7 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
+
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
@@ -110,4 +115,35 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
-exec waybar
+### Video Output Settings ###
+
+### UI ###
+# Set up colorscheme for Catppuccin
+# target                 title     bg    text   indicator  border
+client.focused           $lavender $base $text  $rosewater $lavender
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
+
+# statusbar 
+bar {
+  status_command i3blocks
+
+  position top
+
+  colors {
+    background         $base
+    statusline         $text
+    focused_statusline $text
+    active_workspace   $base $text $blue
+    focused_separator  $base
+    focused_workspace  $base $base $green
+    active_workspace   $base $base $blue
+    inactive_workspace $base $base $surface1
+    urgent_workspace   $base $base $surface1
+    binding_mode       $base $base $surface1
+  }
+
+}
