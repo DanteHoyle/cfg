@@ -11,3 +11,5 @@ export TMUX_CONFIG_DIR="$HOME/.config/tmux"
 export ZSH_CONFIG_DIR="$HOME/.config/zsh"
 
 export SCRIPT_DIR="$HOME/.local/bin"
+export SWAY_SCRIPT_DIR=$"$HOME/.config/bin/sway"
+export I3BLOCKS_SCRIPT_DIR=$"$HOME/.config/bin/i3blocks"
