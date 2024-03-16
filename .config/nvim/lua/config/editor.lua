@@ -1,7 +1,6 @@
 -- File:	editor.lua
 -- Description: Contains settings related to text editing 
 
--- Editor ---------------------------------------------------------------------
 -- Makes 1 tab press equal four space. When editing a file with tabs, hit <F12>
 -- to manually switch between Tabs and Spaces. This runs a function in 
 -- functions/toggle_lua.
