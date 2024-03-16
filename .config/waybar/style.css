@@ -18,55 +18,21 @@
 
 }
 
-
-/* Module Styles */
-
-#battery,
-#bluetooth,
-#clock,
 #cpu,
 #memory,
-#wireplumber {
-    color: @base;
+#bluetooth,
+#wireplumber,
+#network,
+#battery,
+#clock {
+    color: @rosewater;
     padding: 0px 15px;
 }
 
-#bluetooth {
-    background: #FFFFFF;
-}
-
-#bluetooth.connected {
-    background: @green
-
-}
-
-#battery.full {
-    background: @green;
-}
-
-#bluetooth.on {
-    background: @blue;
-}
-
-#bluetooth.off {
-    background: @rosewater;
-}
-
-
-
-#clock {
-    background: #ffffff;
-}
-
-#cpu {
-
-    background: @red;
-}
-
-#memory {
-    background: @yellow;
-}
-
-#wireplumber {
-    background: @sky;
-}
+#cpu {}
+#memory {}
+#bluetooth {}
+#wireplumber {}
+#network {}
+#battery {}
+#clock {}
