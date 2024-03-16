@@ -12,3 +12,6 @@ vim.opt.expandtab = true
 -- Relative Line Numbering
 vim.opt.relativenumber = true
 vim.opt.nu = true
+
+-- Clipboard settings
+vim.api.nvim_set_option("clipboard","unnamed")
