@@ -1,0 +1,72 @@
+@import "mocha.css";
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "CaskaydiaCove Nerd Font";
+    font-size: 14px;
+    min-height: 0;
+}
+
+#workspaces button.focused {
+    color: @green;
+    background: @mantle;
+}
+
+.modules-center {
+    font-style: italic;
+
+}
+
+
+/* Module Styles */
+
+#battery,
+#bluetooth,
+#clock,
+#cpu,
+#memory,
+#wireplumber {
+    color: @base;
+    padding: 0px 15px;
+}
+
+#bluetooth {
+    background: #FFFFFF;
+}
+
+#bluetooth.connected {
+    background: @green
+
+}
+
+#battery.full {
+    background: @green;
+}
+
+#bluetooth.on {
+    background: @blue;
+}
+
+#bluetooth.off {
+    background: @rosewater;
+}
+
+
+
+#clock {
+    background: #ffffff;
+}
+
+#cpu {
+
+    background: @red;
+}
+
+#memory {
+    background: @yellow;
+}
+
+#wireplumber {
+    background: @sky;
+}
