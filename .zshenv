@@ -13,5 +13,5 @@ export ZSH_CONFIG_DIR="$HOME/.config/zsh"
 export SCRIPT_DIR="$HOME/.local/bin"
 export SWAY_SCRIPT_DIR=$"$HOME/.config/bin/sway"
 export I3BLOCKS_SCRIPT_DIR=$"$HOME/.config/bin/i3blocks"
- export GTK_THEME='Catppuccin-Mocha-Standard-Green-dark:dark'
+export GTK_THEME="Catppuccin-Mocha-Standard-Green-Dark"
 
