@@ -20,28 +20,22 @@ set $right l
 
 # Default Programs
 set $term foot
-# set $menu dmenu_path | wmenu -b -l 10| xargs swaymsg exec --
-set $menu wofi --show run --gtk-dark
-
+set $menu wofi --show run 
 set $webbrowser firefox
 set $filebrowser thunar
 
 ### Input Settings ###
-## Keyboard
+
+# Makes keybaord inputs repeat faster and more often
+input * repeat_delay 200 
+input * repeat_rate 50 
+
+## Keybindings ##
+# Remaps capslock to control
 input "type:keyboard" {
     xkb_options caps:ctrl_modifier
 }
 
-input * repeat_delay 200 
-input * repeat_rate 30 
-
-## Mouse
-# Disables the broken 3rd party trackpoint on my thinkpad x395
-input "2:14:ETPS/2_Elantech_TrackPoint" {
-    events disabled
-}
-
-## Keybindings ##
 # Open Terminal w/ Mod + Enter
 bindsym $mod+Return exec $term
 # Kill active window w/ Mod + Shift + Q
@@ -125,13 +119,10 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
-### Video Output Settings ###
-# load my wallpaper
-output "*" bg $wallpaper fill
-
-output "Microstep MSI MAG301RF CC5A031502203" mode 2560x1080@199.997Hz
 
 ### UI ###
+# Removes window titles and borders
+default_border none
 # Set up colorscheme for Catppuccin
 # target                 title     bg    text   indicator  border
 client.focused           $lavender $base $text  $rosewater $lavender
@@ -141,17 +132,14 @@ client.urgent            $peach    $base $peach $overlay0  $peach
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
+### Modes ###
+# Resize Mode
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
     bindsym $left resize shrink width 10px
     bindsym $down resize grow height 10px
     bindsym $up resize shrink height 10px
     bindsym $right resize grow width 10px
 
-    # Ditto, with arrow keys
     bindsym Left resize shrink width 10px
     bindsym Down resize grow height 10px
     bindsym Up resize shrink height 10px
@@ -161,10 +149,9 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+bindsym $mod+r mode "resize" \
+    
+include ~/.config/sway/thinkpad/*
 
-bindsym $mod+r mode "resize"
-# Removes window titles and borders
-default_border none
-# default_floating_border none
-
+# Sets up waybar
 bar swaybar_command waybar
