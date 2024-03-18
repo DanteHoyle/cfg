@@ -7,5 +7,7 @@ input "2:14:ETPS/2_Elantech_TrackPoint" {
 }
 
 output "*" bg $wallpaper fill
-output "Microstep MSI MAG301RF CC5A031502203" mode 2560x1080@199.997Hz
+output "eDP-1" mode 1920x1080@60.049Hz pos 0 0
+output "Microstep MSI MAG301RF CC5A031502203" mode 2560x1080@199.997Hz pos 1920 0
 
+bindsym $mod+Shift+m output "eDP-1" toggle

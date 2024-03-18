@@ -1,37 +1,92 @@
 @import "mocha.css";
 
+/* General Styling */ 
+
 * {
+    /* Setup font */
+    font-family: "CaskaydiaCove Nerd Font";
+    font-size: 16px;
+
+    /* Styling reset */
     border: none;
     border-radius: 0;
-    font-family: "CaskaydiaCove Nerd Font";
-    font-size: 14px;
     min-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar {
+    background: @crust;
+    color: @text;
+}
+
+/* Tooltip Styling */
+tooltip {
+    color: @subtext0;
+    background: @crust;
+}
+
+tooltip label {
+    color: @text;
+}
+
+#workspaces button {
+    color: @text;
+    border-bottom: solid 1px transparent;
+    padding: 5px 10px;
+
 }
 
 #workspaces button.focused {
-    color: @green;
-    background: @mantle;
+    font-weight: bold;
+    border-bottom: solid 1px @green;
 }
 
-.modules-center {
+/* Center Modules */
+#window {
     font-style: italic;
+    border-bottom: solid 1px @green;
+
 }
 
-#cpu,
-#memory,
-#bluetooth,
-#wireplumber,
-#network,
-#battery,
+/* Right Side Modules*/
+#cpu, #memory, #network, #bluetooth, #wireplumber, #battery, #clock {
+    padding: 0px 5px;
+    margin-left: 20px;
+}
+
+#cpu {
+    color: @text;
+    border-bottom: solid 1px @red;
+}
+
+#memory {
+    color: @text;
+    border-bottom: solid 1px @peach;
+}
+
+#network {
+    color: @text;
+    border-bottom: solid 1px @yellow;
+}
+
+#bluetooth {
+    color: @text;
+    border-bottom: solid 1px @green;
+}
+
+#wireplumber {
+    color: @text;
+    border-bottom: solid 1px @blue;
+}
+
+#battery {
+    color: @text;
+    border-bottom: solid 1px @lavender;
+}
+
 #clock {
-    color: @rosewater;
-    padding: 0px 15px;
+    color: @text;
+    border-bottom: solid 1px @mauve;
 }
 
-#cpu {}
-#memory {}
-#bluetooth {}
-#wireplumber {}
-#network {}
-#battery {}
-#clock {}

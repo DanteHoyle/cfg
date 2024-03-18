@@ -6,7 +6,7 @@
 
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["cpu", "memory", "bluetooth", "wireplumber", "network", "battery", "clock"],
+    "modules-right": ["cpu", "memory", "network", "bluetooth", "wireplumber", "battery", "clock"],
 
     "sway/window": {
         "max-length": 50
@@ -14,16 +14,21 @@
 
     "cpu": {
         "interval": 5,
-        "format": "{usage:02d}%",
-        "format-alt": "{usage:02d}%@{avg_frequency:0.1f}GHz",
+        "format": "  {usage:02d}%",
+        "format-alt": "{usage:02d}%@{avg_frequency:0.1f}GHz"
     },
     
     "memory": {
         "interval": 5,
-        "format": "{percentage:02d}%",
+        "format": " {percentage:02d}%",
         "format-alt": "{used:0.1f}G/{avail:0.1f}G",
-        "tooltip-format": "Used: {percentage}%\nSwap: {swapUsed}G/{swapTotal}G"
+        "tooltip-format": "Used: {used:0.1f}%\nSwap: {swapUsed}G/{swapTotal}G"
     },
+
+    "network": {
+        "format": "󰌗 {ipaddr}"
+    }, 
+
     "bluetooth": {
         "format": " {status}",
         "format-connected": " {device_alias}",
@@ -56,7 +61,8 @@
     },
 
     "clock": {
-        "format": " {:%I:%M}",
+        "interval": 1,
+        "format": " {:%r}",
         "format-alt": "{:%A, %B %d, %Y (%r)}"
     }
 }
