@@ -15,3 +15,4 @@ vim.opt.nu = true
 
 -- Clipboard settings
 vim.api.nvim_set_option("clipboard","unnamed")
+
