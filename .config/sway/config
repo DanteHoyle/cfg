@@ -35,6 +35,13 @@ input * repeat_rate 50
 input "type:keyboard" {
     xkb_options caps:ctrl_modifier
 }
+input "9494:303:Cooler_Master_Technology_Inc._MM710_Gaming_Mouse" {
+    tap enabled
+    natural_scroll disabled 
+#    dwt enabled    # disables device while trackpoint is actively being used
+    accel_profile "flat" 
+    pointer_accel -0.2 
+}
 
 # Open Terminal w/ Mod + Enter
 bindsym $mod+Return exec $term
