@@ -4,6 +4,7 @@
 --- MISC ---
 -- Rempaps leader to semicolon
 vim.g.mapleader = ";";
+vim.g.maplocalleader = ",";
 
 -- Enables mouse support
 vim.opt.mouse = 'a'
@@ -16,12 +17,9 @@ vim.api.nvim_set_keymap("n", "<F1>", ":lua toggle_tabs()<CR>", { noremap = true,
 
 --- PLUGINS ---
 -- Neorg
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "markdown",
-    callback = function(event)
-        -- maps <Leader> + n to open Neorg workspaces
-        vim.api.nvim_set_keymap("n", "<Leader>n", ":Neorg ", { noremap = true, silent = false })
-    end,
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.norg"},
+  command = "set conceallevel=3"
 })
 
 -- WhichKey

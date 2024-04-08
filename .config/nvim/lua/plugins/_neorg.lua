@@ -8,6 +8,13 @@ return {
             load = {
                 ["core.defaults"] = {},
                 ["core.concealer"] = {},
+                ["core.keybinds"] = {
+                    config = {
+                        hook = function()
+                            keybinds.map("norg", "n", "<LocalLeader>ni", "<cmd>Neorg inject-metadata<CR>")
+                        end
+                    }
+                },
                 ["core.dirman"] = {
                     config = {
                         workspaces = {
@@ -15,6 +22,7 @@ return {
                             work = "~/notes/work",
                             it = "~/notes/it",
                         },
+                        index = "index.norg"
                     },
                 },
                 ["core.summary"] = {},
