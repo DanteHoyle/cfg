@@ -23,6 +23,7 @@ set $term foot
 set $menu wofi --show run 
 set $webbrowser firefox
 set $filebrowser thunar
+set $screenshot slurp 
 
 ### Input Settings ###
 
@@ -55,6 +56,9 @@ bindsym $mod+Shift+c reload
 bindsym $mod+b exec $webbrowser
 # Open file explorer with mod e with Mod + e
 bindsym $mod+e exec $filebrowser
+
+bindsym Print exec $screenshot 
+bindsym $mod+u exec $screenshot
 
 # Exit sway with Mod + Shift + e
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
