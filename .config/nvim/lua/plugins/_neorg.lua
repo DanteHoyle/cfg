@@ -1,33 +1,24 @@
 return {
     "nvim-neorg/neorg",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    run = ":Neorg sync-parsers",
-    priority = 30,
+    dependencies = { "luarocks.nvim" },
+    version = "*",
     config = function()
         require("neorg").setup {
             load = {
                 ["core.defaults"] = {},
                 ["core.concealer"] = {},
-                ["core.keybinds"] = {
-                    config = {
-                        hook = function()
-                            keybinds.map("norg", "n", "<LocalLeader>ni", "<cmd>Neorg inject-metadata<CR>")
-                        end
-                    }
-                },
                 ["core.dirman"] = {
                     config = {
                         workspaces = {
-                            personal = "~/notes/personal",
-                            work = "~/notes/work",
-                            it = "~/notes/it",
+                            notes = "~/notes",
                         },
-                        index = "index.norg"
+                        default_workspace = "notes",
                     },
                 },
-                ["core.summary"] = {},
---------------- ["core.ui.calendar"] = {},
             },
         }
+
+        vim.wo.foldlevel = 99
+        vim.wo.conceallevel = 2
     end,
 }
