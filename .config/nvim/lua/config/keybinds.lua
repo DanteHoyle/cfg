@@ -15,13 +15,6 @@ vim.api.nvim_set_keymap("n", "<F12>", ":noh<CR>", { noremap = true, silent = tru
 -- maps F1 to run lua function which toggles between tabs and spaces
 vim.api.nvim_set_keymap("n", "<F1>", ":lua toggle_tabs()<CR>", { noremap = true, silent = true })
 
---- PLUGINS ---
--- Neorg
-vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-  pattern = {"*.norg"},
-  command = "set conceallevel=3"
-})
-
 -- WhichKey
 -- maps Leader + Leader to open WhichKey
 vim.api.nvim_set_keymap("n", "<Leader><Leader>", ":WhichKey<CR>", { noremap = true, silent = true })
