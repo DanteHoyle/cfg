@@ -24,6 +24,7 @@ set $menu wofi --show run
 set $webbrowser firefox
 set $filebrowser thunar
 set $screenshot slurp 
+set $passwordmanager keepassxc
 
 ### Input Settings ###
 
@@ -46,19 +47,32 @@ input "9494:303:Cooler_Master_Technology_Inc._MM710_Gaming_Mouse" {
 
 # Open Terminal w/ Mod + Enter
 bindsym $mod+Return exec $term
+
 # Kill active window w/ Mod + Shift + Q
 bindsym $mod+Shift+q kill
+
 # Run launcher w/ Mod + d
 bindsym $mod+d exec $menu
+
 # Reload sway with Mod + Shift + C
 bindsym $mod+Shift+c reload
+
 # Open web browser with Mod + b
 bindsym $mod+b exec $webbrowser
+
 # Open file explorer with mod e with Mod + e
 bindsym $mod+e exec $filebrowser
 
+# Take a screenshot with printscreen or Mod + u
 bindsym Print exec $screenshot 
 bindsym $mod+u exec $screenshot
+
+# Open password manager with Mod + k
+bindsym $mod+Control+k exec $passwordmanager
+
+# Firefox Bookmarks
+# Open Youtube music with Mod + Shift + m
+bindsym $mod+Shift+m exec firefox "https://music.youtube.com/"
 
 # Exit sway with Mod + Shift + e
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
