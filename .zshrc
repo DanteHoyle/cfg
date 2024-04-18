@@ -31,5 +31,5 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh || \
     source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2> /dev/null
 
-test -z "$TMUX" 2>/dev/null && (tmux attach || tmux new-session) 
+test -z "$TMUX" 2>/dev/null && (tmux attach || tmux new-session -d) 
 return 0
