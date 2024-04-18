@@ -1,10 +1,10 @@
-[#](#) [dotfiles](https://github.com/DanteHoyle/dotfiles)
+# [dotfiles](https://github.com/DanteHoyle/dotfiles)
 
 This is a collection of personal preferences for a set of linux programs I frequently use.
 
 ## Installation
 ```sh
-$ alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+$ alias cfg="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 $ git clone --bare git@github.com:DanteHoyle/dotfiles.git $HOME/.cfg
 $ cfg config status.showUntrackedFiles no
 $ cfg checkout --force
