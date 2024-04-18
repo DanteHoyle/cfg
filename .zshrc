@@ -28,6 +28,8 @@ bindkey -e
 # Attemps to load arch path, followed by debian / fedora path if that fails
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh || \
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2> /dev/null
-    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh \
-        source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2> /dev/null
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh || \
+    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2> /dev/null
 
+test -z "$TMUX" 2>/dev/null && (tmux attach || tmux new-session) 
+return 0
