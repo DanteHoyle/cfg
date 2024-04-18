@@ -10,7 +10,7 @@ SAVEHIST=10000
 
 # Aliases
 alias cfg="git --git-dir=/home/dante/.cfg --work-tree=/home/dante"
-alias notes="nvim ~/notes"
+alias notes="nvim $HOME/documents/notes/index.md"
 alias ls="ls --color=auto"
 
 # Enables colors
@@ -24,6 +24,17 @@ path+=("$HOME/.local/bin")
 
 # Enables emacs mode
 bindkey -e
+
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+
+# Sets up automatic completions
+autoload -U compinit
+zstyle ":completion:*" menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)
 
 # Attemps to load arch path, followed by debian / fedora path if that fails
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh || \
