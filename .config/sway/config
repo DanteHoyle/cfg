@@ -1,9 +1,9 @@
 # File: config
 # Description: Configuration file for sway-wm
 
-include catppuccin-mocha
+#include catppuccin-mocha
 # catppuccin
-set $ctp-version v0.6.1
+#set $ctp-version v0.6.1
 ### Variables
 
 # I prefer to just change which file is located at wallpaper.png
@@ -27,9 +27,6 @@ set $screenshot slurp
 set $passwordmanager keepassxc
 
 ### Input Settings ###
-
-# Clipboard Manager
-exec wl-paste --watch cliphist store
 
 # Makes keybaord inputs repeat faster and more often
 input * repeat_delay 200 
@@ -61,12 +58,17 @@ bindsym $mod+d exec $menu
 bindsym $mod+Shift+c reload
 
 # Open web browser with Mod + b
-bindsym $mod+b exec $webbrowser
+bindsym $mod+Ctrl+b exec $webbrowser
 
 # Open file explorer with mod e with Mod + e
 bindsym $mod+e exec $filebrowser
 
+# Clipboard Manager with Mod + v
+exec wl-paste --watch cliphist store
 bindsym $mod+v exec cliphist list | wofi -S dmenu | cliphist decode | wl-copy
+
+# Lock computer with Mod + l
+bindsym $mod+Ctrl+Shift+l exec swaylock --show-failed-attempts --ignore-empty-password --no-unlock-indicator
 
 # Take a screenshot with printscreen or Mod + u
 bindsym Print exec $screenshot 
@@ -81,6 +83,8 @@ bindsym $mod+Control+m exec firefox "https://music.youtube.com/"
 
 # Exit sway with Mod + Shift + e
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+
 
 ## Window Keybinds
 # Move focus between panes with Mod & vim keys or arrow keys
@@ -107,7 +111,7 @@ bindsym $mod+Shift+Right move right
 
 # Uses vim vertical / horizontal split definitions
 bindsym $mod+Alt+v splith
-bindsym $mod+s splitv
+bindsym $mod+Alt+s splitv
 
 # Switch the current container between different layout styles
 # bindsym $mod+w layout tabbed
@@ -153,14 +157,6 @@ bindsym $mod+Shift+0 move container to workspace number 10
 ### UI ###
 # Removes window titles and borders
 default_border none
-# Set up colorscheme for Catppuccin
-# target                 title     bg    text   indicator  border
-client.focused           $lavender $base $text  $rosewater $lavender
-client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
-client.unfocused         $overlay0 $base $text  $rosewater $overlay0
-client.urgent            $peach    $base $peach $overlay0  $peach
-client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
-client.background        $base
 
 ### Modes ###
 # Resize Mode
@@ -181,7 +177,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize" 
     
-include ~/.config/sway/thinkpad/*
+include ~/.config/sway/device-custom/*
 
 # Sets up waybar
 bar swaybar_command waybar
