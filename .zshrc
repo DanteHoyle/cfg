@@ -10,7 +10,7 @@ SAVEHIST=10000
 
 # Aliases
 alias cfg="git --git-dir=/home/dante/.cfg --work-tree=/home/dante"
-alias notes="nvim $HOME/documents/notes/index.md"
+alias notes="cd ~/documents/notes && nvim index.md"
 alias ls="ls --color=auto"
 
 # Enables colors
