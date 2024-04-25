@@ -8,7 +8,7 @@ local spaces = true
 
 function toggle_tabs()
     if spaces then
-        print("Tab Mode")
+        print("Tabs Mode")
         spaces = false
 
         vim.opt.expandtab = false
