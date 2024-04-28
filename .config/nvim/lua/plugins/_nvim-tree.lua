@@ -8,5 +8,6 @@ return {
 	    "nvim-tree/nvim-web-devicons",
     },
     opts = {
+        vim.api.nvim_set_keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
     },
 }
