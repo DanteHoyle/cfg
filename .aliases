@@ -1,0 +1,9 @@
+# File: .aliases 
+
+alias cfg="git --git-dir=/home/dante/.cfg --work-tree=/home/dante"
+
+
+alias ls="ls --color=auto"
+alias ll="ls --color=auto -al"
+
+alias cdno="cd ~/documents/notes"

@@ -8,9 +8,6 @@ command -v nvim >/dev/null && EDITOR=nvim || EDITOR=vim
 HISTSIZE=10000
 SAVEHIST=10000
 
-# Aliases
-alias cfg="git --git-dir=/home/dante/.cfg --work-tree=/home/dante"
-alias ls="ls --color=auto"
 
 # Enables colors
 autoload -U colors && colors
@@ -37,6 +34,8 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2> /dev/null
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2> /dev/null || \
     source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2> /dev/null
+
+source ~/.aliases
 
 test -z "$TMUX" 2>/dev/null && (tmux attach || tmux new-session -d) 
 return 0
