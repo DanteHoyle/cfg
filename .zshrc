@@ -18,9 +18,6 @@ autoload -U colors && colors
 # Prompt
 PS1="%(?..%B(%?%)%b)%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
-# Add to path
-path+=("$HOME/.local/bin")
-
 # Enables emacs mode
 bindkey -e
 
