@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# File: notes.sh
+# File: notes
 # Description: Wrapper script for opening notes directory
 
 DEFAULT_NOTES_DIRECTORY="$HOME/documents/notes"
