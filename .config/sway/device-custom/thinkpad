@@ -1,0 +1,23 @@
+# File: config
+# Descriiption: sway configuration specific for my thinkpad
+
+# Disables the broken 3rd party trackpoint on my thinkpad x395
+input "2:14:ETPS/2_Elantech_TrackPoint" {
+    events disabled
+}
+
+output "*" bg $wallpaper fill
+output "eDP-1" mode 1920x1080@60.049Hz pos 0 0
+output "Microstep MSI MAG301RF CC5A031502203" mode 2560x1080@199.997Hz pos 1920 0
+
+input "9494:303:Cooler_Master_Technology_Inc._MM710_Gaming_Mouse" {
+    tap enabled
+    natural_scroll disabled 
+#    dwt enabled    # disables device while trackpoint is actively being used
+    accel_profile "flat" 
+    pointer_accel -0.2 
+}
+
+# enables numlock on start
+input type:keyboard xkb_numlock enabled
+
