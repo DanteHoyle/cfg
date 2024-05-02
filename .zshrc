@@ -30,10 +30,10 @@ compinit
 _comp_options+=(globdots)
 
 # Attemps to load arch path, followed by debian / fedora path if that fails
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2> /dev/null || \
-    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2> /dev/null
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2> /dev/null || \
-    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2> /dev/null
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh &> /dev/null || \
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh &> /dev/null
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh &> /dev/null || \
+    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh &> /dev/null
 
 source ~/.aliases
 
