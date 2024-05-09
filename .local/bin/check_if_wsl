@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# File: check_if_wsl
+# Description: Checks if current operating system is running in WSL
+
+wsl_status=$(command -v wsl-open &> /dev/null)
+exit $wsl_status
