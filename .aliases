@@ -1,9 +1,9 @@
 # File: .aliases 
 
-alias cfg="git --git-dir=/home/dante/.cfg --work-tree=/home/dante"
+alias cfg="git --git-dir=$HOME/.cfg --work-tree=$HOME"
 
 
 alias ls="ls --color=auto"
 alias ll="ls --color=auto -al"
 
-alias cdno="cd ~/documents/notes"
+alias cdno="cd $HOME/notes"
