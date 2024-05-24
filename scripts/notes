@@ -2,7 +2,7 @@
 # File: notes
 # Description: Wrapper script for opening notes directory
 
-DEFAULT_NOTES_DIRECTORY="$HOME/documents/notes"
+DEFAULT_NOTES_DIRECTORY="$HOME/notes"
 
 # find lists all fiels in the notes directory
 # grep removes listings in the .meta folder since neovim doesn't need to open images
