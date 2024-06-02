@@ -30,12 +30,6 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 
-if [[ $(uname -r) =~ WSL2$ ]]; then
-    if [[ -z $BROWSER ]]; then
-        export BROWSER="wsl-open"
-    fi
-fi
-
 # Attemps to load arch path, followed by debian / fedora path if that fails
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh &> /dev/null || \
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh &> /dev/null
@@ -44,5 +38,5 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh &> /de
 
 source ~/.aliases
 
-test -z "$TMUX" 2>/dev/null && (tmux attach || (tmux new-session -d && tmux attach)) 
-return 0
+# test -z "$TMUX" 2>/dev/null && (tmux attach || (tmux new-session -d && tmux attach)) 
+# return 0
