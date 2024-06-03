@@ -1,4 +1,10 @@
 " File: vimrc
 
 set nocompatible
-net number
+set modeline
+
+set expandtab
+set tabstop=4
+
+syntax on
+
