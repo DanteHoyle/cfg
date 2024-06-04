@@ -8,8 +8,6 @@ command -v nvim >/dev/null && EDITOR=nvim || EDITOR=vim
 HISTSIZE=10000
 SAVEHIST=10000
 
-PATH=$PATH:/opt/nvim-linux64/bin
-
 # Enables colors
 autoload -U colors && colors
 
