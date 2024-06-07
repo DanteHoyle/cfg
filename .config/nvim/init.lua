@@ -1,8 +1,7 @@
 -- File: init.lua
 -- Description: This is the first lua file ran by nvim upon startup
 
-require("config")
-require("functions")
+require("editor")
 
 -- Loads all plugins in the /nvim/lua/plugins directory
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
