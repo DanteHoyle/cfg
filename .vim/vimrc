@@ -12,3 +12,6 @@ autocmd FileType make setlocal noexpandtab
 
 syntax on
 
+set number
+
+set clipboard=unnamedplus

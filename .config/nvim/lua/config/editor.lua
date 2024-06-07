@@ -14,5 +14,4 @@ vim.opt.relativenumber = true
 vim.opt.nu = true
 
 -- Clipboard settings
-vim.api.nvim_set_option("clipboard","unnamed")
-
+vim.opt.clipboard = "unnamedplus"
