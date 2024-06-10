@@ -5,7 +5,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     config = {
         -- A list of parser names, or "all" (the five listed parsers should always be installed)
-        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "norg"},
+        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "norg", "sh"},
 
         -- Install parsers synchronously (only applied to `ensure_installed`)
         sync_install = false,
