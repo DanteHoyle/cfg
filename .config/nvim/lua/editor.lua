@@ -22,7 +22,7 @@ vim.g.mapleader = " ";
 vim.g.maplocalleader = ",";
 
 -- Enables mouse support
-vim.opt.mouse = 'v'
+vim.opt.mouse = 'a'
 
 -- 
 vim.api.nvim_set_keymap("n", "<F12>", ":noh<CR>", { noremap = true, silent = true })
