@@ -28,11 +28,13 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 
-# Attemps to load arch path, followed by debian / fedora path if that fails
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh &> /dev/null || \
-    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh &> /dev/null
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh &> /dev/null || \
-    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh &> /dev/null
+# Provides syntax highlighting
+# sudo apt install zsh-syntaxhighlighting
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
+# Fish style autosuggestions
+# sudo apt install zsh-autosuggestions
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 source ~/.aliases
 
