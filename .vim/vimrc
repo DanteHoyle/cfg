@@ -7,11 +7,13 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-
+" Tries to detect files 
 autocmd FileType make setlocal noexpandtab
-
+" Enables syntax highlighting
 syntax on
-
-set number
-
+" Enables line numbers
+set relativenumber
+" Makes clipboard sync with system clipboard
 set clipboard=unnamedplus
+" Enables the mouse
+set mouse=a
