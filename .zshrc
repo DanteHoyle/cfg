@@ -7,6 +7,7 @@ command -v nvim >/dev/null && EDITOR=nvim || EDITOR=vim
 # History settings
 HISTSIZE=10000
 SAVEHIST=10000
+HISTFILE=~/.zsh_history
 
 # Enables colors
 autoload -U colors && colors
@@ -38,5 +39,6 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 source ~/.aliases
 
-# test -z "$TMUX" 2>/dev/null && (tmux attach || (tmux new-session -d && tmux attach)) 
-# return 0
+keychain ~/.ssh/id_ed25519
+. ~/.keychain/${HOST}-sh
+# . ~/.keychain/${HOST}-sh-gpg
