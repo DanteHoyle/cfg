@@ -12,7 +12,7 @@ autocmd FileType make setlocal noexpandtab
 " Enables syntax highlighting
 syntax on
 " Enables line numbers
-set relativenumber
+set number
 " Makes clipboard sync with system clipboard
 set clipboard=unnamedplus
 " Enables the mouse
