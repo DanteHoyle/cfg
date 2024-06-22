@@ -7,6 +7,10 @@ return {
     name = "catppuccin",
     priority = 1000,
     config = function()
-        vim.cmd.colorscheme "catppuccin-macchiato"
+        vim.cmd.colorscheme "catppuccin"
     end,
+
+    opts = {
+        no_italic = true,
+    },
 }

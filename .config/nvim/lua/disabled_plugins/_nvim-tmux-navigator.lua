@@ -8,7 +8,6 @@ return {
             right = "<M-l>",
             up = "<M-k>",
             down = "<M-j>",
-
             last_active = "<M-n>",
             next = "<M-p>"
         },
