@@ -29,7 +29,7 @@ then
 fi
 
 # checks to see if there is already a directory at /opt/nvim
-if [ -d $INSTALL_ROOT/nvim-linux64 ]
+if [ -d "$INSTALL_ROOT/nvim-linux64" ]
 then
     # removes previous nvim installation
     echo "Detected previous nvim installation at: $INSTALL_ROOT/nvim-linux64. The script will delete this now..."
@@ -46,8 +46,8 @@ fi
 curl -LO $URL
 sudo tar -C /opt -xzf nvim-linux64.tar.gz
 # create symbolic link from the nvim binary to a path the user ca
-sudo ln -s $INSTALL_ROOT/nvim-linux64/bin/nvim $SYMLINK_ROOT/nvim
+sudo ln -s "$INSTALL_ROOT/nvim-linux64/bin/nvim" "$SYMLINK_ROOT/nvim"
 # clean install archive
 rm nvim-linux64.tar.gz
 
-echo Neovim has successfully been installed!
+echo "Neovim has successfully been installed!"
