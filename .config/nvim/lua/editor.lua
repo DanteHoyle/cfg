@@ -21,4 +21,4 @@ vim.g.mapleader = " ";
 vim.g.maplocalleader = ",";
 
 -- Enables mouse support
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
