@@ -17,7 +17,3 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
-
--- Enables vim-bruin colorscheme
--- https://git.sr.ht/~romainl/vim-bruin
--- vim.cmd("colorscheme bruin")
