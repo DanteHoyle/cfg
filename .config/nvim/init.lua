@@ -20,4 +20,4 @@ require("lazy").setup("plugins")
 
 -- Enables vim-bruin colorscheme
 -- https://git.sr.ht/~romainl/vim-bruin
-vim.cmd("colorscheme bruin")
+-- vim.cmd("colorscheme bruin")
