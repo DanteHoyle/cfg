@@ -36,8 +36,15 @@ source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # If keychain is installed 
-if command -v keychain >/dev/null
-then
+if command -v keychain >/dev/null; then
     keychain ~/.ssh/id_ed25519
     . ~/.keychain/${HOST}-sh
+fi
+
+if command -v nvim >/dev/null; then
+    alias vim="nvim"
+    EDITOR="NVIM"
+else
+    alias nvim="vim"
+    EDITOR="vim"
 fi
