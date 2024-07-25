@@ -11,6 +11,7 @@ source ~/.aliases
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
+setopt appendhistory
 
 # Checks if nvim is installed, if not sets vim as edtior
 command -v nvim >/dev/null && EDITOR=nvim || EDITOR=vim
