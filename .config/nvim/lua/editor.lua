@@ -22,3 +22,6 @@ vim.g.maplocalleader = ",";
 
 -- Enables mouse support
 vim.opt.mouse = "a"
+
+--- FUNCTIONS ---
+vim.api.nvim_set_keymap("n", "<Leader>h", ":hlsearch!<CR>", { noremap = true, silent = false })
