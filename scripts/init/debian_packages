@@ -1,0 +1,12 @@
+# File: debian_packages
+zsh
+man
+git
+curl
+ripgrep
+mtr-tiny
+shellcheck
+tmux
+gcc
+keychain
+npm
