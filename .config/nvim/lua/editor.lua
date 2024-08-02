@@ -11,6 +11,7 @@ vim.opt.expandtab = true
 
 -- Relative Line Numbering
 vim.opt.number = true
+vim.opt.numberwidth = 5
 
 -- Clipboard settings
 vim.opt.clipboard = "unnamedplus"
@@ -23,5 +24,8 @@ vim.g.maplocalleader = ",";
 -- Enables mouse support
 vim.opt.mouse = "a"
 
---- FUNCTIONS ---
-vim.api.nvim_set_keymap("n", "<Leader>h", ":hlsearch!<CR>", { noremap = true, silent = false })
+--- KEYBINDS ---
+-- Clear search highlight with Leader + h
+vim.api.nvim_set_keymap("n", "<Leader>h", ":nohls<CR>", { noremap = true, silent = false })
+-- Toggle line wrapping with Leader + w
+vim.api.nvim_set_keymap("n", "<Leader>w", ":set wrap!<CR>", { noremap = true, silent = false })
