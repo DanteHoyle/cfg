@@ -3,6 +3,7 @@
     File: debian_setup.py
     Description: reads a text file and downloads programs using apt-get
 """
+
 import subprocess
 import shlex
 import argparse
@@ -30,28 +31,19 @@ def get_package_list_from_file(text_file: str = 'debian_packages') -> list[str]:
 
 
 def download_packages_from_list(package_list: list[str],
-<<<<<<< Updated upstream
-                                safe: bool) -> int | None:
+                                safe: bool = True) -> None:
     """ Uses apt-get to install packages from a user provided list """
 
     command_statement_list = ['sudo', 'apt-get', 'install'] + package_list
-    # for c in command_statement_list:
-    #     print(c)
-    user_input: str | None = None
-=======
-                                safe: bool = True) -> str | None:
-    """ Uses apt-get to install packages from a user provided list """
-
-    command_statement_list = ['sudo', 'apt-get', 'install'] + package_list
->>>>>>> Stashed changes
+    user_input = None
 
     if safe:
         print(f'auto-generated command: {" ".join(command_statement_list)}')
         user_input = input('Do you you want to run this command? (y/n): ').strip().lower()
 
-<<<<<<< Updated upstream
     if user_input in ('y', 'yes', None):
-        return subprocess.run(command_statement_list, check=True).returncode
+        shell_output = subprocess.run(command_statement_list, check=True, capture_output=True)
+        shell_output.check_returncode() # Raises CalledProcessError if return code wasn't 0
     elif user_input in ('n', 'no'):
         return None
     else:
@@ -63,10 +55,8 @@ def main():
     file, safe = parse_args()
     debian_packages = get_package_list_from_file(text_file=file)
     download_packages_from_list(debian_packages, safe=safe)
-=======
+
     if safe is False or user_input in ('y', 'yes'):
-        shell_output = subprocess.run(command_statement_list, check=True, capture_output=True)
-        shell_output.check_returncode() # Raises CalledProcessError if return code wasn't 0
         return shell_output.stdout.decode()
     elif user_input in ('n', 'no'):
         return None
@@ -77,8 +67,6 @@ def main():
 def main():
     package_list: list[str] = get_package_list()
     output = download_packages_from_list(package_list)
->>>>>>> Stashed changes
-
 
 if __name__ == '__main__':
     main()
