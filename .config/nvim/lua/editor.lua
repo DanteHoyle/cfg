@@ -13,8 +13,10 @@ vim.opt.expandtab = true
 vim.opt.number = true
 vim.opt.numberwidth = 5
 
--- Clipboard settings
+-- Uses host OS clipboard
 vim.opt.clipboard = "unnamedplus"
+
+vim.opt.wrap = false
 
 --- MISC ---
 -- Rempaps leader to semicolon
@@ -23,9 +25,3 @@ vim.g.maplocalleader = ",";
 
 -- Enables mouse support
 vim.opt.mouse = "a"
-
---- KEYBINDS ---
--- Clear search highlight with Leader + h
-vim.api.nvim_set_keymap("n", "<Leader>h", ":nohls<CR>", { noremap = true, silent = false })
--- Toggle line wrapping with Leader + w
-vim.api.nvim_set_keymap("n", "<Leader>w", ":set wrap!<CR>", { noremap = true, silent = false })

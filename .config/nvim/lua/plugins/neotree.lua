@@ -11,7 +11,9 @@ return {
         "MunifTanjim/nui.nvim",
         -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
-    opts = {
-        vim.api.nvim_set_keymap("n", "<Leader>e", ":Neotree toggle<CR>", { noremap = true, silent = true })
-    }
-}
+    config = function()
+        vim.api.nvim_set_keymap("n", "<Leader>e", ":Neotree toggle<CR>", { noremap = true, silent = true });
+        vim.api.nvim_set_keymap("n", "<Leader>g", ":Neotree toggle <CR>", { noremap = true, silent = true });
+    end
+};
+
