@@ -8,10 +8,14 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+vim.opt.smartindent = true
+vim.opt.listchars = "tab:>-,trail:-,nbsp:_"
+vim.opt.list = true
+
 
 -- Relative Line Numbering
 vim.opt.number = true
-vim.opt.numberwidth = 5
+vim.opt.numberwidth = 8
 
 -- Uses host OS clipboard
 vim.opt.clipboard = "unnamedplus"
