@@ -3,22 +3,26 @@
 
 return {
     {
-        "catppuccin/nvim",
+        'catppuccin/nvim',
         lazy = false,
-        name = "catppuccin",
+        name = 'catppuccin',
         priority = 1000,
         config = function()
             require('catppuccin').setup {
                 no_italic = true,
             }
-            vim.cmd.colorscheme "catppuccin"
         end,
         enabled=true
     },
     {
-        "miikanissi/modus-themes.nvim",
+        'miikanissi/modus-themes.nvim',
+        name = 'modus',
         lazy = false,
         priority = 1000,
         enabled=true
     },
+    {
+        'bluz71/vim-moonfly-colors',
+        name = 'moonfly'
+    }
 };

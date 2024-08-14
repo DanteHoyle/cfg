@@ -1,4 +1,4 @@
 -- File: _rightclick-macros.lua
 return {
-    "kvngvikram/rightclick-macros",
+    'kvngvikram/rightclick-macros',
 }

@@ -1,7 +1,7 @@
 -- File: _rainbow_csv.lua
 
 return {
-    "mechatroner/rainbow_csv",
-    version = "*",
+    'mechatroner/rainbow_csv',
+    version = '*',
     lazy = false,
 }
