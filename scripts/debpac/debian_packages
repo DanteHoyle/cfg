@@ -1,4 +1,5 @@
 # File: debian_packages
+# Standard Debian Packages
 zsh
 man
 git

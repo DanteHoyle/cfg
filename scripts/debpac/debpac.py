@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """ 
-    File: debian_setup.py
+    File: debpac.py
     Description: reads a text file and downloads programs using apt-get
 """
 
 import subprocess
 import shlex
 import argparse
+import traceback
 
 def parse_args() -> tuple[str, bool]:
     """Handles arguments passed to script when ran in prompt"""
