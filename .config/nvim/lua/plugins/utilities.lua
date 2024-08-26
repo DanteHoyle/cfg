@@ -26,4 +26,11 @@ return {
         version = '*',
         lazy = false,
     },
+    -- Lualine
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        theme = "onedark",
+        opts = {},
+    },
 }
