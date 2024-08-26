@@ -3,29 +3,38 @@
 
 return {
     {
-        'catppuccin/nvim',
+        "catppuccin/nvim",
         lazy = false,
-        name = 'catppuccin',
+        name = "catppuccin",
         priority = 1000,
         config = function()
-            require('catppuccin').setup {
+            require("catppuccin").setup {
                 no_italic = true,
             }
         end,
-        enabled=true
+        enabled=false
     },
     {
-        'miikanissi/modus-themes.nvim',
-        name = 'modus',
+        "miikanissi/modus-themes.nvim",
+        name = "modus",
         lazy = false,
         priority = 1000,
-        enabled=true
+        enabled=false
     },
     {
-        'bluz71/vim-moonfly-colors',
-        name = 'moonfly',
+        "bluz71/vim-moonfly-colors",
+        name = "moonfly",
+        lazy = false,
+        priority = 1000,
+        enabled=false
+    },
+    {
+        "navarasu/onedark.nvim",
+        name = "onedark",
+        lazy = false,
+        priority = 1000,
         config = function()
-            vim.cmd [[colorscheme moonfly]]
+            vim.cmd [[colorscheme onedark]]
         end,
-    }
+    },
 };
