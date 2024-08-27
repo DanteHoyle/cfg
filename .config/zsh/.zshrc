@@ -6,7 +6,7 @@ autoload -U colors && colors
 # Set up colorful 
 PS1="%(?..%B(%?%)%b)%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
-source ~/.aliases
+source ~/.config/zsh/aliases
 # Source secondary alias file not synced with git repo
 if [ -e ~/.aliases2 ]; then
     source ~/.aliases2 
@@ -15,8 +15,8 @@ fi
 
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.zsh_history
-setopt appendhistory
+HISTFILE=$HOME/.config/zsh/zsh_history
+setopt INC_APPEND_HISTORY
 
 # Checks if nvim is installed, if not sets vim as edtior
 command -v nvim >/dev/null && EDITOR=nvim || EDITOR=vim
