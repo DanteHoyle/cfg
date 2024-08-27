@@ -14,7 +14,7 @@ vim.opt.list = true
 
 -- Relative Line Numbering
 vim.opt.number = true
-vim.opt.numberwidth = 8
+-- vim.opt.numberwidth = 8
 
 -- Uses host OS clipboard
 vim.opt.clipboard = 'unnamedplus'
