@@ -15,6 +15,7 @@ return {
             vim.api.nvim_set_keymap('n', '<Leader><Leader>', ':Telescope<CR>', { noremap = true, silent = false }),
             vim.api.nvim_set_keymap('n', '<Leader>b', ':Telescope buffers<CR>', { noremap = true, silent = false }),
             vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<CR>', { noremap = true, silent = false }),
+            vim.api.nvim_set_keymap('n', '<LocalLeader>s', ':Telescope find_files ~/notes<CR>', { noremap = true, silent = false }),
         },
     },
     -- Rightclick Macros

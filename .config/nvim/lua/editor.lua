@@ -12,7 +12,6 @@ vim.opt.smartindent = true
 vim.opt.listchars = 'tab:>-,trail:-,nbsp:_'
 vim.opt.list = true
 
-
 -- Relative Line Numbering
 vim.opt.number = true
 vim.opt.numberwidth = 8
@@ -24,8 +23,8 @@ vim.opt.wrap = false
 
 --- MISC ---
 -- Rempaps leader to semicolon
-vim.g.mapleader = ' ';
-vim.g.maplocalleader = ',';
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ';'
 
 -- Enables mouse support
 vim.opt.mouse = 'a'
