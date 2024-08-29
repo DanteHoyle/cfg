@@ -16,7 +16,8 @@ fi
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=$HOME/.config/zsh/zsh_history
-setopt INC_APPEND_HISTORY
+setopt INC_APPEND_HISTORY_TIME
+setopt SHARE_HISTORY
 
 # Checks if nvim is installed, if not sets vim as edtior
 command -v nvim >/dev/null && EDITOR=nvim || EDITOR=vim
