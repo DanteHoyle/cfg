@@ -6,26 +6,44 @@ return {
         "nvim-neorg/neorg",
         lazy = false,
         version = "*",
-        opts = {
-            load = {
-                ["core.defaults"] = {},
-                ["core.concealer"] = {},
-                ["core.qol.toc"] = {},
-                ["core.ui.calendar"] = {},
-                ["core.dirman"] = {
-                    config = {
-                        workspaces = {
-                            notes = "~/notes",
+        config = function()
+            require("neorg").setup {
+                load = {
+                    ["core.defaults"] = {},
+                    ["core.concealer"] = {},
+                    ["core.summary"] = {},
+                    ["core.dirman"] = {
+                        config = {
+                            workspaces = {
+                                notes = "~/notes",
+                            },
+                            default_workspace = "notes",
                         },
                     },
+                    ["core.esupports.metagen"] = {
+                        config = {
+                            author = "Dante Hoyle",
+                            type = "auto",
+                        }
+                    },
                 },
-            },
-        },
+            }
+
+            vim.wo.foldlevel = 99
+            vim.wo.conceallevel = 2
+        end
     },
     {
         "nvim-treesitter/nvim-treesitter",
-        config = function()
-            vim.cmd [[TSUpdate]]
+        build = ":TSUpdate",
+        opts = {
+            ensure_installed = {
+                "c", "lua", "vim", "vimdoc", "query", "python", "bash", "html",
+            },
+            highlight = { enable = true },
+        },
+        config = function(_, opts)
+            require("nvim-treesitter.configs").setup(opts)
         end,
-    }
+    },
 }
