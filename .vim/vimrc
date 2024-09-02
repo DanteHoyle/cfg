@@ -1,19 +1,30 @@
 " File: vimrc
-
+" Explicitly enables features that break vi compatibility
 set nocompatible
 set modeline
 
+" Auto Tab Settings
 set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-" Tries to detect files 
+set smartindent
+
+" Highlight Trailing Whitespace
+set list
+set listchars="tab:>-,trail:-,nbsp:_"
+
+" Tries to detect files
 autocmd FileType make setlocal noexpandtab
+
 " Enables syntax highlighting
 syntax on
+
 " Enables line numbers
 set number
+
 " Makes clipboard sync with system clipboard
-set clipboard=unnamedplus
+set clipboard="unnamedplus"
+
 " Enables the mouse
-set mouse=a
+set mouse="a"
