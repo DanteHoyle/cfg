@@ -14,11 +14,17 @@ return {
     opts = {
         filesystem = {
             hijack_netrw_behavior = 'open_current',
+            filtered_items = {
+                always_show = {
+                    ".gitignore",
+                },
+                hide_gitignored = false,
+            },
         },
         window = {
             mappings = {
-                ["<C-b>"] = "none"
-            }
+                ["<C-b>"] = "none",
+            },
         },
         vim.api.nvim_set_keymap('n', '<Leader>f', ':Neotree toggle<CR>', { noremap = true, silent = true }),
         vim.api.nvim_set_keymap('n', '<Leader>g', ':Neotree toggle <CR>', { noremap = true, silent = true }),
