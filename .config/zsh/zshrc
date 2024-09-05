@@ -1,18 +1,24 @@
 # File: zshrc
-# Description: Main configuration file for zsh
 
 # Enables colors
 autoload -U colors && colors
-# Set up colorful 
+
+# Set up colorful prompt
 PS1="%(?..%B(%?%)%b)%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
+# Add custom scripts to path
+path+=("$HOME/.local/bin")
+
+# Main alias file
 source ~/.config/zsh/aliases
+
 # Source secondary alias file not synced with git repo
 if [ -e ~/.aliases2 ]; then
     source ~/.aliases2 
     echo ".zshrc: loaded .aliases2"
 fi
 
+# cli history settings
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=$HOME/.config/zsh/zsh_history
@@ -21,26 +27,6 @@ setopt SHARE_HISTORY
 
 # Checks if nvim is installed, if not sets vim as edtior
 command -v nvim >/dev/null && EDITOR=nvim || EDITOR=vim
-
-# Changes some keybindings to behave like emacs
-bindkey -e
-
-# Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
-
-# Changes behavior of tab completion
-autoload -U compinit
-zstyle ":completion:*" menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)
-
-# Provides syntax highlighting
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
-# Fish style autosuggestions
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # If keychain is installed 
 if command -v keychain >/dev/null; then
@@ -53,5 +39,46 @@ if command -v nvim >/dev/null; then
     EDITOR="nvim"
 else
     EDITOR="vim"
+fi
+
+# Changes some keybindings to behave like emacs
+bindkey -e
+
+########################################################
+# Plugin Settings                                      #
+########################################################
+
+# Use modern completion system
+autoload -Uz compinit
+compinit
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2
+eval "$(dircolors -b)"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+
+# Provides syntax highlighting
+if [ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+# Fish style autosuggestions
+if [ -e /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
+    ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 fi
 
