@@ -18,15 +18,6 @@ return {
             vim.api.nvim_set_keymap('n', '<LocalLeader>s', ':Telescope find_files ~/notes<CR>', { noremap = true, silent = false }),
         },
     },
-    -- Rightclick Macros
-    { "kvngvikram/rightclick-macros" },
-    -- Auto Pairs
-    { "jiangmiao/auto-pairs" },
-    {
-        'mechatroner/rainbow_csv',
-        version = '*',
-        lazy = false,
-    },
     -- Lualine
     {
         'nvim-lualine/lualine.nvim',
