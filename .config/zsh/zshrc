@@ -43,6 +43,7 @@ fi
 
 # Changes some keybindings to behave like emacs
 bindkey -e
+bindkey -r "^W"
 
 ########################################################
 # Plugin Settings                                      #
