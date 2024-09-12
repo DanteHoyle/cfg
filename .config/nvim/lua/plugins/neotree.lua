@@ -26,8 +26,6 @@ return {
                 ["<C-b>"] = "none",
             },
         },
-        vim.api.nvim_set_keymap('n', '<Leader>f', ':Neotree toggle<CR>', { noremap = true, silent = true }),
-        vim.api.nvim_set_keymap('n', '<Leader>g', ':Neotree toggle <CR>', { noremap = true, silent = true }),
     },
 };
 
