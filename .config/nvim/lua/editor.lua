@@ -9,8 +9,10 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
-vim.opt.listchars = 'tab:>-,trail:-,nbsp:_'
+vim.opt.listchars = 'tab:>-,trail:~,nbsp:␣'
 vim.opt.list = true
+
+vim.opt.signcolumn = 'yes:1'
 
 -- Relative Line Numbering
 vim.opt.number = true

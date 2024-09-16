@@ -27,13 +27,30 @@ return {
                         settings = {
                             Lua = {
                                 diagnostics = {
-                                    globals = { 'vim' }
-                                }
-                            }
-                        }
+                                    globals = { 'vim' },
+                                },
+                            },
+                        },
+                    }
+                end,
+
+                ['pyright'] = function()
+                    local lspconfig = require('lspconfig')
+                    lspconfig.pyright.setup {
+                        settings = {
+                            python = {
+                                analysis = {
+                                    typeCheckingMode = "basic",
+                                    diagnosticSeverityOverrides = {
+                                        reportInvalidStringEscapeSequence = "none",
+                                        reportPossiblyUnboundVariable = "none",
+                                    },
+                                },
+                            },
+                        },
                     }
                 end,
             }
         end,
-    },
+    }
 }
