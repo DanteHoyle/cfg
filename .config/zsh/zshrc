@@ -6,9 +6,6 @@ autoload -U colors && colors
 # Set up colorful prompt
 PS1="%(?..%B(%?%)%b)%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
-# Add custom scripts to path
-path+=("$HOME/.local/bin")
-
 # Main alias file
 source ~/.config/zsh/aliases
 
@@ -18,31 +15,35 @@ if [ -e ~/.aliases2 ]; then
 fi
 
 # cli history settings
+if ! [ -e ~/.cache/zsh ]; then
+    mkdir --parents ~/.cache/zsh
+fi
+
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=$HOME/.config/zsh/zsh_history
+HISTFILE=$HOME/.cache/zshhistory
 setopt INC_APPEND_HISTORY_TIME
 setopt SHARE_HISTORY
 
-# Checks if nvim is installed, if not sets vim as edtior
-command -v nvim >/dev/null && EDITOR=nvim || EDITOR=vim
-
-# If keychain is installed 
 if command -v keychain >/dev/null; then
-    keychain ~/.ssh/id_ed25519
+    if [ -z "$TMUX" ]; then
+        # Run Command Normally if not inside of a tmux shell
+        keychain ~/.ssh/id_ed25519
+    else
+        # Run quietly and quickly if running from inside tmux
+        keychain --quick --quiet ~/.ssh/id_ed25519
+    fi
     . ~/.keychain/${HOST}-sh
 fi
 
 if command -v nvim >/dev/null; then
-    alias vim="nvim"
     EDITOR="nvim"
 else
     EDITOR="vim"
 fi
 
-# Changes some keybindings to behave like emacs
+# Makes some behavior feel normal (Ctrl + a to go to the beginning of a line)
 bindkey -e
-bindkey -r "^W"
 
 ########################################################
 # Plugin Settings                                      #
@@ -50,7 +51,7 @@ bindkey -r "^W"
 
 # Use modern completion system
 autoload -Uz compinit
-compinit
+compinit -d ~/.cache/compinit
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
@@ -70,7 +71,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
+bindkey '^[e' edit-command-line
 
 # Provides syntax highlighting
 if [ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
@@ -81,4 +82,3 @@ if [ -e /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
     ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 fi
-

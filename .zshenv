@@ -1,4 +1,4 @@
 # File: .zshenv
 export ZDOTDIR=$HOME/.config/zsh
 export EDITOR="nvim"
-export PAGER="less"
+export PAGER="most"
