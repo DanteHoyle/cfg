@@ -4,7 +4,7 @@
 
 INSTALL_ROOT=/opt           # nvim-linux64 binary folder
 SYMLINK_ROOT=/usr/local/bin # location in your path so you can run nvim anywhere
-URL=https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+URL="https://github.com/neovim/neovim/releases/download/v0.10.1/nvim-linux64.tar.gz"
 
 # checks if curl is installed
 if ! command -v curl >/dev/null; then
@@ -16,7 +16,7 @@ fi
 # Checks if there is a directory at the symbolic executable path, typically /usr/local/bin/nvim
 if [ -e "$SYMLINK_ROOT/nvim" ]; then
     # attempts to delete existing symbolic link if there is one
-    echo "Detected an existing symbolic link at $SYMBOLIC_ROOT/nvim. The script will delete this now..." 
+    echo "Detected an existing symbolic link at $SYMLINK_ROOT/nvim. The script will delete this now..." 
     if sudo rm "$SYMLINK_ROOT/nvim"
     then
         echo "Successfully removed $SYMLINK_ROOT/nvim!"
