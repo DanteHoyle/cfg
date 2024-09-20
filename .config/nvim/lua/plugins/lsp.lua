@@ -1,4 +1,6 @@
--- File: _mason-lspconfig.lua
+-- File: lsp.lua
+-- This contains Language Server Configuration
+
 return {
 
     'williamboman/mason.nvim',
@@ -40,11 +42,11 @@ return {
                         settings = {
                             python = {
                                 analysis = {
-                                    typeCheckingMode = "basic",
-                                    diagnosticSeverityOverrides = {
-                                        reportInvalidStringEscapeSequence = "none",
-                                        reportPossiblyUnboundVariable = "none",
-                                    },
+                                    typeCheckingMode = "off",
+                                    -- diagnosticSeverityOverrides = {
+                                    --     reportInvalidStringEscapeSequence = "none",
+                                    --     reportPossiblyUnboundVariable = "none",
+                                    -- },
                                 },
                             },
                         },
@@ -52,5 +54,28 @@ return {
                 end,
             }
         end,
-    }
+    },
+
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        opts = {
+            ensure_installed = {
+                "c", "lua", "vim", "vimdoc", "query", "python", "bash", "html",
+            },
+            highlight = { enable = true },
+            indent = { enable = true },
+        },
+        config = function(_, opts)
+            require("nvim-treesitter.configs").setup(opts)
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = "python",
+                callback = function()
+                    vim.wo.foldmethod = 'expr'
+                    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+                end,
+            })
+
+        end,
+    },
 }

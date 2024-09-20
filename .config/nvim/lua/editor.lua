@@ -1,4 +1,4 @@
--- File:	editor.lua
+-- File: editor.lua
 -- Description: Contains settings related to text editing 
 
 -- Makes 1 tab press equal four space. When editing a file with tabs, hit <F12>
@@ -8,7 +8,6 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-vim.opt.smartindent = true
 vim.opt.listchars = 'tab:>-,trail:~,nbsp:␣'
 vim.opt.list = true
 

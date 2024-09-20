@@ -20,3 +20,4 @@ require('lazy').setup('plugins')
 
 -- this must come after lazy sets up plugins so plugin specific settings are loaded
 require('keybindings')
+

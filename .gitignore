@@ -1,0 +1,4 @@
+.vscode/
+./config/nvim/colors/*
+./config/zsh/zsh_history
+./config/zsh/.zcompdump

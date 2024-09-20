@@ -16,16 +16,15 @@ vim.api.nvim_set_keymap('n', '<C-Up>', '<C-w>k', { noremap = true, silent = fals
 vim.api.nvim_set_keymap('n', '<C-Right>', '<C-w>l', { noremap = true, silent = false })
 
 -- LSP Keyboard Shortcuts
-vim.api.nvim_set_keymap('n', '<Leader>d', ':lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('n', '<Leader>d', ':tab split | lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = false })
 vim.api.nvim_set_keymap('n', '<Leader>n', ':lua vim.diagnostic.goto_next()<CR>', { noremap = true, silent = false })
 vim.api.nvim_set_keymap('n', '<Leader>p', ':lua vim.diagnostic.goto_prev()<CR>', { noremap = true, silent = false })
 
 -- Neotree Keyboard Shortcuts
 vim.api.nvim_set_keymap('n', '<Leader>f', ':Neotree toggle<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>g', ':Neotree toggle <CR>', { noremap = true, silent = true })
 
 -- Vim Telescope
 vim.api.nvim_set_keymap('n', '<Leader><Leader>', ':Telescope<CR>', { noremap = true, silent = false })
 vim.api.nvim_set_keymap('n', '<Leader>b', ':Telescope buffers<CR>', { noremap = true, silent = false })
 vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<CR>', { noremap = true, silent = false })
-vim.api.nvim_set_keymap('n', '<LocalLeader>s', ':Telescope find_files ~/notes<CR>', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('n', '<LocalLeader>f', ':Telescope find_files <CR>', { noremap = true, silent = false })

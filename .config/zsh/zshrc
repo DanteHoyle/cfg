@@ -15,7 +15,6 @@ source ~/.config/zsh/aliases
 # Source secondary alias file not synced with git repo
 if [ -e ~/.aliases2 ]; then
     source ~/.aliases2 
-    echo ".zshrc: loaded .aliases2"
 fi
 
 # cli history settings
