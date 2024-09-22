@@ -1,4 +1,4 @@
-# File: .aliases 
+# File: .aliases
 alias cfg="git --git-dir=$HOME/.cfg --work-tree=$HOME"
 alias ls="ls --color=auto"
 alias ll="ls --color=auto -al"
