@@ -13,16 +13,16 @@ return {
         config = function()
             require('mason').setup()
             require('mason-lspconfig').setup {
-                ensure_installed = { 'lua_ls', 'ts_ls', 'pyright' }
+                ensure_installed = { 'lua_ls', 'ts_ls', 'pyright', 'bashls' }
 
             }
             require('mason-lspconfig').setup_handlers {
                 -- Default Handler for Language Servers installed by LSP
                 function (server_name)
                     require("lspconfig")[server_name].setup {}
-
                 end,
 
+                -- Other Handlers
                 ['lua_ls'] = function()
                     local lspconfig = require('lspconfig')
                     lspconfig.lua_ls.setup {
@@ -43,10 +43,6 @@ return {
                             python = {
                                 analysis = {
                                     typeCheckingMode = "off",
-                                    -- diagnosticSeverityOverrides = {
-                                    --     reportInvalidStringEscapeSequence = "none",
-                                    --     reportPossiblyUnboundVariable = "none",
-                                    -- },
                                 },
                             },
                         },
@@ -55,7 +51,7 @@ return {
             }
         end,
     },
-
+    -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
