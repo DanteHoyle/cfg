@@ -38,6 +38,4 @@ return {
             vim.wo.conceallevel = 2
         end
     },
-
-    { "dhruvasagar/vim-table-mode" },
 }

@@ -19,7 +19,10 @@ return {
             require('mason-lspconfig').setup_handlers {
                 -- Default Handler for Language Servers installed by LSP
                 function (server_name)
-                    require("lspconfig")[server_name].setup {}
+                    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+                    require("lspconfig")[server_name].setup {
+                        capabilities = capabilities
+                    }
                 end,
 
                 -- Other Handlers
@@ -58,6 +61,7 @@ return {
         opts = {
             ensure_installed = {
                 "c", "lua", "vim", "vimdoc", "query", "python", "bash", "html",
+                "markdown",
             },
             highlight = { enable = true },
             indent = { enable = true },
@@ -71,7 +75,6 @@ return {
                     vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
                 end,
             })
-
         end,
     },
 }
