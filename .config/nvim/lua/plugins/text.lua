@@ -8,6 +8,7 @@ return {
         dependencies = {
             -- Completion Sources
             "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lsp-signature-help",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
             -- Snipping Engine
@@ -43,10 +44,8 @@ return {
                     { name = "vsnip" },
                     { name = "neorg" },
                     { name = "path" },
-                },
-
-                {
                     { name = "buffer" },
+                    { name = "nvim_lsp_signature_help" },
                 }),
             })
             -- `/` cmdline setup.

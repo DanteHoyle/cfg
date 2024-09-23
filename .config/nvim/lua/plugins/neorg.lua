@@ -24,12 +24,12 @@ return {
                         config = {
                             author = "Dante Hoyle",
                             type = "auto",
-                        }
+                        },
                     },
                     ["core.completion"] = {
                         config = {
-                            engine = "nvim-cmp"
-                        }
+                            engine = "nvim-cmp",
+                        },
                     },
             },
         }

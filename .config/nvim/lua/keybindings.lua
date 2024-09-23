@@ -19,8 +19,7 @@ vim.api.nvim_set_keymap('n', '<C-Right>', '<C-w>l', { noremap = true, silent = f
 vim.api.nvim_set_keymap('n', '<Leader>d', ':tab split | lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = false })
 vim.api.nvim_set_keymap('n', '<Leader>n', ':lua vim.diagnostic.goto_next()<CR>', { noremap = true, silent = false })
 vim.api.nvim_set_keymap('n', '<Leader>p', ':lua vim.diagnostic.goto_prev()<CR>', { noremap = true, silent = false })
-
-vim.api.nvim_set_keymap('n', '<C-K>', ':split | lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('n', '<Leader>r', ':lua Telescope lsp_references', { noremap = true, silent = false })
 
 -- Neotree Keyboard Shortcuts
 vim.api.nvim_set_keymap('n', '<Leader>f', ':Neotree toggle<CR>', { noremap = true, silent = true })

@@ -20,7 +20,7 @@ vim.opt.number = true
 -- Uses host OS clipboard
 vim.opt.clipboard = 'unnamedplus'
 
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 --- MISC ---
 -- Rempaps leader to semicolon
