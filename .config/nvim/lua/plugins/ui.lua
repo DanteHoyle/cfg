@@ -12,11 +12,34 @@ return {
             vim.cmd [[colorscheme onedark]]
         end,
     },
+    -- Tmux Navigator
+    {
+        "christoomey/vim-tmux-navigator",
+        cmd = {
+            "TmuxNavigateLeft",
+            "TmuxNavigateDown",
+            "TmuxNavigateUp",
+            "TmuxNavigateRight",
+            "TmuxNavigatePrevious",
+        },
+        keys = {
+            { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+            { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+            { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+            { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+            { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+        },
+    },
     -- Vim Telescope
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.8',
         dependencies = { 'nvim-lua/plenary.nvim' },
+        keys = {
+            { '<Leader><Leader>', '<cmd>Telescope<CR>' },
+            { '<C-b>', '<cmd>Telescope buffers<CR>' },
+            { '<C-p>', '<cmd>Telescope find_files<CR>' },
+        }
     },
     -- Lualine
     {
@@ -35,7 +58,21 @@ return {
             'MunifTanjim/nui.nvim',
             -- '3rd/image.nvim', -- Optional image support in preview window: See `# Preview Mode` for more information
         },
+        keys = {
+            { '<Leader>f', ':Neotree toggle<CR>' },
+        },
         opts = {
+            enable_diagnostics = true,
+            sources = {
+                'filesystem',
+                'buffers',
+                'git_status',
+                'document_symbols',
+            },
+            source_selector = {
+                winbar = true,
+                statusline = true,
+            },
             filesystem = {
                 hijack_netrw_behavior = 'open_current',
                 filtered_items = {
@@ -58,7 +95,7 @@ return {
         dependencies = { "echasnovski/mini.icons" },
         event = "VeryLazy",
         opts = {
-            preset = "modern"
+            preset = "helix"
         },
         keys = {
             {
