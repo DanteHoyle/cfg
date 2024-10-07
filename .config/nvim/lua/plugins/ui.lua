@@ -15,6 +15,7 @@ return {
     -- Tmux Navigator
     {
         "christoomey/vim-tmux-navigator",
+        lazy=false,
         cmd = {
             "TmuxNavigateLeft",
             "TmuxNavigateDown",
@@ -37,13 +38,16 @@ return {
         dependencies = { 'nvim-lua/plenary.nvim' },
         keys = {
             { '<Leader><Leader>', '<cmd>Telescope<CR>' },
-            { '<C-b>', '<cmd>Telescope buffers<CR>' },
+            -- { '<C-B>', '<cmd>Telescope buffers<CR>' },
             { '<C-p>', '<cmd>Telescope find_files<CR>' },
+            { '<Leader>s', '<cmd>Telescope lsp_document_symbols<CR>' },
+            { '<Leader>S', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>' }
         }
     },
     -- Lualine
     {
         'nvim-lualine/lualine.nvim',
+        lazy=false,
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         theme = "onedark",
         opts = {},
@@ -51,6 +55,7 @@ return {
     -- Neotree
     {
         'nvim-neo-tree/neo-tree.nvim',
+        lazy=false,
         branch = 'v3.x',
         dependencies = {
             'nvim-lua/plenary.nvim',
@@ -59,7 +64,7 @@ return {
             -- '3rd/image.nvim', -- Optional image support in preview window: See `# Preview Mode` for more information
         },
         keys = {
-            { '<Leader>f', ':Neotree toggle<CR>' },
+            { '<Leader>f', '<cmd>Neotree toggle<CR>' },
         },
         opts = {
             enable_diagnostics = true,
@@ -92,6 +97,7 @@ return {
     -- Which-Key
     {
         "folke/which-key.nvim",
+        lazy=false,
         dependencies = { "echasnovski/mini.icons" },
         event = "VeryLazy",
         opts = {

@@ -8,11 +8,14 @@ return {
     {
         'neovim/nvim-lspconfig',
 
+        lazy = false,
+
         keys = {
-            { '<Leader>d', ':split | lua vim.lsp.buf.definition()<CR>' },
-            { '<Leader>n' , 'lua vim.diagnostic.goto_next()<CR>' },
-            { '<Leader>p' , 'lua vim.diagnostic.goto_prev()<CR>' },
-            { '<Leader>y' , 'lua vim.lsp.buf.rename()<CR>' },
+            { '<Leader>d', '<cmd>split | lua vim.lsp.buf.definition()<CR>' },
+            { '<Leader>n', '<cmd>lua vim.diagnostic.goto_next()<CR>' },
+            { '<Leader>p', '<cmd>lua vim.diagnostic.goto_prev()<CR>' },
+            { '<Leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>' },
+            { '<Leader>R', '<cmd>lua vim.lsp.buf.rename()<CR>' },
         },
 
         config = function()
