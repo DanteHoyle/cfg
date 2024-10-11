@@ -2,98 +2,45 @@
 -- This contains Language Server Configuration
 
 return {
-    'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
 
-    {
-        'neovim/nvim-lspconfig',
+    'neovim/nvim-lspconfig', lazy = false,
+    dependencies = { 'williamboman/mason.nvim' },
 
-        lazy = false,
+    config = function()
+        require('mason').setup()
+        -- require('mason-lspconfig').setup()
+        vim.diagnostic.config({
+            signs=false
+        })
 
-        keys = {
-            { '<Leader>d', '<cmd>split | lua vim.lsp.buf.definition()<CR>' },
-            { '<Leader>n', '<cmd>lua vim.diagnostic.goto_next()<CR>' },
-            { '<Leader>p', '<cmd>lua vim.diagnostic.goto_prev()<CR>' },
-            { '<Leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>' },
-            { '<Leader>R', '<cmd>lua vim.lsp.buf.rename()<CR>' },
-        },
+        local lspconfig = require('lspconfig')
+        local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-        config = function()
-            require('mason').setup()
-            require('mason-lspconfig').setup {
-                ensure_installed = { 'lua_ls', 'ts_ls', 'pyright', 'bashls' }
-
-            }
-            require('mason-lspconfig').setup_handlers {
-                -- Default Handler for Language Servers installed by LSP
-                function (server_name)
-                    local capabilities = require('cmp_nvim_lsp').default_capabilities()
-                    require("lspconfig")[server_name].setup {
-                        capabilities = capabilities
+        lspconfig.lua_ls.setup {
+            capabilities = capabilities,
+            settings = {
+                Lua = {
+                    workspace = {
+                        checkThirdParty = false,
+                        library = { vim.env.VIMRUNTIME }
                     }
-                end,
-
-                -- Other Handlers
-                ['lua_ls'] = function()
-                    local lspconfig = require('lspconfig')
-                    lspconfig.lua_ls.setup {
-                        settings = {
-                            Lua = {
-                                workspace = {
-                                    checkThirdParty = false,
-                                    library = { vim.env.VIMRUNTIME }
-                                }
-                            },
-                        },
-                    }
-                end,
-
-                ['pyright'] = function()
-                    local capabilities = require('cmp_nvim_lsp').default_capabilities()
-                    local lspconfig = require('lspconfig')
-                    lspconfig.pyright.setup {
-                        capabilities = capabilities,
-                        settings = {
-                            python = {
-                                venvPath =  ".",
-                                venv = ".venv",
-                                analysis = {
-                                    typeCheckingMode = "off",
-                                },
-                            },
-                        },
-                    }
-                end,
-            }
-        end,
-    },
-    -- Treesitter
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        opts = {
-            auto_install = true,
-            ensure_installed = {
-                "c", "lua", "vim", "vimdoc", "query", "python", "bash", "html",
-                "markdown", "markdown_inline", "javascript", "typescript"
+                },
             },
-
-            highlight = { enable = true },
-            indent = { enable = true },
-            incremental_selection = {
-                enable = true,
+        }
+        lspconfig.ruff.setup {
+            capabilities = capabilities,
+        }
+        lspconfig.basedpyright.setup {
+            capabilities = capabilities,
+            settings = {
+                basedpyright = {
+                    disableOrganizeImports = true,
+                    typeCheckingMode = 'none',
+                    analysis = {
+                        ignore = { '*' }
+                    }
+                }
             }
-        },
-        config = function(_, opts)
-            require("nvim-treesitter.configs").setup(opts)
-            autofold = { "python", "lua" }
-            vim.api.nvim_create_autocmd("FileType", {
-                pattern = "python",
-                callback = function()
-                    vim.wo.foldmethod = 'expr'
-                    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-                end,
-            })
-        end,
-    },
+        }
+    end,
 }

@@ -11,7 +11,7 @@ vim.opt.expandtab = true
 vim.opt.listchars = 'tab:>-,trail:~,nbsp:␣'
 vim.opt.list = true
 
-vim.opt.signcolumn = 'yes:1'
+-- vim.opt.signcolumn = 'yes:1'
 
 -- Relative Line Numbering
 vim.opt.number = true
@@ -21,6 +21,12 @@ vim.opt.number = true
 vim.opt.clipboard = 'unnamedplus'
 
 vim.opt.wrap = true
+vim.opt.breakindent = true
+vim.opt.showbreak = string.rep(' ', 3)
+vim.opt.linebreak = true
+
+-- Keeps buffers open without making changes to file
+vim.opt.hidden = true
 
 --- MISC ---
 -- Rempaps leader to semicolon

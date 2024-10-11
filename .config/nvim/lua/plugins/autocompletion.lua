@@ -13,12 +13,9 @@ return {
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
             "hrsh7th/nvim-cmp",
-
             "hrsh7th/cmp-vsnip",
             "hrsh7th/vim-vsnip",
         },
-
-        lazy = false,
 
         config = function()
             -- helper functions for Super Tab behavior
@@ -40,7 +37,6 @@ return {
                         --vim.snippet.expand(args.body)
                     end,
                 },
-
                 mapping = cmp.mapping.preset.insert({
                     ["<C-e>"] = cmp.mapping.abort(),
                     ["<Enter>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
@@ -68,17 +64,13 @@ return {
                         end
                     end, { "i", "s" }),
                 }),
-
-                sources = cmp.config.sources(
-                    {
+                sources = cmp.config.sources({
                         { name = "nvim_lsp" },
-                        { name = "vsnip" },
                         { name = "nvim_lsp_signature_help" },
-                    },
-                    {
+                        { name = "vsnip" },
+                    }, {
                         { name = "buffer" },
                         { name = "nvim-lua" },
-                        --{ name = "neorg" },
                         { name = "path" },
                     }
                 ),
@@ -86,9 +78,10 @@ return {
             -- `/` cmdline setup.
             cmp.setup.cmdline('/', {
                 mapping = cmp.mapping.preset.cmdline(),
-                sources = {
-                    { name = 'buffer' }
-                }
+                sources = cmp.config.sources(
+                { { name = 'nvim_lsp_document_symbol' } },
+                { { name = 'buffer' } }
+                )
             })
 
             -- `:` cmdline setup.
@@ -96,7 +89,6 @@ return {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = cmp.config.sources({
                     { name = 'path' },
-                    { name = 'nvim_lsp_document_symbol' }
                 },
                 {
                     { name = 'cmdline' }
@@ -104,26 +96,5 @@ return {
                 matching = { disallow_symbol_nonprefix_matching = false }
             })
         end,
-
-    },
-    -- Autopairs
-    {
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-        dependencies = { "hrsh7th/nvim-cmp" },
-        config = function()
-            require("nvim-autopairs").setup {
-               check_ts = true,
-               --fast_wrap = {},
-            }
-            local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-            local cmp = require("cmp")
-            cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-        end,
-    },
-    -- Rainbow Delimiters
-    {
-        "HiPhish/rainbow-delimiters.nvim"
     },
 }
-
