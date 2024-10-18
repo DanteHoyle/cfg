@@ -1,20 +1,16 @@
 # File: .zshrc
 
-# enables colors
+# PROMPT SETTINGS
 autoload -U colors && colors
-
-# custom prompt
-PROMPT="%{$fg[red]%}[%{$fg[magenta]%}%(?..%B(%?%) %b)%B%{$fg[green]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-
-# main alias file
-source "$HOME/.config/zsh/aliases.zsh"
+PROMPT="%(?..%B(%?%)%b)%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$reset_color$fg[red]%}]%{$reset_color%}$%b "
 
 # use traditional shell keybinds for the most part
 bindkey -e
 
+source "$HOME/.config/zsh/aliases.zsh"
 # source secondary alias file not synced with git repo
-if [ -e ./aliases2.zsh ]; then
-    source ./aliases2.zsh
+if [ -e "$HOME/.config/zsh/aliases2.zsh" ]; then
+    source "$HOME/.config/zsh/aliases2.zsh"
 fi
 
 # history settings
@@ -46,4 +42,10 @@ fi
 # load the syntax highlighting plugin if it's installed
 if [ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# Fish style autosuggestions
+if [ -e /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
+    ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 fi
