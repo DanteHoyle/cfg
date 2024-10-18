@@ -1,3 +1,5 @@
+-- File: telescope.lua
+
 return {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.8',
@@ -5,13 +7,11 @@ return {
     config = function()
         -- Telescope
         local telescope = require('telescope.builtin')
-        vim.keymap.set('n', '<Leader><Leader>', function() telescope.builtin() end)
-        vim.keymap.set('n', '<C-p>', function() telescope.find_files() end)
-        vim.keymap.set('n', '<C-f>', function() telescope.current_buffer_fuzzy_find() end)
-        vim.keymap.set('n', '<C-k>', function() telescope.live_grep() end)
-        vim.keymap.set('n', '<Leader>d', function() telescope.lsp_definitions() end)
-        vim.keymap.set('n', '<Leader>vh', function() telescope.help_tags({jump_type='tab'}) end)
-        vim.keymap.set('n', '<Leader>s', function() telescope.git_status() end)
-        vim.keymap.set('n', '<Leader>b', function() telescope.buffers() end)
+        vim.keymap.set('n', '<leader><Leader>', function() require('telescope.builtin').builtin() end, { desc = 'Telescope' })
+        vim.keymap.set('n', '<C-p>', function() require('telescope.builtin').find_files() end, { desc = 'Telescope: Find Files' })
+        vim.keymap.set('n', '<leader>d', function() require('telescope.builtin').lsp_definitions() end, { desc = 'Telescope: Git [S]tatus' })
+        vim.keymap.set('n', '<leader>h', function() require('telescope.builtin').help_tags({jump_type='tab'}) end, { desc = 'Telescope: Vim [H]elp' })
+        vim.keymap.set('n', '<leader>s', function() require('telescope.builtin').git_status() end, { desc = 'Telescope: Git [S]tatus' })
+        vim.keymap.set('n', '<leader>b', function() require('telescope.builtin').buffers() end, { desc = 'Telescope: Open [B]uffers' } )
     end
 }

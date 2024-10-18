@@ -1,46 +1,59 @@
 -- File: lsp.lua
--- This contains Language Server Configuration
 
 return {
-
-    'neovim/nvim-lspconfig', lazy = false,
-    dependencies = { 'williamboman/mason.nvim' },
-
-    config = function()
-        require('mason').setup()
-        -- require('mason-lspconfig').setup()
-        vim.diagnostic.config({
-            signs=false
-        })
-
-        local lspconfig = require('lspconfig')
-        local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-        lspconfig.lua_ls.setup {
-            capabilities = capabilities,
-            settings = {
-                Lua = {
-                    workspace = {
-                        checkThirdParty = false,
-                        library = { vim.env.VIMRUNTIME }
-                    }
-                },
+    {
+        'folke/lazydev.nvim',
+        ft = 'lua',
+        opts = {
+            library = {
+                -- Load luvit types when the `vim.uv` word is found
+                { path = 'luvit-meta/library', words = { 'vim%.uv' } },
             },
-        }
-        lspconfig.ruff.setup {
-            capabilities = capabilities,
-        }
-        lspconfig.basedpyright.setup {
-            capabilities = capabilities,
-            settings = {
-                basedpyright = {
-                    disableOrganizeImports = true,
-                    typeCheckingMode = 'none',
-                    analysis = {
-                        ignore = { '*' }
+        },
+    },
+    { 'Bilal2453/luvit-meta', lazy = true },
+    { -- LSP Config
+        'neovim/nvim-lspconfig',
+        dependencies = {
+            { 'williamboman/mason.nvim', config=true },
+            'williamboman/mason-lspconfig.nvim',
+            { "j-hui/fidget.nvim", opts = {} },
+            -- Allows extra capabilitess provided by nvim-cmp
+            "hrsh7th/cmp-nvim-lsp",
+        },
+
+        config = function()
+            require('mason').setup()
+            require("mason-lspconfig").setup {
+                ensure_installed = { 'lua_ls', 'pyright' },
+            }
+
+            local lspconfig = require('lspconfig')
+            local capabilities = vim.lsp.protocol.make_client_capabilities()
+            capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+
+            lspconfig.lua_ls.setup {
+                capabilities = capabilities,
+                settings = {
+                    Lua = {
+                        completion = {
+                            callSnippet = 'Replace',
+                        },
+                        diagnostics = { disable = { 'missing-fields' } },
+                    },
+                }
+            }
+
+            lspconfig.pyright.setup {
+                capabilities = capabilities,
+                settings = {
+                    python = {
+                        analysis = {
+                            typeCheckingMode = 'none'
+                        }
                     }
                 }
             }
-        }
-    end,
+        end,
+    },
 }
