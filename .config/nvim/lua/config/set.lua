@@ -4,7 +4,6 @@ vim.g.maplocalleader = ';'
 
 -- Enable Line Numbers
 vim.opt.nu = true
-vim.opt.relativenumber = true
 
 -- Enable Mouse Mode
 vim.opt.mouse = 'a'
@@ -17,8 +16,6 @@ vim.schedule(function()
     vim.opt.clipboard = 'unnamedplus'
 end)
 
--- Wrapped lines continue with an indent matching the parent
-vim.opt.breakindent = true
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -27,7 +24,9 @@ vim.opt.expandtab = true
 
 vim.opt.smartindent = true
 
-vim.opt.wrap = true
+-- Wrapping
+-- vim.opt.wrap = true
+vim.opt.breakindent = true
 
 -- Always shows 8 lines above or below cursor
 vim.opt.scrolloff = 8
@@ -46,10 +45,10 @@ vim.opt.undofile = true
 -- Always show sign column to prevent text shifting horizontally
 vim.opt.signcolumn = 'yes'
 
-vim.opt.colorcolumn = '80'
+-- vim.opt.colorcolumn = '80'
 
 vim.opt.cursorline = true
-vim.opt.cursorlineopt = 'number'
+-- vim.opt.cursorlineopt = 'number'
 
 -- Hide cmd line unless entering a command
 vim.opt.cmdheight = 0

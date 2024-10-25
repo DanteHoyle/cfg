@@ -10,6 +10,4 @@ return {
             vim.cmd [[colorscheme onedark]]
         end,
     },
-    -- Give parenthesis and brackets colors based on depth
-    { "HiPhish/rainbow-delimiters.nvim" },
 }

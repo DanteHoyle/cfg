@@ -47,9 +47,16 @@ return {
             lspconfig.pyright.setup {
                 capabilities = capabilities,
                 settings = {
+                    pyright = {
+                        disableAutoImports = true,
+                        disableTaggedHints = true,
+                    },
                     python = {
                         analysis = {
-                            typeCheckingMode = 'none'
+                            diagnosticSeverityOverrides = {
+                                reportInvalidStringEscapeSequence = false,
+                            }
+
                         }
                     }
                 }

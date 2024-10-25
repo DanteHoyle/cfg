@@ -17,13 +17,11 @@ autocmd('TextYankPost', {
     end,
 })
 
-autocmd('LspAttach', {
-    desc = 'Load LSP shortcuts',
-    group = LocalAutoGroup,
-    callback = function()
-        vim.keymap.set('n', '<Leader>r', function() vim.lsp.buf.rename() end, { desc = 'LSP Rename' } )
-        vim.keymap.set('n', '<M-CR>', function() vim.lsp.buf.code_action() end, { desc = 'LSP Code Action' } )
-    end,
-})
+-- autocmd('LspAttach', {
+--     desc = 'Load LSP shortcuts',
+--     group = LocalAutoGroup,
+--     callback = function()
+--     end,
+-- })
 
 require('config.lazy')

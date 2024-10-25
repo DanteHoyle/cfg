@@ -8,6 +8,10 @@ return {
         event = 'VimEnter',
         dependencies = { "echasnovski/mini.icons" },
         opts = { preset = "modern" },
+        keys = {
+            { "<leader>?", function() require("which-key").show({ global = true }) end, desc = "Global Local Keymaps (which-key)", },
+            { "<localleader>?", function() require("which-key").show({ global = false }) end, desc = "Buffer Local Keymaps (which-key)", },
+        },
     },
     {
         -- Unified shortcut for moving between tmux and nvim
@@ -26,12 +30,6 @@ return {
             { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
             { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
         },
-    },
-    { -- Fancy replacement for the modeline
-        'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
-        theme = "onedark",
-        config = true
     },
     {
         "mbbill/undotree",
