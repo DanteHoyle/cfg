@@ -9,8 +9,8 @@ bindkey -e
 
 source "$HOME/.config/zsh/aliases.zsh"
 # source secondary alias file not synced with git repo
-if [ -e "$HOME/.config/zsh/aliases2.zsh" ]; then
-    source "$HOME/.config/zsh/aliases2.zsh"
+if [ -e "$HOME/.aliases.zsh" ]; then
+    source "$HOME/.aliases.zsh"
 fi
 
 # history settings
