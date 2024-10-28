@@ -49,3 +49,15 @@ if [ -e /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
     ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 fi
+
+# fg-bg toggle via c-z
+function fg-bg {
+    if [[ $#BUFFER -eq 0 ]]; then
+        BUFFER=fg
+        zle accept-line
+    else
+        zle push-input
+    fi
+}
+zle -N fg-bg
+bindkey '^z' f
