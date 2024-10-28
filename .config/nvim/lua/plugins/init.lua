@@ -3,6 +3,15 @@
 return {
     -- Automatically configures shiftwidth and Expandtab
     -- { 'tpope/vim-sleuth' },
+    {
+        {
+            'windwp/nvim-autopairs',
+            event = "InsertEnter",
+            config = true
+            -- use opts = {} for passing setup options
+            -- this is equivalent to setup({}) function
+        }
+    },
     { -- Which-Key shows shortcuts on screen contextually
         "folke/which-key.nvim",
         event = 'VimEnter',

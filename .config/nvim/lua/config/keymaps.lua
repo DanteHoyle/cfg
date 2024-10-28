@@ -30,3 +30,11 @@ vim.keymap.set('n', '<M-CR>', function() vim.lsp.buf.code_action() end, { desc =
 vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, { desc = 'Next diagnostic' } )
 vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end, { desc = 'Previous diagnostic' } )
 
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'python',
+    callback = function()
+        vim.keymap.set('n', '<F5>', function()
+            vim.cmd[[vsplit | term python3 %]]
+        end)
+    end,
+})

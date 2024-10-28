@@ -8,8 +8,11 @@ return {
     },
 
     config = function()
-        require('neo-tree').setup {}
+        require('neo-tree').setup {
+            window = {
+                position = 'float',
+            }
+        }
         vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle float<CR>', { desc = 'Explore' })
-
     end
 }
