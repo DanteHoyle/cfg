@@ -16,7 +16,6 @@ vim.schedule(function()
     vim.opt.clipboard = 'unnamedplus'
 end)
 
-
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4

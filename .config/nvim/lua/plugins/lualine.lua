@@ -3,7 +3,7 @@ return { -- Fancy replacement for the modeline
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {
         options = {
-            globalstatus = true,
+            globalstatus = false,
         },
     },
 }

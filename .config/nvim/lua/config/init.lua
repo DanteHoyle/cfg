@@ -1,8 +1,8 @@
 require('config.set')
 require('config.keymaps')
+require('functions')
 
 local augroup = vim.api.nvim_create_augroup
-local LocalAutoGroup = augroup('LocalAutoGroup', {})
 
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
@@ -16,12 +16,5 @@ autocmd('TextYankPost', {
         vim.highlight.on_yank()
     end,
 })
-
--- autocmd('LspAttach', {
---     desc = 'Load LSP shortcuts',
---     group = LocalAutoGroup,
---     callback = function()
---     end,
--- })
 
 require('config.lazy')

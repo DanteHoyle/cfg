@@ -1,57 +1,49 @@
 -- File: trouble.lua
 return {
     'folke/trouble.nvim',
-    opts = {
-        modes = {
-            symbols = {
-                win = {
-                    type = 'split',
-                    relative = 'win',
-                    position = 'top',
-                    size = 0.5, -- percent
-                }
-            },
-
-            lsp = {
-                type = 'split',
-                relative = 'win',
-                position = 'right',
-                size = 0.3, -- percent
-            },
-
-            preview_float = {
-                mode = 'diagnostics',
-                preview = {
-                    type = "float",
-                    relative = "editor",
-                    border = "rounded",
-                    title = "Preview",
-                    title_pos = "center",
-                    position = { 0, -2 },
-                    size = { width = 0.3, height = 0.3 },
-                    zindex = 200,
-                }
-
-            },
-        }
-    },
-    lazy = false,
-    cmd = 'Trouble',
+    lazy = 'LspEnter',
     keys = {
         {
             '<leader>tt',
-            '<cmd>Trouble diagnostics toggle follow=true<cr>',
+            '<cmd>Trouble diagnostics toggle focus = true follow=true<cr>',
             desc='Diagnostics (Trouble)'
         },
         {
             '<leader>ts',
-            '<cmd>Trouble symbols toggle focus=true<cr>',
+            '<cmd>Trouble symbols toggle<cr>',
             desc='Symbols (Trouble)'
         },
         {
             '<leader>tl',
-            '<cmd>Trouble lsp toggle focus=true<cr>',
+            -- '<cmd>Trouble lsp win = {type=float, relative=editor, position=right, size={width=0.3, height=0.3}, title=LSP, title_pos=center}<CR>',
+            '<cmd>Trouble mylsp<CR>',
             desc='LSP (Trouble)'
         },
-    }
+    },
+    opts = {
+        warn_no_results = false,
+        -- open_no_results = true,
+        keys = {
+            ['<CR>'] = 'jump_close',
+        },
+        modes = {
+            mylsp = {
+                mode = 'lsp',
+                auto_close = true,
+                focus = true,
+                win = {
+                    -- type = 'float',
+                    type = 'split',
+                    relative = 'editor',
+                    border = 'rounded',
+                    title = 'LSP',
+                    title_pos = 'center',
+                    position = 'left',
+                    -- position = { 0, 0.5 },
+                    size = 0.35,
+                    -- zindex = 200,
+                },
+            },
+        },
+    },
 }

@@ -11,28 +11,31 @@ return {
             },
         },
     },
-    { 'Bilal2453/luvit-meta', lazy = true },
+    { 'Bilal2453/luvit-meta' },
     { -- LSP Config
         'neovim/nvim-lspconfig',
         dependencies = {
             { 'williamboman/mason.nvim', config=true },
             'williamboman/mason-lspconfig.nvim',
-            { "j-hui/fidget.nvim", opts = {} },
-            -- Allows extra capabilitess provided by nvim-cmp
-            "hrsh7th/cmp-nvim-lsp",
+            { 'j-hui/fidget.nvim', opts = {} },
+            'mfussenegger/nvim-lint',
+            -- 'rshkarin/mason-nvim-lint',
         },
 
         config = function()
             require('mason').setup()
-            require("mason-lspconfig").setup {
+            require('mason-lspconfig').setup {
                 ensure_installed = { 'lua_ls', 'pyright' },
             }
 
-            local lspconfig = require('lspconfig')
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+            capabilities.textDocument.foldingRange = {
+                dynamicRegistration = false,
+                lineFoldingOnly = true
+            }
 
-            lspconfig.lua_ls.setup {
+            require('lspconfig').lua_ls.setup {
                 capabilities = capabilities,
                 settings = {
                     Lua = {
@@ -41,26 +44,46 @@ return {
                         },
                         diagnostics = { disable = { 'missing-fields' } },
                     },
-                }
+                },
             }
 
-            lspconfig.pyright.setup {
+            require('lspconfig').ruff.setup({
+                capabilities = capabilities
+                -- init_options = {
+                --     settings = {
+                --     }
+                -- }
+            })
+
+            require('lspconfig').pyright.setup {
                 capabilities = capabilities,
                 settings = {
                     pyright = {
-                        disableAutoImports = true,
-                        disableTaggedHints = true,
+                        -- disableTaggedHints = true,
+                        disableOrganizeImports = true,
                     },
                     python = {
                         analysis = {
-                            diagnosticSeverityOverrides = {
-                                reportInvalidStringEscapeSequence = false,
-                            }
-
-                        }
-                    }
-                }
+                            ignore = { '*' },
+                        },
+                    },
+                },
             }
+
+            vim.api.nvim_create_autocmd("LspAttach", {
+                group = vim.api.nvim_create_augroup('lsp_attach_disable_ruff_hover', { clear = true }),
+                callback = function(args)
+                    local client = vim.lsp.get_client_by_id(args.data.client_id)
+                    if client == nil then
+                        return
+                    end
+                    if client.name == 'ruff' then
+                        -- Disable hover in favor of Pyright
+                        client.server_capabilities.hoverProvider = false
+                    end
+                end,
+                desc = 'LSP: Disable hover capability from Ruff',
+            })
         end,
     },
 }
