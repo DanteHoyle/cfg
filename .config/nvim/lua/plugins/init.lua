@@ -6,9 +6,15 @@ return {
         event = "InsertEnter",
         config = true
     },
+    {
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        opts = {}
+    },
     { -- Which-Key shows shortcuts on screen contextually
         'folke/which-key.nvim',
-        lazy = false,
+        event = 'VeryLazy',
         dependencies = { 'echasnovski/mini.icons' },
         opts = { preset = 'modern' },
         keys = {

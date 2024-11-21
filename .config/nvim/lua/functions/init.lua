@@ -3,3 +3,5 @@ vim.api.nvim_create_user_command(
     'vert new | set buftype=nofile | read ++edit # | 0d_ | diffthis | wincmd p | diffthis',
     {}
 )
+
+require('functions.jira')

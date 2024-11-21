@@ -8,8 +8,10 @@ return {
     config = function()
         require('nvim-treesitter.configs').setup({
             auto_install = true,
-            ensure_installed = { 'c', 'lua', 'vim', 'vimdoc', 'query', 'python' },
-            highlight = { enable = true },
+            ensure_installed = { 'c', 'lua', 'vim', 'vimdoc', 'query', 'python', 'org' },
+            highlight = {
+                enable = true,
+            },
             indent = { enable = true },
         })
     end,
