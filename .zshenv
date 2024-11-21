@@ -22,5 +22,3 @@ if [ -z WSL_DISTRO_NAME ]; then
 else 
     WSL_LIGHT_THEME=$(powershell.exe -Command "Get-ItemPropertyValue -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme")
 fi
-
-

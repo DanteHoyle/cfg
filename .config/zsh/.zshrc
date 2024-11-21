@@ -1,8 +1,16 @@
 # File: .zshrc
 
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+zstyle ':vcs_info:git:*' formats '(%b)'
+
 # PROMPT SETTINGS
 autoload -U colors && colors
-PROMPT="%(?..%B(%?%)%b)%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$reset_color$fg[red]%}]%{$reset_color%}$%b "
+PROMPT='%{$fg[red]%}%(?..%B(%?%)%b)%B%{$fg[green]%}${vcs_info_msg_0_}%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$reset_color$fg[red]%}]%{$reset_color%}%b$ '
+
+export PATH="$HOME/.local/bin:$PATH"
 
 # use traditional shell keybinds for the most part
 bindkey -e
@@ -49,15 +57,3 @@ if [ -e /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
     ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 fi
-
-# fg-bg toggle via c-z
-function fg-bg {
-    if [[ $#BUFFER -eq 0 ]]; then
-        BUFFER=fg
-        zle accept-line
-    else
-        zle push-input
-    fi
-}
-zle -N fg-bg
-bindkey '^z' f

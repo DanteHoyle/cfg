@@ -8,3 +8,5 @@ alias tmk="tmux kill-server"
 alias fd="fdfind"
 alias vim="nvim"
 alias mux="tmuxinator"
+
+alias vimdiff='nvim -d'
