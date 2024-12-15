@@ -4,7 +4,7 @@
 
 INSTALL_ROOT=/opt           # nvim-linux64 binary folder
 SYMLINK_ROOT=/usr/local/bin # location in your path so you can run nvim anywhere
-URL="https://github.com/neovim/neovim/releases/download/v0.10.1/nvim-linux64.tar.gz"
+URL="https://github.com/neovim/neovim/releases/download/v0.10.2/nvim-linux64.tar.gz"
 
 # checks if curl is installed
 if ! command -v curl >/dev/null; then

@@ -2,23 +2,23 @@
 
 return {
     {
-        'nvim-telescope/telescope.nvim',
+        'nvim-telescope/telescope.nvim', tag='0.1.8',
         dependencies = {
             'nvim-lua/plenary.nvim',
             'nvim-tree/nvim-web-devicons',
             'nvim-telescope/telescope-fzf-native.nvim',
         },
-        opts = {},
-        keys = {
-            { '<leader><leader>', require('telescope.builtin').builtin, desc = 'Telescope Buitin (Telescope)' },
-            { '<leader>ff', require('telescope.builtin').find_files, desc = 'Find Files (Telescope)' },
-            { '<leader>d', require('telescope.builtin').lsp_definitions, desc = 'LSP Definitions (Telescope)' },
-            { '<leader>vh', require('telescope.builtin').help_tags, desc = 'Vim Help (Telescope)' },
-            { '<leader>s', require('telescope.builtin').git_status, desc = 'Git Status (Telescope)' },
-            { '<leader>b', require('telescope.builtin').buffers, desc = 'Buffers (Telescope)' },
-            { '<leader>D', require('telescope.builtin').lsp_type_definitions, desc = 'LSP Type Definitions (Telescope)' },
-            { '<leader>g', require('telescope.builtin').live_grep, desc = 'Live Grep Search (Telescope)' },
-        },
+        lazy = false,
+        config = function()
+            vim.keymap.set('n', '<leader><leader>', require('telescope.builtin').builtin, { desc = 'Telescope Buitin (Telescope)' } )
+            vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Find Files (Telescope)' } )
+            vim.keymap.set('n', '<leader>d', require('telescope.builtin').lsp_definitions, {desc = 'LSP Definitions (Telescope)'} )
+            vim.keymap.set('n', '<leader>vh', require('telescope.builtin').help_tags, {desc = 'Vim Help (Telescope)'})
+            vim.keymap.set('n', '<leader>s', require('telescope.builtin').git_status, {desc = 'Git Status (Telescope)'} )
+            vim.keymap.set('n', '<leader>b', require('telescope.builtin').buffers, {desc = 'Buffers (Telescope)'} )
+            vim.keymap.set('n', '<leader>D', require('telescope.builtin').lsp_type_definitions, {desc = 'LSP Type Definitions (Telescope)'} )
+            vim.keymap.set('n', '<leader>g', require('telescope.builtin').live_grep, {desc = 'Live Grep Search (Telescope)'})
+        end,
     },
     {
         'debugloop/telescope-undo.nvim',
