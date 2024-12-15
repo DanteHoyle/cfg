@@ -4,6 +4,11 @@ This is a collection of personal dotfiles for a set of Linux programs I frequent
 
 ## Setting up cfg on a new host 
 
+### Prerequisites
+- neovim
+- zsh
+- unzip (For the Neovim Plugin Mason)
+
 ### Manual Installation
 1. Clone the repository to `~/.cfg`
     ```sh
