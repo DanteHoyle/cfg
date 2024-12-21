@@ -1,39 +1,49 @@
-# File: .zshrc
-
-autoload -Uz vcs_info
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
-setopt prompt_subst
-zstyle ':vcs_info:git:*' formats '(%b)'
+autoload -U colors && colors
 
 # PROMPT SETTINGS
-autoload -U colors && colors
-PROMPT='%{$fg[red]%}%(?..%B(%?%)%b)%B%{$fg[green]%}${vcs_info_msg_0_}%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$reset_color$fg[red]%}]%{$reset_color%}%b$ '
+git_prompt() {
+    local branch="$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3-)"
+    local branch_truncated="${branch:0:30}"
+    if (( ${#branch} > ${#branch_truncated} )); then
+        branch="${branch_truncated}..."
+    fi
 
-export PATH="$HOME/.local/bin:$PATH"
+    [ -n "${branch}" ] && echo " (${branch})"
+}
+setopt PROMPT_SUBST
+PROMPT='%B%{$fg[green]%}%n@%{$fg[green]%}%M %{$fg[blue]%}%~%{$fg[yellow]%}$(git_prompt)%{$reset_color%} %(?.$.%{$fg[red]%}$)%b '
 
-# use traditional shell keybinds for the most part
-bindkey -e
-
-source "$HOME/.config/zsh/aliases.zsh"
-# source secondary alias file not synced with git repo
-if [ -e "$HOME/.aliases.zsh" ]; then
-    source "$HOME/.aliases.zsh"
-fi
-
-# history settings
-HISTSIZE=100000
-SAVEHIST=100000
-HISTFILE="$HOME/.cache/zsh/zshhistory"
-setopt INC_APPEND_HISTORY_TIME
+# HISTORY
+export HISTSIZE=100000
+export SAVEHIST=100000
+export HISTFILE="$HOME/.cache/zsh/zshhistory"
+export HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:   "
+setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+
+autoload -U compinit
+compinit
+_comp_options+=(globdots)
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
 
 # edit line in vim with alt-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^[e' edit-command-line
-
-# setup autocompletions
-source "$HOME/.config/zsh/completion.zsh"
 
 # sync ssh-agent with keychain
 if command -v keychain >/dev/null; then
@@ -47,6 +57,9 @@ if command -v keychain >/dev/null; then
     . ~/.keychain/${HOST}-sh
 fi
 
+# use traditional shell keybinds for the most part
+bindkey -e
+
 # load the syntax highlighting plugin if it's installed
 if [ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -57,3 +70,6 @@ if [ -e /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
     ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 fi
+
+[ -f "${XDG_CONFIG_HOME}/zsh/.aliases" ] && . "${XDG_CONFIG_HOME}/zsh/.aliases"
+[ -f "${XDG_CONFIG_HOME}/zsh/.aliases" ] && . "${XDG_CONFIG_HOME}/zsh/.aliases.local"
