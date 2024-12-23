@@ -24,6 +24,11 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
 
+# Python pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+echo 'eval "$(pyenv init - zsh)"' >> ~/.zshrc
+
 autoload -U compinit
 compinit
 _comp_options+=(globdots)

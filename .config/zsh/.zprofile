@@ -10,7 +10,3 @@ export PATH="{$PATH}:{$HOME}/.local/bin:${HOME}/.local/bin/private"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="most"
-
-# man pager
-export MANPAGER='nvim +Man!'
-export MANWIDTH=999
