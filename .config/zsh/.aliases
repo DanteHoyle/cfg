@@ -1,14 +1,15 @@
+# Aliases for editing config files
 alias cfg="git --git-dir=$HOME/.cfg --work-tree=$HOME"
-alias cfa="${EDITOR} ${ZDOTDIR}/.aliases"
-alias cfp="${EDITOR} ${ZDOTDIR}/.profile"
-alias cfr="${EDITOR} ${ZDOTDIR}/.zshrc"
+alias cfz="${EDITOR} ${ZDOTDIR}"
 alias cfn="${EDITOR} ${HOME}/.config/nvim"
+alias cft="${EDITOR} ${HOME}/.config/tmux"
+# LS aliases
 alias ls="ls --color=auto"
 alias ll="ls --color=auto -al"
 alias llt="ls --color=auto -alt"
+# Tmux Alias
 alias tma="tmux attach || tmux"
-alias tmk="tmux kill-server"
-alias fd="fdfind"
-alias vim="nvim"
 alias mux="tmuxinator"
+# Nvim Aliases
+alias vim="nvim"
 alias vimdiff='nvim -d'
