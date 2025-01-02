@@ -47,13 +47,9 @@ return {
                 },
             }
 
-            require('lspconfig').ruff.setup({
-                capabilities = capabilities
-                -- init_options = {
-                --     settings = {
-                --     }
-                -- }
-            })
+            -- require('lspconfig').ruff.setup({
+            --     capabilities = capabilities
+            -- })
 
             require('lspconfig').pyright.setup {
                 capabilities = capabilities,
