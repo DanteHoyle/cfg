@@ -57,6 +57,8 @@ if command -v keychain >/dev/null; then
     . ~/.keychain/${HOST}-sh
 fi
 
+eval "$(register-python-argcomplete pipx)"
+
 # use traditional shell keybinds for the most part
 bindkey -e
 

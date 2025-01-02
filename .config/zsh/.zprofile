@@ -10,3 +10,6 @@ export PATH="{$PATH}:{$HOME}/.local/bin:${HOME}/.local/bin/private"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="most"
+
+# Created by `pipx` on 2024-12-26 16:36:52
+export PATH="$PATH:/home/dante/.local/bin"
