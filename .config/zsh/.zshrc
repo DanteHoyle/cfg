@@ -1,5 +1,8 @@
 autoload -U colors && colors
 
+# use traditional shell keybinds for the most part
+bindkey -e
+
 # PROMPT SETTINGS
 git_prompt() {
     local branch="$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3-)"
@@ -42,8 +45,9 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 
 # edit line in vim with alt-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^[e' edit-command-line
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
 
 # sync ssh-agent with keychain
 if command -v keychain >/dev/null; then
@@ -59,8 +63,6 @@ fi
 
 eval "$(register-python-argcomplete pipx)"
 
-# use traditional shell keybinds for the most part
-bindkey -e
 
 # load the syntax highlighting plugin if it's installed
 if [ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then

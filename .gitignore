@@ -1,6 +1,6 @@
-.vscode/
+./vscode/
 ./config/nvim/colors/*
 ./config/zsh/zsh_history
 ./config/zsh/.zcompdump
-.config/zsh/.aliases.local
-.ssh/
+./config/zsh/.aliases.local
+./ssh/
