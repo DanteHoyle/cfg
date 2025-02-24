@@ -63,7 +63,6 @@ fi
 
 eval "$(register-python-argcomplete pipx)"
 
-
 # load the syntax highlighting plugin if it's installed
 if [ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -77,3 +76,5 @@ fi
 
 [ -f "${XDG_CONFIG_HOME}/zsh/.aliases" ] && . "${XDG_CONFIG_HOME}/zsh/.aliases"
 [ -f "${XDG_CONFIG_HOME}/zsh/.aliases" ] && . "${XDG_CONFIG_HOME}/zsh/.aliases.local"
+
+. "$HOME/.local/share/../bin/env"
