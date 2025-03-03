@@ -13,12 +13,11 @@ autocmd('TextYankPost', {
     end,
 })
 
--- Org Mode
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'org',
+    pattern = 'python',
     callback = function()
-        vim.opt_local.conceallevel = 2
-        vim.opt.concealcursor = 'nc'
-        vim.opt_local.wrap = false
+        vim.keymap.set('n', '<F5>', function()
+            vim.cmd[[vsplit | term python3 %]]
+        end)
     end,
 })

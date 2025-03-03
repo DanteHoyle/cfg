@@ -7,10 +7,7 @@ return {
         config = true
     },
     {
-        "kylechui/nvim-surround",
-        version = "*", -- Use for stability; omit to use `main` branch for the latest features
-        event = "VeryLazy",
-        opts = {}
+        'tpope/vim-surround'
     },
     { -- Which-Key shows shortcuts on screen contextually
         'folke/which-key.nvim',

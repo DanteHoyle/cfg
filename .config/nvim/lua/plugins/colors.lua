@@ -1,11 +1,6 @@
 -- File: colors.lua
 
 return {
-    { -- OneDark Colorscheme
-        "navarasu/onedark.nvim",
-        name = "onedark",
-        lazy = 'VeryLazy',
-    },
     {
         "catppuccin/nvim",
         name = "catppuccin",
