@@ -8,7 +8,7 @@ return {
         config = function()
             require('mason').setup()
             require('mason-lspconfig').setup {
-                ensure_installed = { 'lua_ls', 'pyright' },
+                ensure_installed = { 'lua_ls', 'pyright', 'ts_ls' },
             }
 
             local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -27,7 +27,10 @@ return {
 
             require('lspconfig').ts_ls.setup {
                 capabilities = capabilities
+            }
 
+            require('lspconfig').lua_ls.setup {
+                capabilities = capabilities
             }
 
             -- Small helper function to map keys to telescope functions
@@ -71,5 +74,17 @@ return {
                 },
             }
         end,
-    }
+    },
+    {
+        -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+        -- used for completion, annotations and signatures of Neovim apis
+        'folke/lazydev.nvim',
+        ft = 'lua',
+        opts = {
+            library = {
+                -- Load luvit types when the `vim.uv` word is found
+                { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+            },
+        },
+    },
 }
