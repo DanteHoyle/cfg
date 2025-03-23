@@ -84,3 +84,4 @@ fi
 
 source ${XDG_CONFIG_HOME}/zsh/.aliases
 source ${XDG_CONFIG_HOME}/zsh/.aliases.local
+source ${XDG_CONFIG_HOME}/zsh/.zshrc.local
