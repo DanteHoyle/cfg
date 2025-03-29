@@ -1,7 +1,7 @@
 local augroup = vim.api.nvim_create_augroup
 
 local autocmd = vim.api.nvim_create_autocmd
-local yank_group = augroup('HighlightYank', {})
+local yank_group = augroup('MyHighlightYank', {})
 
 -- visually show highlight when yanking text
 autocmd('TextYankPost', {
@@ -13,11 +13,3 @@ autocmd('TextYankPost', {
     end,
 })
 
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'python',
-    callback = function()
-        vim.keymap.set('n', '<F5>', function()
-            vim.cmd[[vsplit | term python3 %]]
-        end)
-    end,
-})

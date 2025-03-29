@@ -16,21 +16,12 @@ vim.schedule(function()
     vim.opt.clipboard = 'unnamedplus'
 end)
 
+vim.opt.smartindent = true
+
 vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
-vim.opt.smartindent = true
-
--- Wrapping
--- vim.opt.wrap = true
-vim.opt.breakindent = true
-
--- Always shows 8 lines above or below cursor
-vim.opt.scrolloff = 8
-
-vim.opt.incsearch = true
 
 -- Keeps buffers open without making changes to file
 vim.opt.hidden = true
@@ -38,23 +29,21 @@ vim.opt.hidden = true
 -- Save undo history to a file
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv('HOME') .. '/.cache/nvim/undodir'
+vim.opt.undodir = vim.env.HOME .. '/.cache/nvim/undodir'
 vim.opt.undofile = true
 
 -- Always show sign column to prevent text shifting horizontally
 vim.opt.signcolumn = 'yes'
 
--- vim.opt.colorcolumn = '80'
-
+-- Highlights the line the cursor is on
 vim.opt.cursorline = true
--- vim.opt.cursorlineopt = 'number'
 
 -- Hide cmd line unless entering a command
 vim.opt.cmdheight = 0
 
 -- Case insensitive search by unless you put \C or one or more capital letters in the search
-vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.incsearch = true
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -71,8 +60,3 @@ vim.opt.timeoutlen = 300
 -- Display characters for white space
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-vim.opt.foldenable = true
-vim.opt.foldlevel = 99
