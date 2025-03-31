@@ -37,18 +37,18 @@ return {
             pcall(require('telescope').load_extension, 'ui-select')
 
             local builtin = require('telescope.builtin')
-            vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-            vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-            vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-            vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-            -- vim.keymap.set('n', '<leader><leader>', require('telescope.builtin').builtin, { desc = 'Telescope Buitin (Telescope)' } )
-            -- vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, { desc = 'Find Files (Telescope)' } )
-            -- vim.keymap.set('n', '<leader>d', require('telescope.builtin').lsp_definitions, {desc = 'LSP Definitions (Telescope)'} )
-            -- vim.keymap.set('n', '<leader>vh', require('telescope.builtin').help_tags, {desc = 'Vim Help (Telescope)'})
-            -- vim.keymap.set('n', '<leader>s', require('telescope.builtin').git_status, {desc = 'Git Status (Telescope)'} )
-            -- vim.keymap.set('n', '<leader>w', require('telescope.builtin').buffers, {desc = 'Buffers (Telescope)'} )
-            -- vim.keymap.set('n', '<leader>D', require('telescope.builtin').lsp_type_definitions, {desc = 'LSP Type Definitions (Telescope)'} )
-            -- vim.keymap.set('n', '<leader>g', require('telescope.builtin').live_grep, {desc = 'Live Grep Search (Telescope)'})
+
+            local map = function(keys, func, desc, mode)
+                mode = mode or 'n'
+                vim.keymap.set(mode, keys, func, { desc = 'Telescope: ' .. desc })
+            end
+
+            map('<leader>ff', builtin.find_files, '[F]ind [F]iles')
+            map('<leader>fg', builtin.live_grep, '[F]ind w/ [G]rep')
+            map('<leader>fb', builtin.buffers, '[F]ind [B]uffers')
+            map('<leader>fh', builtin.help_tags, 'Vim [H]elp [T]ags')
+            map('<leader>fd', builtin.lsp_definitions, 'LSP [D]efinitions' )
+            map('<leader>f<leader>', builtin.builtin, 'Default Menu')
         end,
     },
 }

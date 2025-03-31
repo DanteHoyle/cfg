@@ -1,5 +1,67 @@
 return {
     {
+        'hrsh7th/nvim-cmp',
+        lazy = false,
+        dependencies = {
+            { 'hrsh7th/cmp-nvim-lsp', lazy = true },
+            { 'hrsh7th/cmp-buffer', lazy = true },
+            { 'hrsh7th/cmp-nvim-lsp-signature-help', lazy = true },
+            { 'hrsh7th/cmp-path', lazy = true },
+            { 'hrsh7th/cmp-nvim-lua', lazy = true },
+            { 'hrsh7th/vim-vsnip', lazy = true },
+            { 'hrsh7th/cmp-cmdline', lazy = true },
+            { 'hrsh7th/cmp-vsnip', lazy = true },
+        },
+
+        config = function()
+            local cmp = require'cmp'
+
+            cmp.setup({
+                snippet = {
+                    expand = function(args)
+                        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+                    end,
+                },
+                window = {
+                    completion = cmp.config.window.bordered(),
+                    documentation = cmp.config.window.bordered(),
+                },
+                mapping = cmp.mapping.preset.insert({
+                    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                    ['<C-Space>'] = cmp.mapping.complete(),
+                    ['<C-e>'] = cmp.mapping.abort(),
+                    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                }),
+                sources = cmp.config.sources({
+                    { name = 'nvim_lsp' },
+                    { name = 'vsnip' }, -- For vsnip users.
+                }, {
+                    { name = 'buffer' },
+                })
+            })
+
+            -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+            cmp.setup.cmdline({ '/', '?' }, {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = {
+                    { name = 'buffer' }
+                }
+            })
+
+            -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+            cmp.setup.cmdline(':', {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = cmp.config.sources({
+                    { name = 'path' }
+                }, {
+                    { name = 'cmdline' }
+                }),
+                matching = { disallow_symbol_nonprefix_matching = false }
+            })
+        end
+    },
+    {
         'neovim/nvim-lspconfig',
         dependencies = {
             { 'williamboman/mason.nvim', config=true },
@@ -17,9 +79,6 @@ return {
                 capabilities,
                 settings = {
                     python = {
-                        analysis = {
-                            typeCheckingMode = 'off',
-                        }
                     },
                 }
             }
@@ -49,18 +108,18 @@ return {
                     map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
                     map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
                 end})
-        end,
-    },
-    {
-        -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-        -- used for completion, annotations and signatures of Neovim apis
-        'folke/lazydev.nvim',
-        ft = 'lua',
-        opts = {
-            library = {
-                -- Load luvit types when the `vim.uv` word is found
-                { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+            end,
+        },
+        {
+            -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+            -- used for completion, annotations and signatures of Neovim apis
+            'folke/lazydev.nvim',
+            ft = 'lua',
+            opts = {
+                library = {
+                    -- Load luvit types when the `vim.uv` word is found
+                    { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+                },
             },
         },
-    },
-}
+    }
