@@ -77,11 +77,15 @@ elif [ -e /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; 
     ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 fi
 
+# Create and source local (untracked) zshrc and alias files
 if [ ! -f ${XDG_CONFIG_HOME}/zsh/.aliases.local ]; then
     touch ${XDG_CONFIG_HOME}/zsh/.aliases.local
     echo "# This is a local aliases file that is not not tracked by the cfg git repository" > ${XDG_CONFIG_HOME}/zsh/.aliases.local
 fi
-
+if [ ! -f ${XDG_CONFIG_HOME}/zsh/.zshrc.local ]; then
+    touch ${XDG_CONFIG_HOME}/zsh/.zshrc.local
+    echo "# This is a local aliases file that is not not tracked by the cfg git repository" > ${XDG_CONFIG_HOME}/zsh/.zshrc.local
+fi
 source ${XDG_CONFIG_HOME}/zsh/.aliases
 source ${XDG_CONFIG_HOME}/zsh/.aliases.local
 source ${XDG_CONFIG_HOME}/zsh/.zshrc.local
