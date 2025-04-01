@@ -35,29 +35,11 @@ return {
                 }),
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp' },
-                    { name = 'vsnip' }, -- For vsnip users.
+                    { name = 'vsnip' },
+                    { name = 'nvim_lsp_signature_help' },
                 }, {
                     { name = 'buffer' },
                 })
-            })
-
-            -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-            cmp.setup.cmdline({ '/', '?' }, {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = {
-                    { name = 'buffer' }
-                }
-            })
-
-            -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-            cmp.setup.cmdline(':', {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = cmp.config.sources({
-                    { name = 'path' }
-                }, {
-                    { name = 'cmdline' }
-                }),
-                matching = { disallow_symbol_nonprefix_matching = false }
             })
         end
     },
@@ -69,45 +51,16 @@ return {
         },
         config = function()
             require('mason').setup()
-            require('mason-lspconfig').setup {
-                ensure_installed = { 'lua_ls', 'pyright', 'ts_ls' },
-            }
+            require('mason-lspconfig').setup()
 
             local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-            require('lspconfig').pyright.setup {
-                capabilities,
-                settings = {
-                    python = {
-                    },
-                }
-            }
+            require('lspconfig').pyright.setup { capabilities }
 
-            require('lspconfig').ts_ls.setup {
-                capabilities,
-            }
+            require('lspconfig').ts_ls.setup { capabilities }
 
-            require('lspconfig').lua_ls.setup {
-                capabilities,
-            }
+            require('lspconfig').lua_ls.setup { capabilities }
 
-            vim.api.nvim_create_autocmd('LspAttach', {
-                group = vim.api.nvim_create_augroup('MyLspAttach', { clear = true }),
-                callback = function(event)
-                    -- Small helper function to map keys to telescope functions
-                    local map = function(keys, func, desc, mode)
-                        mode = mode or 'n'
-                        vim.keymap.set(mode, keys, func, { desc = 'LSP: ' .. desc })
-                    end
-
-                    local builtin = require('telescope.builtin')
-
-                    map('gd', builtin.lsp_definitions, '[G]oto [D]efinition')
-                    map('gr', builtin.lsp_references, '[G]oto [R]eferences')
-                    map('gI', builtin.lsp_implementations, '[G]oto [I]mplementation')
-                    map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
-                    map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-                end})
             end,
         },
         {
