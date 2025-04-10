@@ -12,4 +12,3 @@ autocmd('TextYankPost', {
         vim.highlight.on_yank()
     end,
 })
-

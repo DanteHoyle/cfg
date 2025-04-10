@@ -9,6 +9,8 @@ return {
         "MunifTanjim/nui.nvim",
     },
 
+  ---@module "neo-tree"
+  ---@type neotree.Config?
     opts = {
         filesystem = {
             filtered_items = {
@@ -18,13 +20,22 @@ return {
         window = {
             position = 'float',
         },
+        sources = {
+            'filesystem',
+            'document_symbols',
+        }
     },
 
     keys = {
         {
             '<leader>e',
             '<cmd>Neotree toggle float<CR>',
-            desc = 'Neo-Tree Toggle'
+            desc = 'Browse Filesystem with Neotree'
         },
+        {
+            '<leader>s',
+            '<cmd>Neotree toggle document_symbols right<CR>',
+            desc = 'View document symbols with Neotree',
+        }
     },
 }

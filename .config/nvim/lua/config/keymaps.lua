@@ -1,7 +1,6 @@
 -- File: keymaps.lua
 
 -- NORMAL MODE
-
 -- Clear highlights with escape
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear highlights' })
 
@@ -15,27 +14,32 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 -- Delete words in insert mode with Alt + Backspace
 vim.keymap.set('i', '<M-BS>', '<C-W>')
 
-local lsp_map = function()
+-- Changing Buffers
+vim.keymap.set('n', '<leader>n', '<cmd>bnext<CR>', { desc = 'Next Buffer' })
+vim.keymap.set('n', '<leader>p', '<cmd>bprevious<CR>', { desc = 'Previous Buffer' })
+vim.keymap.set('n', '<leader>x', '<cmd>bdelete<CR>', { desc = 'Delete Buffer' })
+
+local lsp_remap = function()
     -- Small helper function to map keys to telescope functions
-    local map = function(keys, func, desc, mode)
+    local lsp_vim_keymap_set = function(keys, func, desc, mode)
         mode = mode or 'n'
         vim.keymap.set(mode, keys, func, { desc = 'LSP: ' .. desc })
     end
 
-    local builtin = require('telescope.builtin')
+    local telescope = require('telescope.builtin')
     -- LSP
-    map('<Leader>r', vim.lsp.buf.rename, 'LSP [R]ename')
-    map(']d', function() vim.diagnostic.jump({count = 1, float = true}) end, 'Next [D]iagnostic')
-    map('[d', function() vim.diagnostic.jump({count = -1, float = true}) end, 'Previous [D]iagnostic')
+    lsp_vim_keymap_set('<Leader>r', vim.lsp.buf.rename, 'LSP Rename')
+    lsp_vim_keymap_set(']d', function() vim.diagnostic.jump({count = 1, float = true}) end, 'Next Diagnostic')
+    lsp_vim_keymap_set('[d', function() vim.diagnostic.jump({count = -1, float = true}) end, 'Previous Diagnostic')
 
-    map('gd', builtin.lsp_definitions, '[G]oto [D]efinition')
-    map('gr', builtin.lsp_references, '[G]oto [R]eferences')
-    map('gI', builtin.lsp_implementations, '[G]oto [I]mplementation')
-    map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
-    map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+    lsp_vim_keymap_set('gd', telescope.lsp_definitions, 'Goto Definition')
+    lsp_vim_keymap_set('gR', telescope.lsp_references, 'Goto References')
+    lsp_vim_keymap_set('gI', telescope.lsp_implementations, 'Goto Implementation')
+    lsp_vim_keymap_set('<leader>ca', vim.lsp.buf.code_action, 'Code Action', { 'n', 'x' })
+    lsp_vim_keymap_set('gD', vim.lsp.buf.declaration, 'Goto Declaration')
 end
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('MyLspAttach', { clear = true }),
-    callback = lsp_map
+    callback = lsp_remap
 })
