@@ -1,7 +1,6 @@
 -- File: init.lua
 
 return {
-    { 'windwp/nvim-autopairs', event = "InsertEnter", config = true },
     { 'tpope/vim-surround' },
     -- Automatic Indentation Detection
     { 'tpope/vim-sleuth' },
