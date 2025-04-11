@@ -1,14 +1,8 @@
--- Leader has to be mapped early so plugins can use it
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ';'
 
--- Enable Line Numbers
-vim.opt.nu = true
-
--- Enable Mouse Mode
-vim.opt.mouse = 'a'
-
-vim.opt.showmode = false
+vim.opt.nu = true               -- Enable Line Numbers
+vim.opt.mouse = 'a'             -- Enable Mouse Mode
 
 -- Loading clipboard from WSL takes ~300ms, this waits until the UI has loaded to to do
 -- preventing a minor pause when starting up Neovim
@@ -17,14 +11,11 @@ vim.schedule(function()
 end)
 
 vim.opt.smartindent = true
-
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
-
--- Keeps buffers open without making changes to file
-vim.opt.hidden = true
+vim.opt.hidden = true           -- Keep buffers open even if no edits were made
 
 -- Save undo history to a file
 vim.opt.swapfile = false

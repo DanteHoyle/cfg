@@ -12,9 +12,7 @@ return {
             local capabilities = vim.lsp.protocol.make_client_capabilities()
 
             require('lspconfig').pyright.setup { capabilities }
-
             require('lspconfig').ts_ls.setup { capabilities }
-
             require('lspconfig').lua_ls.setup { capabilities }
 
             require('lspconfig').cssls.setup { capabilities }

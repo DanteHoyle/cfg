@@ -25,13 +25,7 @@ return {
         },
         lazy = false,
         config = function()
-            require('telescope').setup {
-                extensions = {
-                    ['ui-select'] = {
-                        require('telescope.themes').get_dropdown(),
-                    },
-                },
-            }
+            require('telescope').setup{}
             -- Enable Telescope extensions if they are installed
             pcall(require('telescope').load_extension, 'fzf')
             pcall(require('telescope').load_extension, 'ui-select')
@@ -43,12 +37,12 @@ return {
                 vim.keymap.set(mode, keys, func, { desc = 'Telescope: ' .. desc })
             end
 
-            map('<leader>ff', builtin.find_files, '[F]ind [F]iles')
-            map('<leader>fg', builtin.live_grep, '[F]ind w/ [G]rep')
-            map('<leader>fb', builtin.buffers, '[F]ind [B]uffers')
-            map('<leader>fh', builtin.help_tags, 'Vim [H]elp [T]ags')
-            map('<leader>fd', builtin.lsp_definitions, 'LSP [D]efinitions' )
-            map('<leader>f<leader>', builtin.builtin, 'Default Menu')
+            map('<leader>ff', builtin.find_files, 'Find Files')
+            map('<leader>fg', builtin.live_grep, 'Find w/ Grep')
+            map('<leader>b', builtin.buffers, 'Find Buffers')
+            map('<leader>fh', builtin.help_tags, 'Vim Help Tags')
+            map('<leader>fd', builtin.lsp_definitions, 'LSP Definitions' )
+            map('<leader><leader>', builtin.builtin, 'Default Menu')
         end,
     },
 }
