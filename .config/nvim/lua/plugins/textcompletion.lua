@@ -21,6 +21,7 @@ return {
 
     config = function()
       local cmp = require('cmp')
+      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
       cmp.setup({
         snippet = {
@@ -39,7 +40,8 @@ return {
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-e>'] = cmp.mapping.abort(),
-          ['<C-y>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          ['<C-y>'] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
@@ -49,6 +51,10 @@ return {
             { name = 'buffer' },
           })
       })
+      cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done()
+      )
     end
   },
 }
