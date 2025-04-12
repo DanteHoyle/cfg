@@ -1,9 +1,8 @@
 # Aliases for editing config files
 alias cfg="git --git-dir=${HOME}/.cfg --work-tree=$HOME"
-alias cfgz="${EDITOR} ${ZDOTDIR}/.zshrc"
-alias cfgn="cd ${HOME}/.config/nvim;${EDITOR} init.lua;cd"
-alias cfgt="${EDITOR} ${HOME}/.config/tmux"
-alias cfgg="${EDITOR} ${HOME}/.config/ghostty"
+alias cfgz="cfg_edit zsh"
+alias cfgn="cfg_edit nvim"
+alias cfgt="cfg_edit tmux"
 # LS aliases
 alias ls="ls --color=auto"
 alias ll="ls --color=auto -al"
