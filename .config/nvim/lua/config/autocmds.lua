@@ -12,3 +12,11 @@ autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('FoldLSPAttach', { clear = true }),
+  callback = function()
+    vim.opt.foldmethod = 'expr'
+    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+  end,
+})

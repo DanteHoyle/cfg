@@ -22,11 +22,10 @@ local telescope_remap_func = function()
   local telescope_builtin = require('telescope.builtin')
   telescope_keymap('<leader>ff', telescope_builtin.find_files, 'Find Files')
   telescope_keymap('<leader>fg', telescope_builtin.live_grep, 'Find w/ Grep')
-  telescope_keymap('<leader>b', telescope_builtin.buffers, 'Find Buffers')
-  telescope_keymap('<leader>fh', telescope_builtin.help_tags, 'Vim Help')
-  telescope_keymap('<leader>fd', telescope_builtin.lsp_definitions, 'LSP Definitions' )
-  telescope_keymap('<leader><leader>', telescope_builtin.builtin, 'Default Menu')
-  telescope_keymap('<F1>', telescope_builtin.help_tags, 'Vim Help Pages')
+  telescope_keymap('<leader>b', telescope_builtin.buffers, 'Search Buffers in Telescope')
+  telescope_keymap('<leader><leader>', telescope_builtin.builtin, 'Telescope')
+  telescope_keymap('<F1>', telescope_builtin.help_tags, 'Search the VIM help pages')
+  telescope_keymap('<leader>fh', telescope_builtin.help_tags, 'Search the VIM help pages')
 end
 vim.schedule(telescope_remap_func)
 
@@ -38,17 +37,17 @@ local lsp_keymap_func = function()
   end
   -- LSP
   local telescope_builtin = require('telescope.builtin')
-  lsp_keymap('<Leader>r', vim.lsp.buf.rename, 'LSP Rename')
+  lsp_keymap('<leader>r', vim.lsp.buf.rename, 'LSP Rename')
   lsp_keymap(']d', function() vim.diagnostic.jump({count = 1, float = true}) end, 'Next Diagnostic')
   lsp_keymap('[d', function() vim.diagnostic.jump({count = -1, float = true}) end, 'Previous Diagnostic')
-  lsp_keymap('gd', telescope_builtin.lsp_definitions, 'Goto Definition')
-  lsp_keymap('gR', telescope_builtin.lsp_references, 'Goto References')
-  lsp_keymap('gI', telescope_builtin.lsp_implementations, 'Goto Implementation')
-  lsp_keymap('<leader>ca', vim.lsp.buf.code_action, 'Code Action', { 'n', 'x' })
-  lsp_keymap('gD', vim.lsp.buf.declaration, 'Goto Declaration')
+  -- lsp_keymap('gd', telescope_builtin.lsp_definitions, 'Goto Definition')
+  lsp_keymap('<leader>gr', telescope_builtin.lsp_references, 'Goto References')
+  lsp_keymap('<leader>gd', telescope_builtin.lsp_definitions, 'Goto Declaration')
+  lsp_keymap('<leader>qf', telescope_builtin.quickfix, 'Quick Fix')
+  lsp_keymap('<leader>di', telescope_builtin.diagnostics, 'LSP Diagnostics')
 end
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('MyLspAttach', { clear = true }),
+  group = vim.api.nvim_create_augroup('KeymapLSPAttach', { clear = true }),
   callback = lsp_keymap_func
 })
 

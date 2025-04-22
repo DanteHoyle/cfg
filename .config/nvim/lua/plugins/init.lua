@@ -3,7 +3,7 @@
 return {
   { 'tpope/vim-surround' },
   -- Automatic Indentation Detection
-  { 'tpope/vim-sleuth' },
+  -- { 'tpope/vim-sleuth' },
   { -- Which-Key shows shortcuts on screen contextually
     'folke/which-key.nvim',
     event = 'VeryLazy',

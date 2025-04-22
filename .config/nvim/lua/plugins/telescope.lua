@@ -1,6 +1,6 @@
 return {
   {
-    'nvim-telescope/telescope.nvim', tag='0.1.8',
+    'nvim-telescope/telescope.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
       { -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -27,21 +27,6 @@ return {
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
-
-      local builtin = require('telescope.builtin')
-
-      local map = function(keys, func, desc, mode)
-        mode = mode or 'n'
-        vim.keymap.set(mode, keys, func, { desc = 'Telescope: ' .. desc })
-      end
-
-      map('<leader>ff', builtin.find_files, 'Find Files')
-      map('<leader>fg', builtin.live_grep, 'Find w/ Grep')
-      map('<leader>b', builtin.buffers, 'Find Buffers')
-      map('<leader>fh', builtin.help_tags, 'Vim Help')
-      map('<leader>fd', builtin.lsp_definitions, 'LSP Definitions' )
-      map('<leader><leader>', builtin.builtin, 'Default Menu')
-      map('<F1>', builtin.help_tags, 'Vim Help Pages')
     end,
   },
 }

@@ -16,12 +16,12 @@ vim.opt.splitbelow = true
 -- Tabs/Spaces
 vim.opt.smartindent = true          -- Smart auto indenting on newline
 vim.opt.expandtab = true
-vim.bo.tabstop = 4                  -- size of <TAB> in spaces
-vim.bo.shiftwidth = 4               -- size of an indentation (sw).
-vim.bo.softtabstop = 4              -- number of spaces a <Tab> counts for. When 0, feature is off (sts).
+vim.opt.tabstop = 4                  -- size of <TAB> in spaces
+vim.opt.shiftwidth = 4               -- size of an indentation (sw).
+vim.opt.softtabstop = 4              -- number of spaces a <Tab> counts for. When 0, feature is off (sts).
+vim.opt.foldlevel = 99
 -- Search behavior
 vim.opt.smartcase = true            -- Case insensitive search by unless you put \C or one or more capital letters in the search
-vim.opt.inccommand = 'split'        -- Preview substitutions live in a split window
 -- Screen
 vim.opt.hidden = true               -- Keep buffers open even if no edits were made
 vim.opt.updatetime = 250            -- Makes screen update sooner
