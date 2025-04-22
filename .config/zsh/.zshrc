@@ -47,10 +47,10 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 
-# edit line in vim with alt-e:
+# edit CLI in vim with Ctrl + e:
 autoload edit-command-line
 zle -N edit-command-line
-bindkey '^X^E' edit-command-line
+bindkey '^E' edit-command-line
 
 # sync ssh-agent with keychain
 if command -v keychain >/dev/null; then
