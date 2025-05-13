@@ -10,5 +10,8 @@ return {
     config = function()
       vim.cmd [[colorscheme cyberdream]]
     end,
+  },
+  {
+    'mechatroner/rainbow_csv'
   }
 }

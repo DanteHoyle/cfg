@@ -4,7 +4,7 @@ return {
   enabled = true,
   opts = {
     options = {
-      globalstatus = true,
+      -- globalstatus = true,
       section_separators = '',
       component_separators = '',
     },
