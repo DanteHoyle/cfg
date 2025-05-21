@@ -9,8 +9,6 @@ return {
     "MunifTanjim/nui.nvim",
   },
 
-  ---@module "neo-tree"
-  ---@type neotree.Config?
   opts = {
     filesystem = {
       filtered_items = {
