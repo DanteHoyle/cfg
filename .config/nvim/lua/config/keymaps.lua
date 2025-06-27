@@ -45,6 +45,7 @@ local lsp_keymap_func = function()
   lsp_keymap('<leader>gd', telescope_builtin.lsp_definitions, 'Goto Declaration')
   lsp_keymap('<leader>qf', telescope_builtin.quickfix, 'Quick Fix')
   lsp_keymap('<leader>di', telescope_builtin.diagnostics, 'LSP Diagnostics')
+  lsp_keymap('<leader>ca', vim.lsp.buf.code_action, 'LSP Code Action')
 end
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('KeymapLSPAttach', { clear = true }),
