@@ -1,10 +1,12 @@
 -- File: init.lua
 
 return {
-  { 'tpope/vim-surround' },
-  -- Automatic Indentation Detection
-  -- { 'tpope/vim-sleuth' },
-  { -- Which-Key shows shortcuts on screen contextually
+  {
+    "kylechui/nvim-surround",
+    keys = { "ys", "ds", "cs" },
+    config = true,
+  },
+  {
     'folke/which-key.nvim',
     event = 'VeryLazy',
     dependencies = { 'echasnovski/mini.icons' },
@@ -13,7 +15,7 @@ return {
       { '<leader>?', function() require('which-key').show({ global = false }) end, desc = 'Buffer Local Keymaps (which-key)', },
     },
   },
-  { -- Unified shortcut for moving between tmux and nvim
+  {
     'christoomey/vim-tmux-navigator',
     cmd = {
       'TmuxNavigateLeft',
@@ -29,13 +31,5 @@ return {
       { '<c-l>', '<cmd><C-U>TmuxNavigateRight<cr>', desc = 'Navigate Right (TmuxNavigator)' },
       { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>', desc = 'Navigate Previous (TmuxNavigator)' },
     },
-  },
-  {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons', opt = true },
-    enabled = true,
-    opts = {
-      theme = 'catppucin'
-    }
   },
 }

@@ -1,17 +1,27 @@
--- File: colors.lua
--- Highlight todo, notes, etc in comments
-
 return {
-  { "catppuccin/nvim", name = "catppuccin", },
   {
-    'scottmckendry/cyberdream.nvim',
+    'EdenEast/nightfox.nvim',
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd [[colorscheme cyberdream]]
+      vim.cmd [[colorscheme nightfox]]
     end,
   },
-  {
-    'mechatroner/rainbow_csv'
-  }
+  -- { "catppuccin/nvim", name = "catppuccin", },
+  -- {
+  --   'scottmckendry/cyberdream.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd [[colorscheme cyberdream]]
+  --   end,
+  -- },
+  -- {
+  --   'scottmckendry/cyberdream.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd [[colorscheme cyberdream]]
+  --   end,
+  -- },
 }

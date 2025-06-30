@@ -1,5 +1,0 @@
-require('config.set')
-require('config.keymaps')
-require('functions')
-require('config.autocmds')
-require('config.lazy')
