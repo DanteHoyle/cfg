@@ -7,10 +7,10 @@ return {
   opts = {
     ensure_installed = {
       'lua_ls',
-      'pyright'
+      'pyright',
       -- 'ts_ls',
       -- 'jsonls',
-      -- 'eslint',
+      'eslint'
       -- 'tailwindcss',
       -- 'astro',
     },
