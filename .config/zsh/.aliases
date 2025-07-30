@@ -1,15 +1,22 @@
-# Aliases for editing config files
+# aliases for editing config files
 alias cfg="git --git-dir=${HOME}/.cfg --work-tree=$HOME"
 alias cfgz="cfg_edit zsh"
 alias cfgn="cfg_edit nvim"
 alias cfgt="cfg_edit tmux"
-# LS aliases
+
+# ls aliases
 alias ls="ls --color=auto"
 alias ll="ls --color=auto -al"
 alias llt="ls --color=auto -alt"
-# Tmux Alias
+
+# tmux Alias
 alias tma="tmux attach || tmux"
 alias mux="tmuxinator"
-# Nvim Aliases
+
+# neovim Aliases
 alias vim="nvim"
 alias vimdiff='nvim -d'
+
+# jq aliases
+alias jq-structure="jq -r '[path(..)|map(if type==\"number\" then \"[]\" else tostring end)|join(\".\")|split(\".[]\")|join(\"[]\")]|unique|map(\".\"+.)|.[]'"
+alias jq-example="jq 'walk(if type == \"array\" then (if length > 0 then [.[0]] else . end) else . end)'"

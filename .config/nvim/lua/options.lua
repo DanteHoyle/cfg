@@ -18,12 +18,15 @@ opt.swapfile = false
 opt.undofile = true
 opt.undodir = vim.env.HOME .. '/.cache/nvim/undodir'
 
--- tabs/Spaces
-opt.smartindent = true          -- Smart auto indenting on newline
-opt.expandtab = true
-opt.tabstop = 4                  -- size of <TAB> in spaces
-opt.shiftwidth = 4               -- size of an indentation (sw).
-opt.softtabstop = 4              -- number of spaces a <Tab> counts for. When 0, feature is off (sts).
+-- -- tabs/Spaces
+-- opt.smartindent = true          -- Smart auto indenting on newline
+-- opt.expandtab = true
+-- opt.tabstop = 4                  -- size of <TAB> in spaces
+-- opt.shiftwidth = 4               -- size of an indentation (sw).
+-- opt.softtabstop = 4              -- number of spaces a <Tab> counts for. When 0, feature is off (sts).
+opt.autoindent = true
+
+g.editorconfig = true
 
 -- code folding
 opt.foldlevel = 99
