@@ -12,6 +12,7 @@ autocmd('TextYankPost', {
   end,
 })
 
+-- Use treesitter as fold source
 autocmd('LspAttach', {
   group = augroup('FoldLSPAttach', { clear = true }),
   callback = function()

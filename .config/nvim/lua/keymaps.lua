@@ -1,7 +1,10 @@
 local util = require 'config.utility'
-
--- Core keymaps
-util.nmap('<Esc>', '<cmd>nohlsearch<CR>', 'Clear highlights') -- Clear highlights with escape
+----------------
+--CORE KEYMAPS--
+----------------
+-- clear search highlights: escape
+util.nmap('<Esc>', '<cmd>nohlsearch<CR>', 'Clear highlights')
+-- toggle line wrapping: leader + W
 util.nmap('<Leader>W', '<cmd>set wrap!<CR>','Toggle line wrapping') -- Toggle line wrapping with Leader + w
 util.nmap('<C-d>', '<C-d>zz')   -- Center the screen when moving up or down in a file
 util.nmap('<C-u>', '<C-u>zz')   -- Center the screen when moving up or down in a file
@@ -11,7 +14,9 @@ util.nmap('<leader>p', '<cmd>bprevious<CR>', 'Previous Buffer')
 util.nmap('<leader>x', '<cmd>bdelete<CR>', 'Delete Buffer')
 util.nmap('<leader>o', util.open_current_file, 'Open the current file externaly')
 
--- Telescope keymaps 
+---------------------
+--TELESCOPE KEYMAPS--
+---------------------
 vim.schedule(function()
   local tb = require('telescope.builtin')
   util.tmap('<leader>ff', tb.find_files, 'Find files')
@@ -22,6 +27,9 @@ vim.schedule(function()
   util.tmap('<leader>fh', tb.help_tags, 'Help pages')
 end)
 
+---------------
+--LSP KEYMAPS--
+---------------
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('KeymapLSPAttach', { clear = true }),
   callback = function()

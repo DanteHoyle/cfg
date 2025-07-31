@@ -4,7 +4,13 @@ return {
     event = "InsertEnter",
     config = true
   },
-  { 'windwp/nvim-ts-autotag', event = "InsertEnter", config = true },
+
+  {
+    'windwp/nvim-ts-autotag',
+    event = "InsertEnter",
+    config = true
+  },
+
   {
     'hrsh7th/nvim-cmp',
     lazy = false,
@@ -47,6 +53,7 @@ return {
           { name = 'nvim_lsp' },
           { name = 'vsnip' },
           { name = 'nvim_lsp_signature_help' },
+          { name = 'render-markdown' }
         }, {
             { name = 'buffer' },
           })
@@ -56,5 +63,5 @@ return {
         cmp_autopairs.on_confirm_done()
       )
     end
-  },
+  }
 }

@@ -13,6 +13,5 @@ vim.api.nvim_create_autocmd('User', {
   callback = function()
     require 'config.capabilities'
     require 'config.diagnostics'
-    print('loaded')
   end
 })

@@ -1,0 +1,15 @@
+root = true
+
+[*]
+# Unix-style newlines
+end_of_line = lf
+charset = utf-8
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+
+[*.{js,ts,lua,html,css}]
+indent_size = 2
+
+[Makefile]
+indent_style = tab

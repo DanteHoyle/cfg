@@ -12,6 +12,7 @@ return {
       'eslint',
       'jsonls',
       'tailwindcss',
+      'clangd'
     },
     automatic_installation = true,
   },

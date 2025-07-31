@@ -1,11 +1,15 @@
 local g = vim.g
 local opt = vim.opt
 
+-------------------
+--GENERAL OPTIONS--
+-------------------
+
 -- set the leader key to Space
 g.mapleader = ' '
 g.maplocalleader = ';'
 
--- sets system clipboard as the default (wrapped in vim.schedule to prevent )
+-- sets system clipboard as the default (wrapped in vim.schedule to prevent startup lag)
 vim.schedule(function() opt.clipboard:append "unnamedplus" end)
 
 -- enable the mouse
@@ -18,32 +22,46 @@ opt.swapfile = false
 opt.undofile = true
 opt.undodir = vim.env.HOME .. '/.cache/nvim/undodir'
 
--- -- tabs/Spaces
--- opt.smartindent = true          -- Smart auto indenting on newline
--- opt.expandtab = true
--- opt.tabstop = 4                  -- size of <TAB> in spaces
--- opt.shiftwidth = 4               -- size of an indentation (sw).
--- opt.softtabstop = 4              -- number of spaces a <Tab> counts for. When 0, feature is off (sts).
-opt.autoindent = true
+-- keep unchanged buffers open when editing other files
+opt.hidden = true
 
-g.editorconfig = true
-
--- code folding
-opt.foldlevel = 99
-
--- enable line numbers
-opt.number = true
-opt.numberwidth = 2
+-- lower the delay before the screen updates
+opt.updatetime = 250
+opt.timeoutlen = 301
 
 -- highlight the line the cursor is on
 opt.cursorline = true
 
--- always show sign column to prevent text shifting horizontally
+-----------------------------------
+--LINE NUMBERS AND FOLDING OPTIONS--
+-----------------------------------
+---
+-- enable line numbers
+opt.number = true
+
+-- enable line folding
+opt.foldlevel = 99
+
+-- always show sign column to prevent text shifting horizontally when LSP detects errors
 opt.signcolumn = 'yes'
+
+-------------------------
+--TEXT & EDITOR OPTIONS--
+-------------------------
+
+-- use ~/.editorconfig for most charset and tab settings
+g.editorconfig = true
+
+-- match indentation level for new lines
+opt.autoindent = true
 
 -- show whitespace characters
 opt.list = true
 opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+----------------
+--MISC OPTIONS--
+----------------
 
 -- split down and to the right
 opt.splitright = true
@@ -51,10 +69,3 @@ opt.splitbelow = true
 
 -- case sensitive search
 opt.smartcase = true
-
--- keep unchanged buffers open when editing other files
-opt.hidden = true
-
--- lower the delay before the screen updates
-opt.updatetime = 250
-opt.timeoutlen = 301
