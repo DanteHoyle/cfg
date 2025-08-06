@@ -1,5 +1,4 @@
 return {
-
   {
     'mason-org/mason.nvim',
     build = ':MasonUpdate',
@@ -12,4 +11,22 @@ return {
     },
     opts = {}
   },
+  {
+    'mason-org/mason-lspconfig.nvim',
+    dependencies = {
+      'mason-org/mason.nvim',
+      'neovim/nvim-lspconfig',
+    },
+    opts = {
+      ensure_installed = {
+        'pyright',
+        'lua_ls',
+        'ts_ls',
+        'eslint',
+        'jsonls',
+        'clangd'
+      },
+      automatic_installation = true,
+    },
+  }
 }

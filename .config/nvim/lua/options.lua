@@ -69,3 +69,5 @@ opt.splitbelow = true
 
 -- case sensitive search
 opt.smartcase = true
+
+opt.winborder = "rounded"
