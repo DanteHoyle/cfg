@@ -20,6 +20,7 @@ return {
     },
     sources = {
       'filesystem',
+      'buffers',
       'document_symbols',
     }
   },
@@ -28,12 +29,17 @@ return {
     {
       '<leader>e',
       '<cmd>Neotree toggle float<CR>',
-      desc = 'Browse Filesystem with Neotree'
+      desc = 'Toggle filesystem (Neotree)'
     },
     {
       '<leader>s',
       '<cmd>Neotree toggle document_symbols right<CR>',
-      desc = 'View document symbols with Neotree',
+      desc = 'Toggle document symbols pane',
+    },
+    {
+      '<leader>b',
+      '<cmd>Neotree toggle buffers left<CR>',
+      desc = 'Toggle buffers pane',
     }
   },
 }
