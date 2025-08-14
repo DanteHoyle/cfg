@@ -22,7 +22,6 @@ return {
         'pyright',
         'lua_ls',
         'ts_ls',
-        'eslint',
         'jsonls',
         'clangd'
       },
