@@ -2,6 +2,8 @@ alias ..="cd .."
 alias notes="nvim ${HOME}/notes.md"
 alias chars="nvim ${HOME}/.local/share/characters.txt"
 alias pysrc="source .venv/bin/activate"
+alias ipy="ipython3"
+alias py="python3"
 
 # ls aliases
 alias l="ls -CF"
