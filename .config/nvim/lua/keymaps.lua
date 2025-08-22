@@ -38,4 +38,3 @@ vim.schedule(function()
   util.tmap('<F1>', tb.help_tags, 'Help pages')
   util.tmap('<leader>fh', tb.help_tags, 'Help pages')
 end)
-

@@ -21,9 +21,6 @@ return {
       ensure_installed = {
         'pyright',
         'lua_ls',
-        'ts_ls',
-        'jsonls',
-        'clangd'
       },
       automatic_installation = true,
     },

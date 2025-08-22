@@ -1,5 +1,8 @@
 local g = vim.g
+local o = vim.o
 local opt = vim.opt
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
 
 -------------------
 --GENERAL OPTIONS--
@@ -13,37 +16,80 @@ g.maplocalleader = ';'
 vim.schedule(function() opt.clipboard:append "unnamedplus" end)
 
 -- enable the mouse
-opt.mouse = 'a'
+o.mouse = 'a'
 
 -- disable swap file
-opt.swapfile = false
+o.swapfile = false
 
 -- save undo history to a file
-opt.undofile = true
-opt.undodir = vim.env.HOME .. '/.cache/nvim/undodir'
+o.undofile = true
+o.undodir = vim.env.HOME .. '/.cache/nvim/undodir'
 
 -- keep unchanged buffers open when editing other files
-opt.hidden = true
+o.hidden = true
 
 -- lower the delay before the screen updates
-opt.updatetime = 250
-opt.timeoutlen = 301
+o.updatetime = 250
+o.timeoutlen = 301
 
 -- highlight the line the cursor is on
-opt.cursorline = true
+o.cursorline = true
+
+-- only show cursorline in active window normal mode
+vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter", "TabEnter", "TermLeave" }, {
+  group = vim.api.nvim_create_augroup("SmartCursorline", { clear = false }),
+  desc = "Enable cursorline only in active window",
+  callback = function()
+    vim.wo.cursorline = vim.bo.buftype == ""
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave", "TabLeave" }, {
+  group = vim.api.nvim_create_augroup("SmartCursorline", { clear = false }),
+  desc = "Enable cursorline only in active window",
+  callback = function()
+    vim.wo.cursorline = false
+  end,
+})
+
+autocmd({ "OptionSet", "WinEnter", "VimEnter" }, {
+  group = augroup("SmartTextWidth", { clear = true }),
+  desc = "Enable text width only when wrap is disabled",
+  pattern = "wrap",
+  callback = function()
+    if opt.wrap:get() then
+      vim.cmd("setlocal tw=0")
+    else
+      vim.cmd("setlocal tw=80")
+    end
+  end,
+})
 
 -----------------------------------
 --LINE NUMBERS AND FOLDING OPTIONS--
 -----------------------------------
----
 -- enable line numbers
-opt.number = true
+o.number = true
 
 -- enable line folding
-opt.foldlevel = 99
+o.foldlevel = 99
 
 -- always show sign column to prevent text shifting horizontally when LSP detects errors
-opt.signcolumn = 'yes'
+o.signcolumn = 'yes'
+
+o.foldmethod = 'expr'
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+o.foldtext = ""
+
+autocmd('LspAttach', {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client:supports_method('textDocument/foldingRange') then
+      local win = vim.api.nvim_get_current_win()
+      vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
+    end
+  end,
+})
 
 -------------------------
 --TEXT & EDITOR OPTIONS--
@@ -53,10 +99,10 @@ opt.signcolumn = 'yes'
 g.editorconfig = true
 
 -- match indentation level for new lines
-opt.autoindent = true
+o.autoindent = true
 
 -- show whitespace characters
-opt.list = true
+o.list = true
 opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 ----------------
@@ -64,10 +110,20 @@ opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 ----------------
 
 -- split down and to the right
-opt.splitright = true
-opt.splitbelow = true
+o.splitright = true
+o.splitbelow = true
 
 -- case sensitive search
-opt.smartcase = true
+o.smartcase = true
 
-opt.winborder = "rounded"
+o.winborder = "rounded"
+
+-- visually show highlight when yanking text
+autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = augroup('YankHLAttach', { clear = true }),
+  pattern = '*',
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})

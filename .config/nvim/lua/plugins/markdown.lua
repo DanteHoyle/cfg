@@ -5,5 +5,6 @@ return {
     opts = {
       completions = { lsp = { enabled = true } },
     },
-  }
+  },
+  { 'dhruvasagar/vim-table-mode' }
 }

@@ -5,7 +5,6 @@
 -- |_| \_|\___|\___/ \_/ |_|_| |_| |_|
 require 'options'
 require 'keymaps'
-require 'config.autocmds'
 require 'config.lazy'
 
 vim.api.nvim_create_autocmd('User', {
