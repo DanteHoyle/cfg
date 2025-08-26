@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+"""
+link-to-path
+This script takes a file path as an argument, and will create a symbolic link to ~/.local/bin
+"""
+
+import os
+import sys
+import click
+import platform
+from typing import Never
+from pathlib import Path
+
+PATH_DIRECTORY = Path.home() / '.local' / 'bin'
+
+SOURCE_FILE_DOES_NOT_EXIST = -1
+SYMLINK_DESTINATION_ALREADY_EXISTS = -2
+OS_ERROR = -4
+
+def write_error_and_exit(msg: str, exit_code: int) -> Never:
+    formatted_msg = f"{click.style("Error!", fg="red", bold=True)} {msg}"
+    click.echo(formatted_msg, err=True)
+    sys.exit(exit_code)
+
+@click.command()
+@click.argument('source_path', type=click.Path(path_type=Path))
+@click.option('--test', type=click.BOOL, default=False)
+def symlink_file_to_path(source_path: Path, test: bool):
+    filename = source_path.name
+
+    symlink_src = source_path.resolve()
+    symlink_dst = PATH_DIRECTORY / filename
+    print(f"Source: {symlink_src}")
+    print(F"Destination: {symlink_dst}")
+
+    if not symlink_src.exists():
+        write_error_and_exit(f"The source file doesn't exist. Source File: {symlink_src}", exit_code=SOURCE_FILE_DOES_NOT_EXIST )
+    elif symlink_dst.exists():
+        write_error_and_exit(f"Error! The destination file already exists. Destination File: {symlink_dst}", exit_code=SYMLINK_DESTINATION_ALREADY_EXISTS)
+
+    if test:
+        click.echo("Exiting test mode without creating symbolic link!")
+
+    try:
+        os.symlink(symlink_src, symlink_dst)
+    except Exception as e:
+        click.echo(f"Error! Unknown OS error: {e}")
+        sys.exit(OS_ERROR)
+
+if __name__ == "__main__":
+    # exit early if not being ran from linux
+    if (system := platform.system()) != 'Linux':
+        click.echo(f"Error! This script must be ran from linux, but current system is: {system}", err=True)
+        sys.exit(1)
+
+    symlink_file_to_path()
