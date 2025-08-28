@@ -11,21 +11,22 @@ This is a collection of personal dotfiles for a set of Linux programs I frequent
 
 ### Manual Installation
 1. Clone the repository to `~/.cfg`
-    ```sh
+    ```bash
     git clone --bare git@github.com:DanteHoyle/dotfiles.git $HOME/.cfg
     ```
 2. Create an alias to make interacting with the bare repo easier
-    ```sh
+    ```bash
     alias cfg="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
     ```
 3. Tell git to stop showing the status of untracked files
-    ```sh
+    ```bash
     cfg config status.showUntrackedFiles no
     ```
 4. Sync local files to the upstream branch
-    ```sh
+    ```bash
     cfg checkout --force
     ```
+5. Restart your shell
 
 ## Inspiration / Sources
 - [Atlassian Dotfiles Tutorial](https://www.atlassian.com/git/tutorials/dotfiles)

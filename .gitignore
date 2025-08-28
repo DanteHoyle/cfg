@@ -1,7 +1,34 @@
-./vscode/
-./config/nvim/colors/*
-./config/zsh/*
-!./config/zsh/.aliases
-!./config/zsh/.zshrc
-!./config/zsh/.zprofile
-./ssh/
+# Ignore everything at root level
+/*
+/**
+
+# Whitelist root-level files
+!/.zshenv
+!/.editorconfig
+!/.gitignore
+
+# Whitelist directories and their contents
+!/bin/cfg_edit
+!/bin/emoji_clock.sh
+!/bin/get_ip.sh
+
+!/.github/README.md
+!/.vim/vimrc
+
+!/.config/zsh/.aliases
+!/.config/zsh/.zprofile
+!/.config/zsh/.zshrc
+!/.config/zsh/completions.zsh
+
+!/.config/nvim/
+!/.config/nvim/**
+
+!/.config/tmux/
+!/.config/tmux/*
+
+
+# Sanity Check, blacklist sensitive directories again
+.config/git/
+.ssh/
+.gnupg/
+.local/share/keyrings/
