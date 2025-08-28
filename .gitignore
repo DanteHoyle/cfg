@@ -1,20 +1,28 @@
 # Ignore everything at root level
 /*
-/**
 
 # Whitelist root-level files
 !/.zshenv
 !/.editorconfig
 !/.gitignore
 
-# Whitelist directories and their contents
-!/bin/cfg_edit
-!/bin/emoji_clock.sh
-!/bin/get_ip.sh
+!/scripts/
+/scripts/*
+!/scripts/cfg/
+!/scripts/cfg/**
 
+!/.github/
+/.github/*
 !/.github/README.md
+
+!/.vim/
+/.vim/*
 !/.vim/vimrc
 
+!/.config/
+/.config/*
+!/.config/zsh/
+/.config/zsh/*
 !/.config/zsh/.aliases
 !/.config/zsh/.zprofile
 !/.config/zsh/.zshrc
@@ -24,7 +32,8 @@
 !/.config/nvim/**
 
 !/.config/tmux/
-!/.config/tmux/*
+/.config/tmux/*
+!/.config/tmux/.conf
 
 
 # Sanity Check, blacklist sensitive directories again
