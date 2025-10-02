@@ -13,10 +13,6 @@ from pathlib import Path
 
 PATH_DIRECTORY = Path.home() / '.local' / 'bin'
 
-SOURCE_FILE_DOES_NOT_EXIST = -1
-SYMLINK_DESTINATION_ALREADY_EXISTS = -2
-OS_ERROR = -4
-
 def write_error_and_exit(msg: str, exit_code: int) -> Never:
     formatted_msg = f"{click.style("Error!", fg="red", bold=True)} {msg}"
     click.echo(formatted_msg, err=True)
@@ -26,6 +22,14 @@ def write_error_and_exit(msg: str, exit_code: int) -> Never:
 @click.argument('source_path', type=click.Path(path_type=Path))
 @click.option('--test', type=click.BOOL, default=False)
 def symlink_file_to_path(source_path: Path, test: bool):
+
+    system = platform.system()
+    is_compatible_os = (system == 'Linux')
+
+    # exit early if not being ran from linux
+    if not is_compatible_os:
+        write_error_and_exit(f'Error! This script must be ran from linux, but current system is: {system}', os.EX_OSERR)
+
     filename = source_path.name
 
     symlink_src = source_path.resolve()
@@ -34,9 +38,9 @@ def symlink_file_to_path(source_path: Path, test: bool):
     print(F"Destination: {symlink_dst}")
 
     if not symlink_src.exists():
-        write_error_and_exit(f"The source file doesn't exist. Source File: {symlink_src}", exit_code=SOURCE_FILE_DOES_NOT_EXIST )
+        write_error_and_exit(f"The source file doesn't exist. Source File: {symlink_src}", os.EX_OSFILE)
     elif symlink_dst.exists():
-        write_error_and_exit(f"Error! The destination file already exists. Destination File: {symlink_dst}", exit_code=SYMLINK_DESTINATION_ALREADY_EXISTS)
+        write_error_and_exit(f"The destination file already exists. Destination File: {symlink_dst}", os.EX_CANTCREAT)
 
     if test:
         click.echo("Exiting test mode without creating symbolic link!")
@@ -44,13 +48,7 @@ def symlink_file_to_path(source_path: Path, test: bool):
     try:
         os.symlink(symlink_src, symlink_dst)
     except Exception as e:
-        click.echo(f"Error! Unknown OS error: {e}")
-        sys.exit(OS_ERROR)
+        write_error_and_exit(f'OS Error: {e}', os.EX_OSERR)
 
 if __name__ == "__main__":
-    # exit early if not being ran from linux
-    if (system := platform.system()) != 'Linux':
-        click.echo(f"Error! This script must be ran from linux, but current system is: {system}", err=True)
-        sys.exit(1)
-
     symlink_file_to_path()
