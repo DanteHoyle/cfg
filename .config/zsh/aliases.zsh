@@ -22,10 +22,9 @@ alias vimdiff='nvim -d'
 
 # aliases for editing config files
 alias cfg="git --git-dir=${HOME}/.cfg --work-tree=$HOME"
-alias cfgz="cfg_edit zsh"
-alias cfgn="cfg_edit nvim"
-alias cfgt="cfg_edit tmux"
-alias cfga="vim ~/.config/zsh/.aliases"
+alias cfgz="cd ${XDG_CONFIG_HOME}/zsh && ${EDITOR} zshrc.zsh"
+alias cfgn="cd ${XDG_CONFIG_HOME}/nvim && ${EDITOR} init.lua"
+alias cfga="cd ${XDG_CONFIG_HOME}/zsh && ${EDITOR} aliases.zsh"
 
 # jq aliases
 alias jq-structure="jq -r '[path(..)|map(if type==\"number\" then \"[]\" else tostring end)|join(\".\")|split(\".[]\")|join(\"[]\")]|unique|map(\".\"+.)|.[]'"
