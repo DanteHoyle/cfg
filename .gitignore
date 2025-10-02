@@ -27,9 +27,8 @@
 !/.config/zsh/.zprofile
 !/.config/zsh/.zshrc
 !/.config/zsh/completions.zsh
-
-!/.config/nvim/
-!/.config/nvim/**
+!/.config/zsh/zshrc.zsh
+!/.config/zsh/aliases.zsh
 
 !/.config/tmux/
 /.config/tmux/*
