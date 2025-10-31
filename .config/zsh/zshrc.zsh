@@ -3,6 +3,14 @@ autoload -U colors && colors
 # use traditional shell keybinds for the most part
 bindkey -e
 
+# Program Paths
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+
+# Editor
+export EDITOR="nvim"
+export VISUAL="nvim"
+export PAGER="less"
+
 # PROMPT SETTINGS
 git_prompt() {
     local branch="$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3-)"
@@ -27,27 +35,18 @@ setopt SHARE_HISTORY
 # Write the history file in the ':start:elapsed;command' format.
 setopt EXTENDED_HISTORY
 # Do not record an event starting with a space.
-setopt HIST_IGNORE_SPACE         
+setopt HIST_IGNORE_SPACE
 
 # SHELL AUTO COMPLETE
 source "$HOME/.config/zsh/completions.zsh"
+if command -v fzf &> /dev/null; then
+    source <(fzf --zsh)
+fi
 
 # edit CLI in vim with Ctrl + e:
 autoload edit-command-line
 zle -N edit-command-line
 bindkey '\ee' edit-command-line
-
-# sync ssh-agent with keychain
-if command -v keychain >/dev/null; then
-    if [ -z "$TMUX" ]; then
-        # Run Command Normally if not inside of a tmux shell
-        keychain ~/.ssh/id_ed25519
-    else
-        # Run quietly and quickly if running from inside tmux
-        keychain --quick --quiet ~/.ssh/id_ed25519
-    fi
-    . ~/.keychain/${HOST}-sh
-fi
 
 # load the syntax highlighting plugin if it's installed
 if [ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
@@ -64,6 +63,8 @@ elif [ -e /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; 
     source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
     ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 fi
+
+# Load other config files
 
 local_aliases="${XDG_CONFIG_HOME}/zsh/aliases_local.zsh"
 local_zshrc="${XDG_CONFIG_HOME}/zsh/zshrc_local.zsh"
