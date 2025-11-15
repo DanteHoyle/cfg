@@ -30,6 +30,8 @@
 !/.config/zsh/zshrc.zsh
 !/.config/zsh/aliases.zsh
 
+!/.config/ghostty
+
 !/.config/tmux/
 /.config/tmux/*
 !/.config/tmux/.conf

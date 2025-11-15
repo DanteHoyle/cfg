@@ -1,0 +1,8 @@
+shell-integration = zsh
+theme = Atom One Dark
+font-family = CodeNewRoman Nerd Font
+
+font-style-italic = false
+
+font-style-italic = false
+font-style-bold-italic = false
