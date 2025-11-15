@@ -2,8 +2,6 @@ alias ..="cd .."
 
 alias ipy="ipython3"
 
-alias kssh="kitten ssh"
-
 # ls aliases
 alias l="ls -C --classify --hyperlink=auto"
 alias ls="ls --color=auto"
@@ -45,7 +43,7 @@ mkcd () {
     cd "$1"
 }
 
-tempe () {
+tempd () {
     cd "$(mktemp -d)"
     chmod -R 0700 .
     if [[ $# -eq 1 ]]; then
@@ -53,4 +51,13 @@ tempe () {
         cd "$1"
         chmod -R 0700 .
     fi
+}
+
+tempf () {
+    if [[ "$#" == 0 ]]; then
+        ext=".md"
+    else
+        ext="$1"
+    fi
+    $EDITOR "$(mktemp --suffix=$ext)"
 }
