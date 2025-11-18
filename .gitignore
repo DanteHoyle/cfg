@@ -29,6 +29,9 @@
 !/.config/zsh/completions.zsh
 !/.config/zsh/zshrc.zsh
 !/.config/zsh/aliases.zsh
+!/.config/zsh/macos.zsh
+!/.config/zsh/linux.zsh
+!/.config/zsh/wsl.zsh
 
 !/.config/ghostty
 

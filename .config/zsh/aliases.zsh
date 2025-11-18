@@ -28,9 +28,6 @@ alias cfga="pushd ${XDG_CONFIG_HOME}/zsh/ && $EDITOR aliases.zsh && popd"
 alias cfgn="pushd ${XDG_CONFIG_HOME}/nvim && $EDITOR . && popd"
 alias cfgk="pushd ${XDG_CONFIG_HOME}/kitty && $EDITOR . && popd"
 
-# fd alias
-alias fd=fdfind
-
 # jq aliases
 alias jq-structure="jq -r '[path(..)|map(if type==\"number\" then \"[]\" else tostring end)|join(\".\")|split(\".[]\")|join(\"[]\")]|unique|map(\".\"+.)|.[]'"
 alias jq-example="jq 'walk(if type == \"array\" then (if length > 0 then [.[0]] else . end) else . end)'"

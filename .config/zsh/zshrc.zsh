@@ -48,26 +48,10 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey '\ee' edit-command-line
 
-# load the syntax highlighting plugin if it's installed
-if [ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-elif [ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ]; then
-    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-fi
-
-# Fish style autosuggestions
-if [ -e /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
-    ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-elif [ -e /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-    ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-fi
-
 # Load other config files
 
-local_aliases="${XDG_CONFIG_HOME}/zsh/aliases_local.zsh"
-local_zshrc="${XDG_CONFIG_HOME}/zsh/zshrc_local.zsh"
+local_aliases="$XDG_CONFIG_HOME/zsh/aliases_local.zsh"
+local_zshrc="$XDG_CONFIG_HOME/zsh/zshrc_local.zsh"
 
 # Create and source local (untracked) zshrc and alias files
 if [ ! -f  "$local_aliases" ]; then
@@ -79,6 +63,14 @@ if [ ! -f "$local_zshrc" ]; then
     echo "# This is a local aliases file that is not not tracked by the cfg git repository" > "$local_zshrc"
 fi
 
-source "${XDG_CONFIG_HOME}/zsh/aliases.zsh"
+os=$(uname)
+
+if [[ "$os" == 'Darwin' ]]; then
+    source "$XDG_CONFIG_HOME/zsh/macos.zsh"
+else
+    source "$XDG_CONFIG_HOME/zsh/linux.zsh"
+fi
+
+source "$XDG_CONFIG_HOME/zsh/aliases.zsh"
 source "$local_aliases"
 source "$local_zshrc"
