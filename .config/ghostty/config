@@ -1,8 +1,9 @@
 shell-integration = zsh
-theme = Atom One Dark
-font-family = CodeNewRoman Nerd Font
 
+theme = Flexoki Dark
+
+font-family = Fira Code Nerd Font Mono
+font-size = 14
 font-style-italic = false
-
 font-style-italic = false
 font-style-bold-italic = false
