@@ -22,7 +22,7 @@ git_prompt() {
     [ -n "${branch}" ] && echo " (${branch})"
 }
 setopt PROMPT_SUBST
-PROMPT='%B%{$fg[green]%}%n@%{$fg[green]%}%M %{$fg[blue]%}%~%{$fg[yellow]%}$(git_prompt)%{$reset_color%} %(?.$.%{$fg[red]%}$)%b '
+PROMPT='%B%{$fg[green]%}%n@%{$fg[green]%}%m %{$fg[blue]%}%1~%{$fg[yellow]%}$(git_prompt)%{$reset_color%} %(?.$.%{$fg[red]%}$)%b '
 
 # HISTORY
 export HISTFILE="$HOME/.zsh_history"
