@@ -1,5 +1,5 @@
 shell-integration = zsh
-theme = Carbonfox
+theme = Github Dark High Contrast
 font-family = SauceCodePro NF
 font-size = 14
 clipboard-trim-trailing-spaces = true
