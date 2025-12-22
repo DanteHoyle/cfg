@@ -37,6 +37,12 @@ setopt EXTENDED_HISTORY
 # Do not record an event starting with a space.
 setopt HIST_IGNORE_SPACE
 
+# Allow pasting URLs and multi line commands
+set zle_bracketed_paste
+autoload -Uz bracketed-paste-magic url-quote-magic
+zle -N bracketed-paste bracketed-paste-magic
+zle -N self-insert url-quote-magic
+
 # SHELL AUTO COMPLETE
 source "$HOME/.config/zsh/completions.zsh"
 if command -v fzf &> /dev/null; then
