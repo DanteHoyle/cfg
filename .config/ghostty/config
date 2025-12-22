@@ -1,10 +1,9 @@
-shell-integration = zsh
-theme = Github Dark High Contrast
+theme = "GitHub Dark Default"
+window-theme = system
+
 font-family = SauceCodePro NF
 font-size = 14
+
 clipboard-trim-trailing-spaces = true
 link-url = true
-window-theme = system
-#font-style-italic = false
-#font-style-italic = false
-#font-style-bold-italic = false
+shell-integration = zsh
