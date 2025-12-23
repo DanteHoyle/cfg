@@ -7,3 +7,5 @@ font-size = 14
 clipboard-trim-trailing-spaces = true
 link-url = true
 shell-integration = zsh
+
+macos-option-as-alt = true
