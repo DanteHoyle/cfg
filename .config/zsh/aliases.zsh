@@ -1,6 +1,8 @@
 alias ..="cd .."
 
-alias ipy="ipython3"
+# alias ipy="ipython3"
+# this starts ipython in a virtual env if one is active
+alias ipy="python3 -c 'import IPython;IPython.terminal.ipapp.launch_new_instance()'"
 
 # ls aliases
 alias l="ls -C --classify --hyperlink=auto"
