@@ -69,4 +69,3 @@ zstyle ':completion:*:git-checkout:*' sort false
 zstyle ':completion:*:git-(checkout|switch):*' tag-order \
   'heads:local branches' 'remotes:remote branches' 'tags:tags'
 
-# SSH/scp/sftp/rsync: pull hosts fr

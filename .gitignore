@@ -26,19 +26,16 @@
 !/.config/zsh/.aliases
 !/.config/zsh/.zprofile
 !/.config/zsh/.zshrc
-!/.config/zsh/completions.zsh
 !/.config/zsh/zshrc.zsh
+!/.config/zsh/completions.zsh
+!/.config/zsh/functions.zsh
 !/.config/zsh/aliases.zsh
-!/.config/zsh/macos.zsh
-!/.config/zsh/linux.zsh
-!/.config/zsh/wsl.zsh
 
 !/.config/ghostty
 
 !/.config/tmux/
 /.config/tmux/*
 !/.config/tmux/.conf
-
 
 # Sanity Check, blacklist sensitive directories again
 .config/git/
