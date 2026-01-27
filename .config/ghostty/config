@@ -1,7 +1,7 @@
-theme = "GitHub Dark Default"
+theme = dark:"GitHub Dark Default",light:"GitHub"
 window-theme = system
 
-font-family = SauceCodePro NF
+font-family = GoMono Regular
 font-size = 14
 
 clipboard-trim-trailing-spaces = true
