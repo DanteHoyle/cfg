@@ -8,8 +8,16 @@ insert_final_newline = true
 indent_style = space
 indent_size = 4
 
-[*.{js,ts,tsx,lua,html,css,mjs,yml}]
+[*.{js,mjs,cjs,ts,tsx,jsx,lua,html,css,yml,yaml,json,jsonc,md,vue,svelte,scss,xml,svg}]
 indent_size = 2
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.go]
+indent_style = tab
+indent_size = 4
 
 [{*.{awk,c,dts,dtsi,dtso,h,mk,s,S},Kconfig,Makefile,Makefile.*}]
 charset = utf-8
