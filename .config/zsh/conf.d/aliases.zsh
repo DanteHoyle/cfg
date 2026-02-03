@@ -1,4 +1,5 @@
 alias ..="cd .."
+alias cd..="cd .."
 
 # alias ipy="ipython3"
 # this starts ipython in a virtual env if one is active
@@ -37,3 +38,9 @@ alias cfgz="cfge zsh"
 alias cfgn="cfge nvim"
 alias cfgt="cfge tmux"
 alias cfgg="cfge ghostty"
+
+alias llm-chat="sd --exec 'llm chat'"
+
+if command -v batcat &> /dev/null; then
+    alias bat="batcat"
+fi

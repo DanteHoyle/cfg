@@ -51,7 +51,7 @@ zstyle ':completion:*' list-prompt \
 zstyle ':completion:*' select-prompt \
   '%SScrolling: current selection at %p%s'
 
-# Don’t use legacy compctl
+# Don't use legacy compctl
 zstyle ':completion:*' use-compctl false
 
 ### --- Performance: cache results of slow completers ---
@@ -64,8 +64,7 @@ mkdir -p ~/.cache/zsh/completion
 zstyle ':completion:*:*:kill:*' command \
   'ps -u $USER -o pid,user,tty,stat,time,cmd -w -w'
 
-# Git: don’t sort branches alphabetically; show recent first
+# Git: don't sort branches alphabetically; show recent first
 zstyle ':completion:*:git-checkout:*' sort false
 zstyle ':completion:*:git-(checkout|switch):*' tag-order \
   'heads:local branches' 'remotes:remote branches' 'tags:tags'
-
