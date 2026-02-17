@@ -41,6 +41,10 @@ alias cfgg="cfge ghostty"
 
 alias llm-chat="sd --exec 'llm chat'"
 
+alias md-read="find . \( -path '*/vendor/*' -or -path '*/.git/*' -or -path '*/node_modules/*' \) -prune -or -type f -name \"*.md\" -print | fzf | xargs lnav"
+
+alias man-ff="man --html=firefox"
+
 if command -v batcat &> /dev/null; then
     alias bat="batcat"
 fi

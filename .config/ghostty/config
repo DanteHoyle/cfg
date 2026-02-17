@@ -1,11 +1,22 @@
-theme = dark:"GitHub Dark Default",light:"GitHub"
+theme = dark:"Everforest Dark Hard",light:"GitLab Light"
 window-theme = system
 
-font-family = GoMono Regular
+font-family = GoMono Nerd Font Mono 
 font-size = 14
+
+adjust-cell-height = +10%
 
 clipboard-trim-trailing-spaces = true
 link-url = true
 shell-integration = zsh
 
 macos-option-as-alt = true
+
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
+quick-terminal-animation-duration = 0.1
+
+window-padding-x = 2 
+window-padding-balance = true
+window-padding-color = extend
+
+gtk-custom-css = "./styles.css"
