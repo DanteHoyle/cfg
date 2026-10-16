@@ -1,7 +1,5 @@
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR="emacsclient -t -a ''"
+export VISUAL="emacsclient -c -a ''"
 export PAGER="less"
-
-if command -v fnm &> /dev/null; then
-    eval "$(fnm env --use-on-cd --shell zsh)"
-fi
+export GOPATH="${HOME}/.local/share/go/"
+export LESS="-SRXF"

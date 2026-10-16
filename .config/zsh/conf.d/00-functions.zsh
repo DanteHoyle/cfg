@@ -43,7 +43,7 @@ tempf () {
     else
         local suffix=".$1"
     fi
-    "${EDITOR}" "$(mktemp --suffix=${ext})"
+    "${EDITOR}" "$(mktemp --suffix=${suffix})"
 }
 
 # Open a directory in $XDG_CONFIG_HOME (probably ~/.config/) with $EDITOR
@@ -64,20 +64,5 @@ git_prompt_info() {
     echo " (%F{green}${branch}${status_symbol}%f)"
   else
     echo " (%F{yellow}${branch}${status_symbol}%f)"
-  fi
-}
-
-git_prompt_info() {
-  local branch symbols=""
-  branch=$(git symbolic-ref --short HEAD 2>/dev/null) || return
-
-  [[ -n $(git diff --cached 2>/dev/null) ]] && symbols+="+"      # staged
-  [[ -n $(git diff 2>/dev/null) ]] && symbols+="!"              # modified
-  [[ -n $(git ls-files --others --exclude-standard 2>/dev/null) ]] && symbols+="?"  # untracked
-
-  if [[ "${branch}" == "main" || "${branch}" == "master" ]]; then
-    echo " %F{green}${branch}${symbols:+ $symbols}%f"
-  else
-    echo " %F{yellow}${branch}${symbols:+ $symbols}%f"
   fi
 }

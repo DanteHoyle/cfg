@@ -4,6 +4,7 @@ alias cd..="cd .."
 # alias ipy="ipython3"
 # this starts ipython in a virtual env if one is active
 alias ipy="python3 -c 'import IPython;IPython.terminal.ipapp.launch_new_instance()'"
+alias calc="python3 -c 'import IPython;import math;import numpy as np; import pandas as pd;IPython.terminal.ipapp.launch_new_instance()'"
 
 # ls aliases
 alias l="ls -C --classify --hyperlink=auto"
@@ -11,21 +12,22 @@ alias ls="ls --color=auto"
 alias ll="ls --color=auto --almost-all -l --classify"
 alias lt="ls --color=auto -AlFt"
 
+# force info to use vim keybindings
 alias info="info --vi-keys"
 
 # tmux Alias
 alias tma="tmux attach || tmux"
-alias tmk="tmux kill-server"
+alias tma="tmux attach -t 0 2>/dev/null || tmux new -s 0"
 
 # neovim Aliases
-alias vi="$EDITOR"
-alias vim="$EDITOR"
-if [ "$EDITOR" = nvim ]; then
-    alias vimdiff='nvim -d'
-fi
+# alias vi="$EDITOR"
+# alias vim="$EDITOR"
+# if [ "$EDITOR" = nvim ]; then
+#     alias vimdiff='nvim -d'
+# fi
 
 # alias for working with bare git repo
-alias cfg="git --git-dir=${HOME}/.cfg --work-tree=$HOME"
+alias cfg="git --git-dir=$HOME/.cfg --work-tree=$HOME"
 
 # jq aliases
 alias jq-structure="jq -r '[path(..)|map(if type==\"number\" then \"[]\" else tostring end)|join(\".\")|split(\".[]\")|join(\"[]\")]|unique|map(\".\"+.)|.[]'"
@@ -33,17 +35,6 @@ alias jq-example="jq 'walk(if type == \"array\" then (if length > 0 then [.[0]] 
 
 # fping aliases
 alias fping-host-check="fping --quiet --alive --stats --generate"
-
-alias cfgz="cfge zsh"
-alias cfgn="cfge nvim"
-alias cfgt="cfge tmux"
-alias cfgg="cfge ghostty"
-
-alias llm-chat="sd --exec 'llm chat'"
-
-alias md-read="find . \( -path '*/vendor/*' -or -path '*/.git/*' -or -path '*/node_modules/*' \) -prune -or -type f -name \"*.md\" -print | fzf | xargs lnav"
-
-alias man-ff="man --html=firefox"
 
 if command -v batcat &> /dev/null; then
     alias bat="batcat"
